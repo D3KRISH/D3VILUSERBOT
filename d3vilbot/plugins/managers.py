@@ -261,11 +261,11 @@ async def handler(event):
 
 
 CmdHelp("managers").add_command(
-  "ls_local", None, "Gives the list of downloaded medias in your hellbot server."
+  "ls_local", None, "Gives the list of downloaded medias in your d3vilbot server."
 ).add_command(
-  "ls_root", None, "Gives the list of all files in root directory of Hellbot repo."
+  "ls_root", None, "Gives the list of all files in root directory of d3vilbot repo."
 ).add_command(
-  "ls_saved", None, "Gives the list of all files in Saved directory of your hellbot server"
+  "ls_saved", None, "Gives the list of all files in Saved directory of your d3vilbot server"
 ).add_command(
   "rnsaved", "from | to", "Renames the file in saved directory"
 ).add_command(
@@ -277,7 +277,7 @@ CmdHelp("managers").add_command(
 ).add_command(
   "ls", "<path name>", "Gives the list of all files in the given path"
 ).add_info(
-  "HellBot Managers."
+  "D3vilBot Managers."
 ).add_warning(
   "✅ Harmless Module."
 ).add()
