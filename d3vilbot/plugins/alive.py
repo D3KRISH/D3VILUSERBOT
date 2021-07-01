@@ -8,7 +8,7 @@ from telethon.errors.rpcerrorlist import BotMethodInvalidError as dedbot
 from . import *
 
 #-------------------------------------------------------------------------------
-d3vil_pic = Config.ALIVE_PIC or "1https://telegra.ph/file/6f84e0cd473892e0c114f.mp4"
+d3vil_pic = Config.ALIVE_PIC or "https://telegra.ph/file/5abfcff75e1930dcdfaf3.mp4"
 alive_c = f"__**🔥🔥∂3vιℓвσт ɨs αℓιvε🔥🔥**__\n\n"
 alive_c += f"__↼ Øwñêr ⇀__ : 『 {d3vil_mention} 』\n\n"
 alive_c += f"•♦• Telethon     :  `{tel_ver}` \n"
