@@ -64,7 +64,7 @@ RUN wget https://chromedriver.storage.googleapis.com/88.0.4324.96/chromedriver_l
 RUN wget -O opencv.zip https://github.com/opencv/opencv/archive/master.zip && unzip opencv.zip && mv -f opencv-master /usr/bin/ && rm opencv.zip
 RUN git clone https://github.com/D3KRISH/THE-D3VILBOT /root/d3vilbot
 RUN mkdir /root/d3vilbot/bin/
-WORKDIR /root/hellbot/
+WORKDIR /root/d3vilbot/
 RUN chmod +x /usr/local/bin/*
 RUN pip3 install -r requirements.txt
 CMD ["bash","./start.sh"]
