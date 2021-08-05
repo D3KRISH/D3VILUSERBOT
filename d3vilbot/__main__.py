@@ -48,7 +48,7 @@ else:
 
 
  Extra Modules...
- extra_repo = Config.EXTRA_REPO or "https://github.com/"
+ extra_repo = Config.EXTRA_REPO or "https://github.com/TEAM-D3VIL/D3VILADDONS"
  if Config.EXTRA == "True":
      try:
          os.system(f"git clone {extra_repo}")
