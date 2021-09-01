@@ -17,7 +17,7 @@ async def _(event):
         await edit_or_reply(event, "Reply to media message😒🤐")
         return
     bot = "@asciiart_bot"
-    mafiakrish = await eor(event, "Wait making ASCII...🤓🔥🔥")
+    himanshu = await eor(event, "Wait making ASCII...🤓🔥🔥")
     async with event.client.conversation(bot) as conv:
         try:
             first = await conv.send_message("/start")
@@ -27,9 +27,9 @@ async def _(event):
             last = await conv.get_response()
             await event.client.send_read_acknowledge(conv.chat_id)
         except YouBlockedUserError:
-            await mafiakrish.edit("User Blocked!! Please Unblock @asciiart_bot and try again...")
+            await himanshu.edit("User Blocked!! Please Unblock @asciiart_bot and try again...")
             return
-        await mafiakrish.delete()
+        await himanshu.delete()
         final = await event.client.send_file(
             event.chat_id,
             output_op,
@@ -53,7 +53,7 @@ async def _(event):
         await edit_or_reply(event, "Reply to media message😒🤐")
         return
     bot = "@lines50bot"
-    mafiakrish = await eor(event, "`Processing...`")
+    himanshu = await eor(event, "`Processing...`")
     async with event.client.conversation(bot) as conv:
         try:
             first = await conv.send_message("/start")
@@ -63,9 +63,9 @@ async def _(event):
             last = await conv.get_response()
             await event.client.send_read_acknowledge(conv.chat_id)
         except YouBlockedUserError:
-            await mafiakrish.edit("User Blocked!! Please Unblock @Lines50Bot and try again...")
+            await himanshu.edit("User Blocked!! Please Unblock @Lines50Bot and try again...")
             return
-        await mafiakrish.delete()
+        await himanshu.delete()
         final = await event.client.send_file(
             event.chat_id,
             output_op,

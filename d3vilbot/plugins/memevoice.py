@@ -10,11 +10,11 @@ from . import *
 
 @bot.on(mafia_cmd(pattern="mev(?: |$)(.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern="mev(?: |$)(.*)", allow_sudo=True))
-async def nope(mafiakrish):
-    mafia = mafiakrish.pattern_match.group(1)
+async def nope(himanshu):
+    mafia = himanshu.pattern_match.group(1)
     if not mafia:
-        if mafiakrish.is_reply:
-            (await mafiakrish.get_reply_message()).message
+        if himanshu.is_reply:
+            (await himanshu.get_reply_message()).message
         else:
             await edit_or_reply(kraken, "`Sir please give some query to search and download it for you..!`"
             )
@@ -22,25 +22,25 @@ async def nope(mafiakrish):
 
     troll = await bot.inline_query("TrollVoiceBot", f"{(deEmojify(mafia))}")
     if troll:
-        await mafiakrish.delete()
+        await himanshu.delete()
         d3vl_ = await troll[0].click(Config.LOGGER_ID)
         if d3vl_:
             await bot.send_file(
-                mafiakrish.chat_id,
+                himanshu.chat_id,
                 d3vl_,
                 caption="",
             )
         await d3vl_.delete()
     else:
-    	await eod(mafiakrish, "**Error 404:**  Not Found")
+    	await eod(himanshu, "**Error 404:**  Not Found")
     	
 @bot.on(mafia_cmd(pattern="meev(?: |$)(.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern="meev(?: |$)(.*)", allow_sudo=True))
-async def nope(mafiakrish):
-    mafia = mafiakrish.pattern_match.group(1)
+async def nope(himanshu):
+    mafia = himanshu.pattern_match.group(1)
     if not mafia:
-        if mafiakrish.is_reply:
-            (await mafiakrish.get_reply_message()).message
+        if himanshu.is_reply:
+            (await himanshu.get_reply_message()).message
         else:
             await edit_or_reply(kraken, "`Sir please give some query to search and download it for you..!`"
             )
@@ -48,7 +48,7 @@ async def nope(mafiakrish):
 
     troll = await bot.inline_query("Myinstantsbot", f"{(deEmojify(mafia))}")
     if troll:
-        await mafiakrish.delete()
+        await himanshu.delete()
         d3vl_ = await troll[0].click(Config.LOGGER_ID)
         if d3vl_:
             await bot.send_file(
@@ -58,7 +58,7 @@ async def nope(mafiakrish):
             )
         await d3vl_.delete()
     else:
-    	await eod(mafiakrish, "**Error 404:**  Not Found")
+    	await eod(himanshu, "**Error 404:**  Not Found")
 
 
 CmdHelp("memevoice").add_command(

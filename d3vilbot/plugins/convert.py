@@ -176,7 +176,7 @@ async def _(event):
             await bot.send_read_acknowledge(conv.chat_id)
             mafiafile = Path(await event.client.download_media(hellresponse, "./temp/"))
             mafiagif = Path(await unzip(hellfile))
-            mafiakrish = await bot.send_file(
+            himanshu = await bot.send_file(
                 event.chat_id,
                 mafiagif,
                 support_streaming=True,

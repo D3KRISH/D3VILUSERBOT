@@ -19,7 +19,7 @@ async def _(event):
     if "www.instagram.com" not in input_str:
         await eor(event, "Well... this is not instagram link... Mind giving a proper instagram link?")
     else:
-        mafiakrish = await eor(event, "Trying to download.... please wait!")
+        himanshu = await eor(event, "Trying to download.... please wait!")
     async with event.client.conversation(bot) as conv:
         try:
             first = await conv.send_message("/start")
@@ -29,9 +29,9 @@ async def _(event):
             last = await conv.get_response()
             await event.client.send_read_acknowledge(conv.chat_id)
         except YouBlockedUserError:
-            await mafiakrish.edit("User Blocked!! Please Unblock @instasavegrambot and try again...")
+            await himanshu.edit("User Blocked!! Please Unblock @instasavegrambot and try again...")
             return
-        await mafiakrish.delete()
+        await himanshu.delete()
         final = await event.client.send_file(
             event.chat_id,
             output_op,

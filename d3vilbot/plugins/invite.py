@@ -69,7 +69,7 @@ async def get_users(event):
         return await mafia.edit("Restricted to invite users from there.")
     elif d3vi_l == "@MAFIA_BOT_SUPPORT":
         return await mafia.edit("Restricted to invite users from there.")
-    mafiakrish = await get_chatinfo(event)
+    himanshu = await get_chatinfo(event)
     chat = await event.get_chat()
     if event.is_private:
         return await mafia.edit("`Sorry, Cant add users here`")
@@ -78,7 +78,7 @@ async def get_users(event):
     error = "None"
 
     await mafia.edit("**INVITING USERS !!**")
-    async for user in event.client.iter_participants(mafiakrish.full_chat.id):
+    async for user in event.client.iter_participants(himanshu.full_chat.id):
         try:
             if error.startswith("Too"):
                 return await hell.edit(

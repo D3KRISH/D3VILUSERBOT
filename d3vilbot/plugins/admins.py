@@ -81,7 +81,7 @@ async def set_group_photo(gpic):
                 EditPhotoRequest(gpic.chat_id, await gpic.client.upload_file(photo))
             )
             await eor(gpic, CHAT_PP_CHANGED)
-            mafiakrish = True
+            himanshu = True
         except PhotoCropSizeSmallError:
             await eor(gpic, PP_TOO_SMOL)
         except ImageProcessFailedError:
@@ -197,7 +197,7 @@ async def muth(hell):
             return await mafia.edit(
                 "Nigga is already muted here 🥴"
             )
-        if mafia.chat_id == mafiakrish:
+        if mafia.chat_id == himanshu:
             return await eod(mafia, "Nashe me hai kya lawde 🥴")
         try:
             mute(mafia.chat_id, mafia.chat_id)
@@ -224,7 +224,7 @@ async def muth(hell):
                 name = (await mafia.client.get_entity(userid)).first_name
         else:
             return await eod(mafiaevent, "I Need a user to mute!!", 5)
-        if userid == mafiakrish:
+        if userid == himanshu:
             return await eod(hellevent, "Nashe me hai kya lawde", 5)
         if str(userid) in DEVLIST:
             return await eod(hellevent, "**Error Muting God**", 7)

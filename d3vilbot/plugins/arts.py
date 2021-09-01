@@ -2,7 +2,7 @@ from . import *
 
 @bot.on(mafia_cmd(pattern="carry (.*)"))
 @bot.on(sudo_cmd(pattern="carry (.*)", allow_sudo=True))
-async def mafiakrish(carry):
+async def himanshu(carry):
     if carry.fwd_from:
         return
     name = carry.pattern_match.group(1)
@@ -14,7 +14,7 @@ async def mafiakrish(carry):
 
 @bot.on(mafia_cmd(pattern="ded (.*)"))
 @bot.on(sudo_cmd(pattern="ded (.*)", allow_sudo=True))
-async def mafiakrish(ded):
+async def himanshu(ded):
     if ded.fwd_from:
         return
     name = ded.pattern_match.group(1)
@@ -55,7 +55,7 @@ A = (
 
 @bot.on(mafia_cmd(pattern="sthink (.*)"))
 @bot.on(sudo_cmd(pattern="sthink (.*)", allow_sudo=True))
-async def mafiakrish(think):
+async def himanshu(think):
     if think.fwd_from:
         return
     name = think.pattern_match.group(1)
@@ -82,7 +82,7 @@ async def mafiakrish(think):
 
 @bot.on(mafia_cmd(pattern="sfrog (.*)"))
 @bot.on(sudo_cmd(pattern="sfrog (.*)", allow_sudo=True))
-async def mafiakrish(frogsay):
+async def himanshu(frogsay):
     if frogsay.fwd_from:
         return
     name = frogsay.pattern_match.group(1)
@@ -109,7 +109,7 @@ async def mafiakrish(frogsay):
 
 @bot.on(mafia_cmd(pattern="sdead (.*)"))
 @bot.on(sudo_cmd(pattern="sdead (.*)", allow_sudo=True))
-async def mafiakrish(deadfrog):
+async def himanshu(deadfrog):
     if deadfrog.fwd_from:
         return
     name = deadfrog.pattern_match.group(1)
@@ -163,7 +163,7 @@ async def kraken(trumpsay):
 
 @bot.on(mafia_cmd(pattern="schina (.*)"))
 @bot.on(sudo_cmd(pattern="schina (.*)", allow_sudo=True))
-async def mafiakrish(ckmkb):
+async def himanshu(ckmkb):
     if ckmkb.fwd_from:
         return
     name = ckmkb.pattern_match.group(1)
@@ -191,7 +191,7 @@ async def mafiakrish(ckmkb):
 
 @bot.on(mafia_cmd(pattern=r"sshit$"))
 @bot.on(sudo_cmd(pattern="sshit$", allow_sudo=True))
-async def mafiakrish(shit):
+async def himanshu(shit):
     if shit.fwd_from:
         return
     await edit_or_reply(shit, A)
@@ -199,7 +199,7 @@ async def mafiakrish(shit):
 
 @bot.on(mafia_cmd(pattern=r"elove$"))
 @bot.on(sudo_cmd(pattern="elove$", allow_sudo=True))
-async def mafiakrish(event):
+async def himanshu(event):
     if event.fwd_from:
         return
     await edit_or_reply(

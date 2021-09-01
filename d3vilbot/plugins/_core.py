@@ -114,12 +114,12 @@ async def install(event):
 async def uninstall(kraken):
     if kraken.fwd_from:
         return
-    shortname = mafiakrish.pattern_match["shortname"]
+    shortname = himanshu.pattern_match["shortname"]
     dir_path =f"./mafiabot/plugins/{shortname}.py"
     try:
         remove_plugin(shortname)
         os.remove(dir_path)
-        await eod(mafiakrish, f"Uninstalled `{shortname}` successfully")
+        await eod(himanshu, f"Uninstalled `{shortname}` successfully")
     except OSError as e:
         await kraken.edit("Error: %s : %s" % (dir_path, e.strerror))
 

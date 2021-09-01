@@ -46,7 +46,7 @@ async def hell_a(event):
     try:
         mafia = await bot.inline_query(botname, "alive")
         await mafia[0].click(event.chat_id)
-        if event.sender_id == mafiakrish:
+        if event.sender_id == himanshu:
             await event.delete()
     except (noin, dedbot):
         await eor(event, msg)

@@ -30,9 +30,9 @@ async def _(event):
     imgs = await bot.download_media(reply.media, path)
     img = cv2.VideoCapture(imgs) 
     tal, semx = img.read()
-    cv2.imwrite("mafiakrish.webp", semx)
+    cv2.imwrite("himanshu.webp", semx)
     text = event.pattern_match.group(1)
-    webp_file = await draw_meme_text("mafiakrish.webp", text)
+    webp_file = await draw_meme_text("himanshu.webp", text)
     await event.client.send_file(
         event.chat_id, webp_file, reply_to=event.reply_to_msg_id
     )
@@ -55,9 +55,9 @@ async def sed(mafiaboy):
     imgs = await bot.download_media(reply.media, path)
     img = cv2.VideoCapture(imgs) 
     tal, semx = img.read()
-    cv2.imwrite("mafiakrish.webp", semx)
+    cv2.imwrite("himanshu.webp", semx)
     text = mafiaboy.pattern_match.group(1)
-    photo = await draw_meme("mafiakrish.webp", text)
+    photo = await draw_meme("himanshu.webp", text)
     await mafiaboy.client.send_file(
         mafiaboy.chat_id, photo, reply_to=mafiaboy.reply_to_msg_id
     )
@@ -68,30 +68,30 @@ async def sed(mafiaboy):
     
 @bot.on(mafia_cmd(pattern="doge(?: |$)(.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern="doge(?: |$)(.*)", allow_sudo=True))
-async def nope(mafiakrish):
-    mafia = mafiakrish.pattern_match.group(1)
+async def nope(himanshu):
+    mafia = himanshu.pattern_match.group(1)
     if not mafia:
-        if mafiakrish.is_reply:
-            (await mafiakrish.get_reply_message()).message
+        if himanshu.is_reply:
+            (await himanshu.get_reply_message()).message
         else:
             if Config.ABUSE == "ON":
-                return await eor(mafiakrish, "Abe chumtiye kuch likhne ke liye de")
+                return await eor(himanshu, "Abe chumtiye kuch likhne ke liye de")
             else:
-                return await eor(mafiakrish, "Doge need some text to make sticker.")
+                return await eor(himanshu, "Doge need some text to make sticker.")
 
     troll = await bot.inline_query("DogeStickerBot", f"{(deEmojify(mafia))}")
     if troll:
-        await mafiakrish.delete()
+        await himanshu.delete()
         d3vl_ = await troll[0].click(Config.LOGGER_ID)
         if d3vl_:
             await bot.send_file(
-                mafiakrish.chat_id,
+                himanshu.chat_id,
                 d3vl_,
                 caption="",
             )
         await d3vl_.delete()
     else:
-     await eod(mafiakrish, "Error 404:  Not Found")
+     await eod(himanshu, "Error 404:  Not Found")
      
     
 CmdHelp("memify").add_command(

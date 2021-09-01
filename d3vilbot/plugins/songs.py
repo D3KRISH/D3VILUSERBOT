@@ -27,26 +27,26 @@ from . import *
 
 @bot.on(mafia_cmd(pattern="lyrics(?: |$)(.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern="lyrics(?: |$)(.*)", allow_sudo=True))
-async def nope(mafiakrish):
-    mafia = mafiakrish.pattern_match.group(1)
-    await eor(mafiakrish, f"Searching lyrics for  `{mafia}` ...")
+async def nope(himanshu):
+    mafia = himanshu.pattern_match.group(1)
+    await eor(himanshu, f"Searching lyrics for  `{mafia}` ...")
     if not mafia:
-        if mafiakrish.is_reply:
-            (await mafiakrish.get_reply_message()).message
+        if himanshu.is_reply:
+            (await himanshu.get_reply_message()).message
         else:
-            await eod(mafiakrish, "Give song name to get lyrics...")
+            await eod(himanshu, "Give song name to get lyrics...")
             return
 
     troll = await bot.inline_query("iLyricsBot", f"{(deEmojify(hell))}")
 
     await troll[0].click(
         kraken.chat_id,
-        reply_to=mafiakrish.reply_to_msg_id,
-        silent=True if mafiakrish.is_reply else False,
+        reply_to=himanshu.reply_to_msg_id,
+        silent=True if himanshu.is_reply else False,
         hide_via=True,
     )
 
-    await mafiakrish.delete()
+    await himanshu.delete()
     
 
 @bot.on(mafia_cmd(pattern="song(?: |$)(.*)", outgoing=True))
