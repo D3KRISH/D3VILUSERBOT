@@ -10,7 +10,7 @@ from telethon import version
 
 MAFIA_USER = bot.me.first_name
 mafiakrish = bot.uid
-MAFIA_mention = f"[{MAFIA_USER}](tg://user?id={mafiakrish})"
+mafia_mention = f"[{MAFIA_USER}](tg://user?id={mafiakrish})"
 mafia_logo = "./mafiabot/resources/pics/mafiabot_logo.jpg"
 cjb = "./mafiabot/resources/pics/cjb.jpg"
 restlo = "./mafiabot/resources/pics/rest.jpeg"
