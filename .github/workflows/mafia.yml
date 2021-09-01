@@ -18,9 +18,9 @@ jobs:
 
         with:
 
-          find: "ForGo10God"
+          find: "mafiakrish"
 
-          replace: "teammafia"
+          replace: "himanshu"
 
       - name: Create Pull Request
 
