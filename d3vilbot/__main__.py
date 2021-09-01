@@ -21,7 +21,7 @@ async def mafia_bot(bot_token):
         bot.me = await bot.get_me()
         bot.uid = telethon.utils.get_peer_id(bot.me)
     except Exception as e:
-        LOGS.error(f"D3VILBOT_SESSION - {str(e)}")
+        LOGS.error(f"STRING_SESSION - {str(e)}")
         sys.exit()
 
 

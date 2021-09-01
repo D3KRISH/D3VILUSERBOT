@@ -38,8 +38,8 @@ except Exception:
     HEROKU_APP = None
 
 
-if Config.D3VILBOT_SESSION:
-    session_name = str(Config.D3VILBOT_SESSION)
+if Config.STRING_SESSION:
+    session_name = str(Config.STRING_SESSION)
     try:
         if session_name.endswith("="):
             bot = TelegramClient(
@@ -48,9 +48,9 @@ if Config.D3VILBOT_SESSION:
         else:
             bot = TelegramClient(
                 "BOT_TOKEN", api_id=Config.APP_ID, api_hash=Config.API_HASH
-            ).start(bot_token=Config.D3VILBOT_SESSION)
+            ).start(bot_token=Config.STRING_SESSION)
     except Exception as e:
-        LOGS.warn(f"D3VILBOT_SESSION - {str(e)}")
+        LOGS.warn(f"STRING_SESSION - {str(e)}")
         sys.exit()
 else:
     session_name = "startup"
