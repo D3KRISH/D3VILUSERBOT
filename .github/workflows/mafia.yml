@@ -18,9 +18,9 @@ jobs:
 
         with:
 
-          find: "D3VIL"
+          find: "d3vilkrish"
 
-          replace: "MAFIA"
+          replace: "h1m4n5hu0p"
 
       - name: Create Pull Request
 
