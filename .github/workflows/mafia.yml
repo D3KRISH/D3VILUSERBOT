@@ -18,9 +18,9 @@ jobs:
 
         with:
 
-          find: "d3vil"
+          find: "D3VILBOT_SESSION"
 
-          replace: "mafia"
+          replace: "STRING_SESSION"
 
       - name: Create Pull Request
 
