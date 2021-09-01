@@ -81,7 +81,7 @@ async def stats(
     response += f"┗━━━━━━━━✧❅✦❅✧━━━━━━━━\n\n"
 
     response += (
-        f"📌 𝙵𝚁𝙾𝙼 𝚃𝙷𝙴 𝙳𝙰𝚃𝙰𝙱𝙰𝚂𝙴 𝙾𝙵 :-\n[『ℓεgεη∂αяү αғ тεαм 𝙳3vιℓ』](t.me/D3VIL_SUPPORT)\n\n"
+        f"📌 𝙵𝚁𝙾𝙼 𝚃𝙷𝙴 𝙳𝙰𝚃𝙰𝙱𝙰𝚂𝙴 𝙾𝙵 :-\n[『ℓεgεη∂αяү αғ тεαм 𝙳3vιℓ』](t.me/MAFIA_SUPPORT)\n\n"
     )
     await mafia.edit(response)
 
@@ -93,7 +93,7 @@ def make_mention(user):
 
 
 def inline_mention(user):
-    full_name = user_full_name(user) or "D3VIL"
+    full_name = user_full_name(user) or "MAFIA"
     return f"[{full_name}](tg://user?id={user.id})"
 
 

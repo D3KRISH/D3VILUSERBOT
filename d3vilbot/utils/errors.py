@@ -34,7 +34,7 @@ def errors_handler(func):
                 'date': datetime.datetime.now()
             }
 
-            text = "**D3VIL CRASH REPORT**\n\n"
+            text = "**MAFIA CRASH REPORT**\n\n"
 
             link = "[here](https://t.me/D3_krish)"
             text += "If you wanna you can report it"
@@ -47,7 +47,7 @@ def errors_handler(func):
             ftext += "\nyou may not report this error if you've"
             ftext += "\nany confidential data here, no one will see your data\n\n"
 
-            ftext += "--------BEGIN D3VILBOT TRACEBACK LOG--------"
+            ftext += "--------BEGIN MAFIABOT TRACEBACK LOG--------"
             ftext += "\nDate: " + date
             ftext += "\nGroup ID: " + str(errors.chat_id)
             ftext += "\nSender ID: " + str(errors.sender_id)
@@ -57,7 +57,7 @@ def errors_handler(func):
             ftext += str(traceback.format_exc())
             ftext += "\n\nError text:\n"
             ftext += str(sys.exc_info()[1])
-            ftext += "\n\n--------END D3VILBOT TRACEBACK LOG--------"
+            ftext += "\n\n--------END MAFIABOT TRACEBACK LOG--------"
 
             command = "git log --pretty=format:\"%an: %s\" -5"
 

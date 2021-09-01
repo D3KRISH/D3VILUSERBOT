@@ -6,7 +6,7 @@ from . import *
 # Modified to work in groups with inline mode disabled.
 # Added error msg if no voice is found.
 # So please dont remove credit. 
-#now this plugin in D3VIL USERBOT
+#now this plugin in MAFIA USERBOT
 
 @bot.on(mafia_cmd(pattern="mev(?: |$)(.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern="mev(?: |$)(.*)", allow_sudo=True))

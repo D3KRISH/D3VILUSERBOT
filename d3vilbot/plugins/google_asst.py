@@ -49,7 +49,7 @@ async def _(event):
 async def _(mafia):
     if mafia.fwd_from:
         return
-    await edit_or_reply(mafia, "**All The Language Codes Can Be Found** \n ✪☞ [Here](https://telegra.ph/D3VIL-BOT-05-13) ☜✪", link_preview=False)
+    await edit_or_reply(mafia, "**All The Language Codes Can Be Found** \n ✪☞ [Here](https://telegra.ph/MAFIA-BOT-05-13) ☜✪", link_preview=False)
 
 
 @bot.on(mafia_cmd(pattern="voice (.*)"))

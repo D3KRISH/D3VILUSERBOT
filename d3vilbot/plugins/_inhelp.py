@@ -136,7 +136,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
         elif event.query.user_id == bot.uid and query == "alive":
             d3_vil = alive_txt.format(Config.ALIVE_MSG, tel_ver, mafia_ver, uptime, abuse_m, is_sudo)
             alv_btn = [
-                [Button.url(f"{D3VIL_USER}", f"tg://openmessage?user_id={mafiakrish}")],
+                [Button.url(f"{MAFIA_USER}", f"tg://openmessage?user_id={mafiakrish}")],
                 [Button.url("My Channel", f"https://t.me/{my_channel}"), 
                 Button.url("My Group", f"https://t.me/{my_group}")],
             ]
@@ -164,7 +164,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 )
 
         elif event.query.user_id == bot.uid and query == "pm_warn":
-            d3_vil = D3VIL_FIRST.format(mafia_mention, mssge)
+            d3_vil = MAFIA_FIRST.format(mafia_mention, mssge)
             result = builder.photo(
                 file=mafia_pic,
                 text=d3_vil,
@@ -183,8 +183,8 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 title="Repository",
                 text=f"**✪ ℓεgεη∂αяү αғ ∂3vιℓвσт ✪**",
                 buttons=[
-                    [Button.url("📑 Repo 📑", "https://t.me/D3VIL_SUPPORT")],
-                    [Button.url("🚀 Deploy 🚀", "https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FD3KRISH%2FTHE-D3VILBOT&template=https%3A%2F%2Fgithub.com%2FD3KRISH%2FTHE-D3VILBOT")],
+                    [Button.url("📑 Repo 📑", "https://t.me/MAFIA_SUPPORT")],
+                    [Button.url("🚀 Deploy 🚀", "https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FD3KRISH%2FTHE-MAFIABOT&template=https%3A%2F%2Fgithub.com%2FD3KRISH%2FTHE-MAFIABOT")],
                 ],
             )
 
@@ -199,18 +199,18 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
 
         else:
             result = builder.article(
-                "@D3VIL_SUPPORT",
-                text="""**Hey! This is [D3vιℓвσт](https://t.me/D3VIL_SUPPORT) \nYou can know more about me from the links given below 👇**""",
+                "@MAFIA_SUPPORT",
+                text="""**Hey! This is [D3vιℓвσт](https://t.me/MAFIA_SUPPORT) \nYou can know more about me from the links given below 👇**""",
                 buttons=[
                     [
-                        custom.Button.url("✯ CHANNEL ✯", "https://t.me/D3VIL_SUPPORT"),
+                        custom.Button.url("✯ CHANNEL ✯", "https://t.me/MAFIA_SUPPORT"),
                         custom.Button.url(
-                            "✯ GROUP ✯", "https://t.me/D3VIL_BOT_SUPPORT"
+                            "✯ GROUP ✯", "https://t.me/MAFIA_BOT_SUPPORT"
                         ),
                     ],
                     [
                         custom.Button.url(
-                            "✯ REPO ✯", "https://github.com/D3KRISH/THE-D3VILBOT"),
+                            "✯ REPO ✯", "https://github.com/D3KRISH/THE-MAFIABOT"),
                         custom.Button.url
                     (
                             "✯ TUTORIAL ✯", "https://youtu.be/"

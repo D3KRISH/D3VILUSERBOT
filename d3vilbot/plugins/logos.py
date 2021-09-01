@@ -14,12 +14,12 @@ PICS_STR = []
 @bot.on(sudo_cmd(pattern=r"logo ?(.*)", allow_sudo=True))
 async def lg1(mafiaevent):
     event = await eor(mafiaevent, "`Processing.....`")
-    fnt = await get_font_file(mafiaevent.client, "@D3VIL_FONTSS")
+    fnt = await get_font_file(mafiaevent.client, "@MAFIA_FONTSS")
     if mafiaevent.reply_to_msg_id:
         rply = await mafiaevent.get_reply_message()
         logo_ = await rply.download_media()
     else:
-        async for i in bot.iter_messages("@D3VIL_GFX_BG", filter=InputMessagesFilterPhotos):
+        async for i in bot.iter_messages("@MAFIA_GFX_BG", filter=InputMessagesFilterPhotos):
     	    PICS_STR.append(i)
         pic = random.choice(PICS_STR)
         logo_ = await pic.download_media()

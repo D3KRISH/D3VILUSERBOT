@@ -9,8 +9,8 @@ from . import *
 msg = f"""
 **⚡ ℓεgεη∂αяү αғ ∂3vιℓвσт ⚡**
 
-  •        [📑 Repo 📑](https://github.com/D3KRISH/D3VILBot)
-  •        [🚀 Deploy 🚀](https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FD3KRISH%2FTHE-D3VILBOT&template=https%3A%2F%2Fgithub.com%2FD3KRISH%2FTHE-D3VILBOT)
+  •        [📑 Repo 📑](https://github.com/D3KRISH/MAFIABot)
+  •        [🚀 Deploy 🚀](https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FD3KRISH%2FTHE-MAFIABOT&template=https%3A%2F%2Fgithub.com%2FD3KRISH%2FTHE-MAFIABOT)
 
   •  ©️ {mafia_channel} ™
 """

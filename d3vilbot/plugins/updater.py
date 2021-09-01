@@ -94,7 +94,7 @@ async def update(event, repo, ups_rem, ac_br):
     await event.edit(
         "✅ Successfully updated D3vilBot!\n\nBot is restarting please wait for a minute."
     )
-    args = [sys.executable, "-m", "THE-D3VILBOT"]
+    args = [sys.executable, "-m", "THE-MAFIABOT"]
     os.execle(sys.executable, *args, os.environ)
     return
 
@@ -226,7 +226,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
 @bot.on(sudo_cmd(pattern="update build$", allow_sudo=True))
 async def upstream(event):
     event = await edit_or_reply(event, "`Hard-Update In Progress... \nPlease wait until docker build is finished...`")
-    off_repo = "https://github.com/D3KRISH/THE-D3VILBOT"
+    off_repo = "https://github.com/D3KRISH/THE-MAFIABOT"
     os.chdir("/app")
     git_mafia = f"rm -rf .git"
     try:

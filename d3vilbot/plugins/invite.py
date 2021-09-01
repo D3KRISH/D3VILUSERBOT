@@ -63,11 +63,11 @@ async def get_users(event):
     else:
         mafia = await eor(event, "`processing...`")
     d3vi_l = event.pattern_match.group(1)
-    if d3vi_l == "@D3VIL_BOT_SUPPORT":
+    if d3vi_l == "@MAFIA_BOT_SUPPORT":
         return await mafia.edit("Restricted to invite users from there.")
-    elif d3vi_l == "@D3VIL_BOT_SUPPORT":
+    elif d3vi_l == "@MAFIA_BOT_SUPPORT":
         return await mafia.edit("Restricted to invite users from there.")
-    elif d3vi_l == "@D3VIL_BOT_SUPPORT":
+    elif d3vi_l == "@MAFIA_BOT_SUPPORT":
         return await mafia.edit("Restricted to invite users from there.")
     mafiakrish = await get_chatinfo(event)
     chat = await event.get_chat()

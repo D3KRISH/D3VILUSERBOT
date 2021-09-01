@@ -8,9 +8,9 @@ from mafiabot.version import __mafia__
 from telethon import version
 
 
-D3VIL_USER = bot.me.first_name
+MAFIA_USER = bot.me.first_name
 mafiakrish = bot.uid
-D3VIL_mention = f"[{D3VIL_USER}](tg://user?id={mafiakrish})"
+MAFIA_mention = f"[{MAFIA_USER}](tg://user?id={mafiakrish})"
 mafia_logo = "./mafiabot/resources/pics/mafiabot_logo.jpg"
 cjb = "./mafiabot/resources/pics/cjb.jpg"
 restlo = "./mafiabot/resources/pics/rest.jpeg"
@@ -41,16 +41,16 @@ else:
 
 START_TIME = datetime.datetime.now()
 uptime = f"{str(datetime.datetime.now() - START_TIME).split('.')[0]}"
-my_channel = Config.MY_CHANNEL or "D3VIL_SUPPORT"
-my_group = Config.MY_GROUP or "D3VIL_BOT_SUPPORT"
+my_channel = Config.MY_CHANNEL or "MAFIA_SUPPORT"
+my_group = Config.MY_GROUP or "MAFIA_BOT_SUPPORT"
 if "@" in my_channel:
     my_channel = my_channel.replace("@", "")
 if "@" in my_group:
     my_group = my_group.replace("@", "")
 
-chnl_link = "https://t.me/D3VIL_SUPPORT"
+chnl_link = "https://t.me/MAFIA_SUPPORT"
 mafia_channel = f"[†hê ∂3vιℓᏰø✞]({chnl_link})"
-grp_link = "https://t.me/D3VIL_BOT_SUPPORT"
+grp_link = "https://t.me/MAFIA_BOT_SUPPORT"
 mafia_grp = f"[∂3ϑîℓᏰø✞ Group]({grp_link})"
 
 WELCOME_FORMAT = """**Use these fomats in your welcome note to make them attractive.**

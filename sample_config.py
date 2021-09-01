@@ -1,4 +1,4 @@
-# IF YOU ARE HOSTING D3VILBOT ON OTHER VPS OR LOCALLY RATHER THAN HEROKU
+# IF YOU ARE HOSTING MAFIABOT ON OTHER VPS OR LOCALLY RATHER THAN HEROKU
 # THEN DON'T EDIT THIS FILE.
 # GO AND EDIT ex_config.py AND RENAME IT TO config.py
 # AND FILL THE REQUIRED VARS THERE.
@@ -67,8 +67,8 @@ class Config(object):
     MAX_MESSAGE_SIZE_LIMIT = 4095
     MAX_SPAM = int(os.environ.get("MAX_SPAM", 3))
     MONGO_URI = os.environ.get("MONGO_URI", None)
-    MY_CHANNEL = os.environ.get("YOUR_CHANNEL", "D3VIL_SUPPORT")
-    MY_GROUP = os.environ.get("YOUR_GROUP", "D3VIL_BOT_SUPPORT")
+    MY_CHANNEL = os.environ.get("YOUR_CHANNEL", "MAFIA_SUPPORT")
+    MY_GROUP = os.environ.get("YOUR_GROUP", "MAFIA_BOT_SUPPORT")
     OCR_API = os.environ.get("OCR_API", None)
     PLUGIN_CHANNEL = os.environ.get("PLUGIN_CHANNEL", None)
     if PLUGIN_CHANNEL:
@@ -91,7 +91,7 @@ class Config(object):
     TEMP_DIR = os.environ.get("TEMP_DIR", None)
     TMP_DOWNLOAD_DIRECTORY = os.environ.get("TMP_DOWNLOAD_DIRECTORY", "./DOWNLOADS/")
     TZ = os.environ.get("TZ", "Asia/Kolkata")
-    UPSTREAM_REPO = os.environ.get("UPSTREAM_REPO", "https://github.com/D3KRISH/D3VILBOT")
+    UPSTREAM_REPO = os.environ.get("UPSTREAM_REPO", "https://github.com/D3KRISH/MAFIABOT")
     WEATHER_API = os.environ.get("WEATHER_API", None)
     YOUR_NAME = os.environ.get("YOUR_NAME", None)
     YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", None)

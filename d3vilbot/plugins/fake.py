@@ -20,10 +20,10 @@ async def _(event):
         f.write(response.content)
     
     captin = f"Fake Image By {mafia_mention}"
-    fole = "D3VILBOT.jpg"
+    fole = "MAFIABOT.jpg"
     await bot.send_file(event.chat_id, fole, caption=captin)
     await event.delete()
-    os.system("rm /root/mafiabot/D3VILBOT.jpg ")
+    os.system("rm /root/mafiabot/MAFIABOT.jpg ")
 
 
 @bot.on(mafia_cmd(pattern="fake ?(.*)"))
