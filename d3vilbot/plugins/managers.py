@@ -11,7 +11,7 @@ if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
     os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
 
 
-@bot.on(d3vil_cmd(pattern="ls ?(.*)", outgoing=True))
+@bot.on(mafia_cmd(pattern="ls ?(.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern="ls ?(.*)", allow_sudo=True))
 async def lst(event):
     if event.fwd_from:
@@ -42,7 +42,7 @@ async def lst(event):
         await event.delete()
         
 
-@bot.on(d3vil_cmd(pattern="ls_local$", outgoing=True))
+@bot.on(mafia_cmd(pattern="ls_local$", outgoing=True))
 @bot.on(sudo_cmd(pattern="ls_local$", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -80,7 +80,7 @@ async def _(event):
     await eor(event, f"{OUTPUT}`{stdout.decode()}`")
 
 
-@bot.on(d3vil_cmd(pattern="ls_root$", outgoing=True))
+@bot.on(mafia_cmd(pattern="ls_root$", outgoing=True))
 @bot.on(sudo_cmd(pattern="ls_root$", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -115,7 +115,7 @@ async def _(event):
     await eor(event, f"{OUTPUT}`{stdout.decode()}`")
 
 
-@bot.on(d3vil_cmd(pattern="ls_saved$", outgoing=True))
+@bot.on(mafia_cmd(pattern="ls_saved$", outgoing=True))
 @bot.on(sudo_cmd(pattern="ls_saved$", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -150,7 +150,7 @@ async def _(event):
     await eor(event, f"{OUTPUT}`{stdout.decode()}`")
 
 
-@bot.on(d3vil_cmd(pattern="rnsaved ?(.*)", outgoing=True))
+@bot.on(mafia_cmd(pattern="rnsaved ?(.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern="rnsaved ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -189,7 +189,7 @@ async def _(event):
     await eor(event, f"File renamed `{src}` to `{dst}`")
 
 
-@bot.on(d3vil_cmd(pattern="rnlocal ?(.*)", outgoing=True))
+@bot.on(mafia_cmd(pattern="rnlocal ?(.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern="rnlocal ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -228,7 +228,7 @@ async def _(event):
     await eor(event, f"File renamed `{src}` to `{dst}`")
 
 
-@bot.on(d3vil_cmd(pattern="delsave (.*)", outgoing=True))
+@bot.on(mafia_cmd(pattern="delsave (.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern="delsave (.*)", allow_sudo=True))
 async def handler(event):
     if event.fwd_from:
@@ -244,7 +244,7 @@ async def handler(event):
         await eod(event, "⛔️File Not Found😬")
 
 
-@bot.on(d3vil_cmd(pattern="delocal (.*)", outgoing=True))
+@bot.on(mafia_cmd(pattern="delocal (.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern="delocal (.*)", allow_sudo=True))
 async def handler(event):
     if event.fwd_from:
@@ -261,11 +261,11 @@ async def handler(event):
 
 
 CmdHelp("managers").add_command(
-  "ls_local", None, "Gives the list of downloaded medias in your d3vilbot server."
+  "ls_local", None, "Gives the list of downloaded medias in your mafiabot server."
 ).add_command(
-  "ls_root", None, "Gives the list of all files in root directory of d3vilbot repo."
+  "ls_root", None, "Gives the list of all files in root directory of mafiabot repo."
 ).add_command(
-  "ls_saved", None, "Gives the list of all files in Saved directory of your d3vilbot server"
+  "ls_saved", None, "Gives the list of all files in Saved directory of your mafiabot server"
 ).add_command(
   "rnsaved", "from | to", "Renames the file in saved directory"
 ).add_command(

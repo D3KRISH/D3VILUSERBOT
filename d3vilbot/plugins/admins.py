@@ -9,7 +9,7 @@ from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.types import ChatAdminRights, ChatBannedRights, MessageEntityMentionName, MessageMediaPhoto
 
 from . import *
-from d3vilbot.sql.mute_sql import is_muted, mute, unmute
+from mafiabot.sql.mute_sql import is_muted, mute, unmute
 
 
 lg_id = Config.LOGGER_ID
@@ -50,7 +50,7 @@ MUTE_RIGHTS = ChatBannedRights(until_date=None, send_messages=True)
 UNMUTE_RIGHTS = ChatBannedRights(until_date=None, send_messages=False)
 
 
-@bot.on(d3vil_cmd(pattern="setgpic$"))
+@bot.on(mafia_cmd(pattern="setgpic$"))
 @bot.on(sudo_cmd(pattern="setgpic$", allow_sudo=True))
 @errors_handler
 async def set_group_photo(gpic):
@@ -81,7 +81,7 @@ async def set_group_photo(gpic):
                 EditPhotoRequest(gpic.chat_id, await gpic.client.upload_file(photo))
             )
             await eor(gpic, CHAT_PP_CHANGED)
-            d3vilkrish = True
+            mafiakrish = True
         except PhotoCropSizeSmallError:
             await eor(gpic, PP_TOO_SMOL)
         except ImageProcessFailedError:
@@ -97,7 +97,7 @@ async def set_group_photo(gpic):
             )
 
 
-@bot.on(d3vil_cmd(pattern="promote(?: |$)(.*)"))
+@bot.on(mafia_cmd(pattern="promote(?: |$)(.*)"))
 @bot.on(sudo_cmd(pattern="promote(?: |$)(.*)", allow_sudo=True))
 @errors_handler
 async def promote(promt):
@@ -117,7 +117,7 @@ async def promote(promt):
         delete_messages=True,
         pin_messages=True,
     )
-    d3vilevent = await eor(promt, "`Promoting User...`")
+    mafiaevent = await eor(promt, "`Promoting User...`")
     user, rank = await get_user_from_event(promt)
     if not rank:
         rank = "ǟɖʍɨռ"
@@ -125,9 +125,9 @@ async def promote(promt):
         return
     try:
         await promt.client(EditAdminRequest(promt.chat_id, user.id, new_rights, rank))
-        await d3vilevent.edit(f"**🔥 Promoted  [{user.first_name}](tg://user?id={user.id})  Successfully In**  `{promt.chat.title}`!! \n**Admin Tag :**  `{rank}`")
+        await mafiaevent.edit(f"**🔥 Promoted  [{user.first_name}](tg://user?id={user.id})  Successfully In**  `{promt.chat.title}`!! \n**Admin Tag :**  `{rank}`")
     except BadRequestError:
-        await d3vilevent.edit(NO_PERM)
+        await mafiaevent.edit(NO_PERM)
         return
     await promt.client.send_message(
         lg_id,
@@ -137,7 +137,7 @@ async def promote(promt):
     )
 
 
-@bot.on(d3vil_cmd(pattern="demote(?: |$)(.*)"))
+@bot.on(mafia_cmd(pattern="demote(?: |$)(.*)"))
 @bot.on(sudo_cmd(pattern="demote(?: |$)(.*)", allow_sudo=True))
 @errors_handler
 async def demote(dmod):
@@ -149,7 +149,7 @@ async def demote(dmod):
     if not admin and not creator:
         await eor(dmod, NO_ADMIN)
         return
-    d3vilevent = await eor(dmod, "`Demoting User...`")
+    mafiaevent = await eor(dmod, "`Demoting User...`")
     rank = "ǟɖʍɨռ"
     user = await get_user_from_event(dmod)
     user = user[0]
@@ -166,9 +166,9 @@ async def demote(dmod):
     try:
         await dmod.client(EditAdminRequest(dmod.chat_id, user.id, newrights, rank))
     except BadRequestError:
-        await d3vilevent.edit(NO_PERM)
+        await mafiaevent.edit(NO_PERM)
         return
-    await d3vilevent.edit(f"**😪 Demoted  [{user.first_name}](tg://user?id={user.id})  Successfully In**  `{dmod.chat.title}`")
+    await mafiaevent.edit(f"**😪 Demoted  [{user.first_name}](tg://user?id={user.id})  Successfully In**  `{dmod.chat.title}`")
     await dmod.client.send_message(
         lg_id,
         "#DEMOTE\n"
@@ -185,63 +185,63 @@ async def watcher(event):
             LOGS.info(str(e))
 
 
-@bot.on(d3vil_cmd(pattern=r"mute ?(.*)"))
+@bot.on(mafia_cmd(pattern=r"mute ?(.*)"))
 @bot.on(sudo_cmd(pattern=r"mute ?(.*)", allow_sudo=True))
 async def muth(hell):
-    if d3vil.is_private:
-        await eor(d3vil, "**Enough of your bullshit  !!**")
+    if mafia.is_private:
+        await eor(mafia, "**Enough of your bullshit  !!**")
         await sleep(2)
-        await d3vil.get_reply_message()
-        replied_user = await d3vil.client(GetFullUserRequest(d3vil.chat_id))
-        if is_muted(d3vil.chat_id, d3vil.chat_id):
-            return await d3vil.edit(
+        await mafia.get_reply_message()
+        replied_user = await mafia.client(GetFullUserRequest(mafia.chat_id))
+        if is_muted(mafia.chat_id, mafia.chat_id):
+            return await mafia.edit(
                 "Nigga is already muted here 🥴"
             )
-        if d3vil.chat_id == d3vilkrish:
-            return await eod(d3vil, "Nashe me hai kya lawde 🥴")
+        if mafia.chat_id == mafiakrish:
+            return await eod(mafia, "Nashe me hai kya lawde 🥴")
         try:
-            mute(d3vil.chat_id, d3vil.chat_id)
+            mute(mafia.chat_id, mafia.chat_id)
         except Exception as e:
-            await eor(d3vil, f"**Error **\n`{str(e)}`")
+            await eor(mafia, f"**Error **\n`{str(e)}`")
         else:
-            await eor(d3vil, "**Chup Reh Lawde 🥴\n`**｀-´)⊃━☆ﾟ.*･｡ﾟ **`")
+            await eor(mafia, "**Chup Reh Lawde 🥴\n`**｀-´)⊃━☆ﾟ.*･｡ﾟ **`")
     else:
-        d3vilevent = await eor(d3vil, "`Muting...`")
-        input_str = d3vil.pattern_match.group(1)
-        chat = await d3vil.get_chat()
-        if d3vil.reply_to_msg_id:
-            userid = (await d3vil.get_reply_message()).sender_id
-            name = (await d3vil.client.get_entity(userid)).first_name
+        mafiaevent = await eor(mafia, "`Muting...`")
+        input_str = mafia.pattern_match.group(1)
+        chat = await mafia.get_chat()
+        if mafia.reply_to_msg_id:
+            userid = (await mafia.get_reply_message()).sender_id
+            name = (await mafia.client.get_entity(userid)).first_name
         elif input_str:
             if input_str.isdigit():
                 try:
                     userid = input_str
-                    name = (await d3vil.client.get_entity(userid)).first_name
+                    name = (await mafia.client.get_entity(userid)).first_name
                 except ValueError as ve:
-                    return await d3vilevent.edit(str(ve))
+                    return await mafiaevent.edit(str(ve))
             else:
-                userid = (await d3vil.client.get_entity(input_str)).id
-                name = (await d3vil.client.get_entity(userid)).first_name
+                userid = (await mafia.client.get_entity(input_str)).id
+                name = (await mafia.client.get_entity(userid)).first_name
         else:
-            return await eod(d3vilevent, "I Need a user to mute!!", 5)
-        if userid == d3vilkrish:
+            return await eod(mafiaevent, "I Need a user to mute!!", 5)
+        if userid == mafiakrish:
             return await eod(hellevent, "Nashe me hai kya lawde", 5)
         if str(userid) in DEVLIST:
             return await eod(hellevent, "**Error Muting God**", 7)
         try:
-            await d3vil.client.edit_permissions(
+            await mafia.client.edit_permissions(
                 chat.id,
                 userid,
                 until_date=None,
                 send_messages=False,
             )
             await eor(
-                d3vilevent,
+                mafiaevent,
                 f"**Successfully Muted**  [{name}](tg://user?id={userid}) **in**  `{chat.title}`",
             )
         except BaseException as be:
-            await eor(d3vilevent, f"`{str(be)}`")
-        await d3vil.client.send_message(
+            await eor(mafiaevent, f"`{str(be)}`")
+        await mafia.client.send_message(
             lg_id,
             "#MUTE\n"
             f"\nUSER:  [{name}](tg://user?id={userid})\n"
@@ -249,7 +249,7 @@ async def muth(hell):
         )
         
         
-@bot.on(d3vil_cmd(pattern=r"unmute ?(.*)"))
+@bot.on(mafia_cmd(pattern=r"unmute ?(.*)"))
 @bot.on(sudo_cmd(pattern=r"unmute ?(.*)", allow_sudo=True))
 async def nomuth(evn):
     if evn.is_private:
@@ -269,7 +269,7 @@ async def nomuth(evn):
                 "Abb boll bsdk."
             )
     else:
-        d3vilevent = await eor(evn, "`Unmuting...`")
+        mafiaevent = await eor(evn, "`Unmuting...`")
         input_str = evn.pattern_match.group(1)
         chat = await evn.get_chat()
         if evn.reply_to_msg_id:
@@ -286,7 +286,7 @@ async def nomuth(evn):
                 userid = (await evn.client.get_entity(input_str)).id
                 name = (await evn.client.get_entity(userid)).first_name
         else:
-            return await eod(d3vilevent, "I need a user to unmute!!", 3)
+            return await eod(mafiaevent, "I need a user to unmute!!", 3)
         try:
             await evn.client.edit_permissions(
                 chat.id,
@@ -295,11 +295,11 @@ async def nomuth(evn):
                 send_messages=True,
             )
             await eor(
-                d3vilevent,
+                mafiaevent,
                 f"**Successfully Unmuted**  [{name}](tg://user?id={userid}) **in**  `{chat.title}`",
             )
         except BaseException as be:
-            await eor(d3vilevent, f"`{str(be)}`")
+            await eor(mafiaevent, f"`{str(be)}`")
         await evn.client.send_message(
             lg_id,
             "#UNMUTE\n"
@@ -308,13 +308,13 @@ async def nomuth(evn):
         )
 
 
-@bot.on(d3vil_cmd(pattern="ban(?: |$)(.*)"))
+@bot.on(mafia_cmd(pattern="ban(?: |$)(.*)"))
 @bot.on(sudo_cmd(pattern="ban(?: |$)(.*)", allow_sudo=True))
 @errors_handler
 async def ban(bon):
     if bon.fwd_from:
         return
-    d3vilevent = await eor(bon, "`Banning Nigga...`")
+    mafiaevent = await eor(bon, "`Banning Nigga...`")
     chat = await bon.get_chat()
     admin = chat.admin_rights
     creator = chat.creator
@@ -323,25 +323,25 @@ async def ban(bon):
         return
     user, reason = await get_user_from_event(bon)
     if not user:
-        return await d3vilevent.edit("`Reply to a user or give username!!`")
+        return await mafiaevent.edit("`Reply to a user or give username!!`")
     if str(user.id) in DEVLIST:
-        return await d3vilevent.edit("**Say again? Ban my creator??**")
+        return await mafiaevent.edit("**Say again? Ban my creator??**")
     try:
         await bon.client(EditBannedRequest(bon.chat_id, user.id, BANNED_RIGHTS))
     except BadRequestError:
-        await d3vilevent.edit(NO_PERM)
+        await mafiaevent.edit(NO_PERM)
         return
     try:
         reply = await bon.get_reply_message()
         if reply:
             await reply.delete()
     except BadRequestError:
-        await d3vilevent.edit(f"**Banned  [{user.first_name}](tg://user?id={user.id})  in** `[{bon.chat.title}]` !!\n\nMessage Nuking : **False**")
+        await mafiaevent.edit(f"**Banned  [{user.first_name}](tg://user?id={user.id})  in** `[{bon.chat.title}]` !!\n\nMessage Nuking : **False**")
         return
     if reason:
-        await d3vilevent.edit(f"**Bitch** [{user.first_name}](tg://user?id={user.id}) **is now banned in**  `[{bon.chat.title}]` !!\n**Reason :** `{reason}`")
+        await mafiaevent.edit(f"**Bitch** [{user.first_name}](tg://user?id={user.id}) **is now banned in**  `[{bon.chat.title}]` !!\n**Reason :** `{reason}`")
     else:
-        await d3vilevent.edit(f"**Bitch** [{user.first_name}](tg://user?id={user.id}) **is now banned in**  `[{bon.chat.title}]`!!")
+        await mafiaevent.edit(f"**Bitch** [{user.first_name}](tg://user?id={user.id}) **is now banned in**  `[{bon.chat.title}]`!!")
     await bon.client.send_message(
         lg_id,
         "#BAN\n"
@@ -350,7 +350,7 @@ async def ban(bon):
     )
 
 
-@bot.on(d3vil_cmd(pattern="unban(?: |$)(.*)"))
+@bot.on(mafia_cmd(pattern="unban(?: |$)(.*)"))
 @bot.on(sudo_cmd(pattern="unban(?: |$)(.*)", allow_sudo=True))
 @errors_handler
 async def nothanos(unbon):
@@ -362,7 +362,7 @@ async def nothanos(unbon):
     if not admin and not creator:
         await eor(unbon, NO_ADMIN)
         return
-    d3vilevent = await eor(unbon, "`Unbanning...`")
+    mafiaevent = await eor(unbon, "`Unbanning...`")
     user = await get_user_from_event(unbon)
     user = user[0]
     if not user:
@@ -377,10 +377,10 @@ async def nothanos(unbon):
             f"CHAT: {unbon.chat.title}(`{unbon.chat_id}`)",
         )
     except UserIdInvalidError:
-        await d3vilevent.edit("Invalid UserId!! Please Recheck it!!")
+        await mafiaevent.edit("Invalid UserId!! Please Recheck it!!")
 
 
-@bot.on(d3vil_cmd(pattern="pin($| (.*))"))
+@bot.on(mafia_cmd(pattern="pin($| (.*))"))
 @bot.on(sudo_cmd(pattern="pin($| (.*))", allow_sudo=True))
 @errors_handler
 async def pin(msg):
@@ -422,7 +422,7 @@ async def pin(msg):
         pass
 
 
-@bot.on(d3vil_cmd(pattern="kick(?: |$)(.*)"))
+@bot.on(mafia_cmd(pattern="kick(?: |$)(.*)"))
 @bot.on(sudo_cmd(pattern="kick(?: |$)(.*)", allow_sudo=True))
 @errors_handler
 async def kick(usr):
@@ -439,19 +439,19 @@ async def kick(usr):
         return await eor(usr, "`Couldn't fetch user info...`")
     if str(user.id) in DEVLIST:
         return await eor(usr, "**Turn back, Go straight and fuck off!!**")
-    d3vilevent = await eor(usr, "`Kicking...`")
+    mafiaevent = await eor(usr, "`Kicking...`")
     try:
         await usr.client.kick_participant(usr.chat_id, user.id)
         await sleep(0.5)
     except Exception as e:
-        await d3vilevent.edit(NO_PERM + f"\n`{str(e)}`")
+        await mafiaevent.edit(NO_PERM + f"\n`{str(e)}`")
         return
     if reason:
-        await d3vilevent.edit(
+        await mafiaevent.edit(
             f"**🏃 Kicked**  [{user.first_name}](tg://user?id={user.id})'s **Butt from** `{usr.chat.title}!`\nReason: `{reason}`"
         )
     else:
-        await d3vilevent.edit(f"**🏃 Kicked**  [{user.first_name}](tg://user?id={user.id})'s **Butt from** `{usr.chat.title}!`")
+        await mafiaevent.edit(f"**🏃 Kicked**  [{user.first_name}](tg://user?id={user.id})'s **Butt from** `{usr.chat.title}!`")
     await usr.client.send_message(
         lg_id,
         "#KICK\n"
@@ -460,7 +460,7 @@ async def kick(usr):
     )
 
 
-@bot.on(d3vil_cmd(pattern=f"zombies ?(.*)"))
+@bot.on(mafia_cmd(pattern=f"zombies ?(.*)"))
 @bot.on(sudo_cmd(pattern=f"zombies ?(.*)", allow_sudo=True))
 async def rm_deletedacc(show):
     if show.fwd_from:
@@ -515,7 +515,7 @@ async def rm_deletedacc(show):
     )
 
 
-@bot.on(d3vil_cmd(pattern="undlt$"))
+@bot.on(mafia_cmd(pattern="undlt$"))
 @bot.on(sudo_cmd(pattern="undlt$", allow_sudo=True))
 async def _(event):
     if event.fwd_from:

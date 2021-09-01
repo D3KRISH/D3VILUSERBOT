@@ -9,7 +9,7 @@ from gtts import gTTS
 from . import *
 
 
-@bot.on(d3vil_cmd(pattern="trt ?(.*)"))
+@bot.on(mafia_cmd(pattern="trt ?(.*)"))
 @bot.on(sudo_cmd(pattern="trt ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -44,15 +44,15 @@ async def _(event):
     except Exception as exc:
         await edit_or_reply(event, str(exc))
 
-@bot.on(d3vil_cmd(pattern=r"trc", outgoing=True))
+@bot.on(mafia_cmd(pattern=r"trc", outgoing=True))
 @bot.on(sudo_cmd(pattern=r"trc", allow_sudo=True))
-async def _(d3vil):
-    if d3vil.fwd_from:
+async def _(mafia):
+    if mafia.fwd_from:
         return
-    await edit_or_reply(d3vil, "**All The Language Codes Can Be Found** \n ✪☞ [Here](https://telegra.ph/D3VIL-BOT-05-13) ☜✪", link_preview=False)
+    await edit_or_reply(mafia, "**All The Language Codes Can Be Found** \n ✪☞ [Here](https://telegra.ph/D3VIL-BOT-05-13) ☜✪", link_preview=False)
 
 
-@bot.on(d3vil_cmd(pattern="voice (.*)"))
+@bot.on(mafia_cmd(pattern="voice (.*)"))
 @bot.on(sudo_cmd(pattern="voice (.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:

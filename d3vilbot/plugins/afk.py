@@ -36,7 +36,7 @@ async def set_not_afk(event):
             event.chat_id,
             "__**Back to Virtual World!**__\nNo Longer AFK.\n⏱️ Was afk for: `"
             + total_afk_time
-            + "`", file=d3vilpic
+            + "`", file=mafiapic
         )
         try:
             await event.client.send_message(  # pylint:disable=E0602
@@ -50,13 +50,13 @@ async def set_not_afk(event):
                 event.chat_id,
                 "Please set `LOGGER_ID` "
                 + "for the proper functioning of afk."
-                + f"Ask in {d3vil_grp} to get help!",
+                + f"Ask in {mafia_grp} to get help!",
                 reply_to=event.message.id,
                 link_preview=False,
                 silent=True,
             )
         await asyncio.sleep(5)
-        await d3vilbot.delete()
+        await mafiabot.delete()
         USER_AFK = {}  # pylint:disable=E0602
         afk_time = None  # pylint:disable=E0602
 
@@ -101,7 +101,7 @@ async def on_afk(event):
         last_afk_message[event.chat_id] = msg  # pylint:disable=E0602
 
 
-@bot.on(d3vil_cmd(pattern=r"afk (.*)", outgoing=True))  # pylint:disable=E0602
+@bot.on(mafia_cmd(pattern=r"afk (.*)", outgoing=True))  # pylint:disable=E0602
 async def _(event):
     if event.fwd_from:
         return
@@ -130,7 +130,7 @@ async def _(event):
         USER_AFK = f"yes: {reason} {hellpic}"  # pylint:disable=E0602
         if reason:
             await bot.send_message(
-                event.chat_id, f"**I'm going afk🚶** \n\n**Because :** {reason}", file=d3vilpic
+                event.chat_id, f"**I'm going afk🚶** \n\n**Because :** {reason}", file=mafiapic
             )
         else:
             await bot.send_message(
@@ -141,12 +141,12 @@ async def _(event):
             if reason:
                 await bot.send_message(
                   Config.LOGGER_ID,
-                  f"#AFKTRUE \nAFK mode = **True**\nReason  `{reason}`",file=d3vilpic
+                  f"#AFKTRUE \nAFK mode = **True**\nReason  `{reason}`",file=mafiapic
                  )
             else:
                 await bot.send_message(
                   Config.LOGGER_ID,
-                  f"#AFKTRUE \nAFK mode = **True**",file=d3vilpic
+                  f"#AFKTRUE \nAFK mode = **True**",file=mafiapic
             )
         except Exception as e:  # pylint:disable=C0103,W0703
             logger.warn(str(e))  # pylint:disable=E06
@@ -185,7 +185,7 @@ async def set_not_night(event):
                 event.chat_id,
                 "Please set `LOGGER_ID` "
                 + "for the proper functioning of night functionality "
-                + "report in {}\n\n `{}`".format(d3vil_grp, str(e)),
+                + "report in {}\n\n `{}`".format(mafia_grp, str(e)),
                 reply_to=event.message.id,
                 silent=True,
             )
@@ -193,7 +193,7 @@ async def set_not_night(event):
         night_time = None
 
 
-@bot.on(d3vil_cmd(pattern=r"night ?(.*)"))
+@bot.on(mafia_cmd(pattern=r"night ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return

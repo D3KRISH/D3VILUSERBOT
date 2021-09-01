@@ -1,23 +1,23 @@
 import datetime
-from d3vilbot import *
-from d3vilbot.config import Config
-from d3vilbot.helpers import *
-from d3vilbot.utils import *
-from d3vilbot.random_strings import *
-from d3vilbot.version import __d3vil__
+from mafiabot import *
+from mafiabot.config import Config
+from mafiabot.helpers import *
+from mafiabot.utils import *
+from mafiabot.random_strings import *
+from mafiabot.version import __mafia__
 from telethon import version
 
 
 D3VIL_USER = bot.me.first_name
-d3vilkrish = bot.uid
-D3VIL_mention = f"[{D3VIL_USER}](tg://user?id={d3vilkrish})"
-d3vil_logo = "./d3vilbot/resources/pics/d3vilbot_logo.jpg"
-cjb = "./d3vilbot/resources/pics/cjb.jpg"
-restlo = "./d3vilbot/resources/pics/rest.jpeg"
-shuru = "./d3vilbot/resources/pics/shuru.jpg"
+mafiakrish = bot.uid
+D3VIL_mention = f"[{D3VIL_USER}](tg://user?id={mafiakrish})"
+mafia_logo = "./mafiabot/resources/pics/mafiabot_logo.jpg"
+cjb = "./mafiabot/resources/pics/cjb.jpg"
+restlo = "./mafiabot/resources/pics/rest.jpeg"
+shuru = "./mafiabot/resources/pics/shuru.jpg"
 hl = Config.HANDLER
 shl = Config.SUDO_HANDLER
-d3vil_ver = __d3vil__
+mafia_ver = __mafia__
 tel_ver = version.__version__
 
 async def get_user_id(ids):
@@ -49,9 +49,9 @@ if "@" in my_group:
     my_group = my_group.replace("@", "")
 
 chnl_link = "https://t.me/D3VIL_SUPPORT"
-d3vil_channel = f"[†hê ∂3vιℓᏰø✞]({chnl_link})"
+mafia_channel = f"[†hê ∂3vιℓᏰø✞]({chnl_link})"
 grp_link = "https://t.me/D3VIL_BOT_SUPPORT"
-d3vil_grp = f"[∂3ϑîℓᏰø✞ Group]({grp_link})"
+mafia_grp = f"[∂3ϑîℓᏰø✞ Group]({grp_link})"
 
 WELCOME_FORMAT = """**Use these fomats in your welcome note to make them attractive.**
   {mention} :  To mention the user

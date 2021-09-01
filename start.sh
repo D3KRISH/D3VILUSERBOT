@@ -12,4 +12,4 @@ echo """
                                 
 """
 
-python3 -m d3vilbot
+python3 -m mafiabot

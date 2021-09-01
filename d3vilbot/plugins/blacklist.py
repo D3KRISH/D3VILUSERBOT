@@ -1,7 +1,7 @@
 import re
 from telethon import events
 
-from d3vilbot.sql import blacklist_sql as sq
+from mafiabot.sql import blacklist_sql as sq
 from . import *
 
 
@@ -23,7 +23,7 @@ async def on_new_message(event):
             break
 
 
-@bot.on(d3vil_cmd(pattern="addblacklist ((.|\n)*)"))
+@bot.on(mafia_cmd(pattern="addblacklist ((.|\n)*)"))
 @bot.on(sudo_cmd(pattern="addblacklist ((.|\n)*)", allow_sudo=True))
 async def on_add_black_list(event):
     if event.fwd_from:
@@ -43,7 +43,7 @@ async def on_add_black_list(event):
     )
 
 
-@bot.on(d3vil_cmd(pattern="rmblacklist ((.|\n)*)"))
+@bot.on(mafia_cmd(pattern="rmblacklist ((.|\n)*)"))
 @bot.on(sudo_cmd(pattern="rmblacklist ((.|\n)*)", allow_sudo=True))
 async def on_delete_blacklist(event):
     if event.fwd_from:
@@ -64,7 +64,7 @@ async def on_delete_blacklist(event):
     )
 
 
-@bot.on(d3vil_cmd(pattern="listblacklist$"))
+@bot.on(mafia_cmd(pattern="listblacklist$"))
 @bot.on(sudo_cmd(pattern="listblacklist$", allow_sudo=True))
 async def on_view_blacklist(event):
     if event.fwd_from:

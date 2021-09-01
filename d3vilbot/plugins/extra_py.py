@@ -5,7 +5,7 @@ from telethon.tl.types import InputMessagesFilterDocument
 
 from . import *
 
-@bot.on(d3vil_cmd(pattern="extdl$", outgoing=True))
+@bot.on(mafia_cmd(pattern="extdl$", outgoing=True))
 @bot.on(sudo_cmd(pattern="extdl$", allow_sudo=True))
 async def install(event):
     if event.fwd_from:
@@ -39,13 +39,13 @@ async def install(event):
             )
 
 
-@bot.on(d3vil_cmd(pattern=r"installall (.*)"))
+@bot.on(mafia_cmd(pattern=r"installall (.*)"))
 @bot.on(sudo_cmd(pattern=r"installall (.*)", allow_sudo=True))
 async def install(event):
     if event.fwd_from:
         return
     chat = event.pattern_match.group(1)
-    d3vil = await eor(event, f"Starting To Install Plugins From {chat} !!"
+    mafia = await eor(event, f"Starting To Install Plugins From {chat} !!"
     )
     documentss = await bot.get_messages(chat, None, filter=InputMessagesFilterDocument)
     total = int(documentss.total)
@@ -53,7 +53,7 @@ async def install(event):
     for ixo in total_doxx:
         mxo = documentss[ixo].id
         downloaded_file_name = await event.client.download_media(
-            await bot.get_messages(chat, ids=mxo), "d3vilbot/plugins/"
+            await bot.get_messages(chat, ids=mxo), "mafiabot/plugins/"
         )
         if "(" not in downloaded_file_name:
             path1 = Path(downloaded_file_name)

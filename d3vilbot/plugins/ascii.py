@@ -4,7 +4,7 @@ from telethon.errors.rpcerrorlist import YouBlockedUserError
 from . import *
 
 
-@bot.on(d3vil_cmd(pattern="ascii (.*)"))
+@bot.on(mafia_cmd(pattern="ascii (.*)"))
 @bot.on(sudo_cmd(pattern="ascii (.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -17,7 +17,7 @@ async def _(event):
         await edit_or_reply(event, "Reply to media message😒🤐")
         return
     bot = "@asciiart_bot"
-    d3vilkrish = await eor(event, "Wait making ASCII...🤓🔥🔥")
+    mafiakrish = await eor(event, "Wait making ASCII...🤓🔥🔥")
     async with event.client.conversation(bot) as conv:
         try:
             first = await conv.send_message("/start")
@@ -27,20 +27,20 @@ async def _(event):
             last = await conv.get_response()
             await event.client.send_read_acknowledge(conv.chat_id)
         except YouBlockedUserError:
-            await d3vilkrish.edit("User Blocked!! Please Unblock @asciiart_bot and try again...")
+            await mafiakrish.edit("User Blocked!! Please Unblock @asciiart_bot and try again...")
             return
-        await d3vilkrish.delete()
+        await mafiakrish.delete()
         final = await event.client.send_file(
             event.chat_id,
             output_op,
         )
         await final.edit(
-            f"ASCII art By :- {d3vil_mention}")
+            f"ASCII art By :- {mafia_mention}")
     await event.client.delete_messages(
         conv.chat_id, [first.id, response.id, second.id, output_op.id, last.id]
     )
 
-@bot.on(d3vil_cmd(pattern="line (.*)"))
+@bot.on(mafia_cmd(pattern="line (.*)"))
 @bot.on(sudo_cmd(pattern="line (.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -53,7 +53,7 @@ async def _(event):
         await edit_or_reply(event, "Reply to media message😒🤐")
         return
     bot = "@lines50bot"
-    d3vilkrish = await eor(event, "`Processing...`")
+    mafiakrish = await eor(event, "`Processing...`")
     async with event.client.conversation(bot) as conv:
         try:
             first = await conv.send_message("/start")
@@ -63,15 +63,15 @@ async def _(event):
             last = await conv.get_response()
             await event.client.send_read_acknowledge(conv.chat_id)
         except YouBlockedUserError:
-            await d3vilkrish.edit("User Blocked!! Please Unblock @Lines50Bot and try again...")
+            await mafiakrish.edit("User Blocked!! Please Unblock @Lines50Bot and try again...")
             return
-        await d3vilkrish.delete()
+        await mafiakrish.delete()
         final = await event.client.send_file(
             event.chat_id,
             output_op,
         )
         await final.edit(
-            f"Lines By :- {d3vil_mention}")
+            f"Lines By :- {mafia_mention}")
     await event.client.delete_messages(
         conv.chat_id, [first.id, response.id, second.id, output_op.id, last.id]
     )

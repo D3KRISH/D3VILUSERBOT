@@ -70,7 +70,7 @@ def progress(current, total):
     )
 
 
-@bot.on(d3vil_cmd(pattern="ocrlang", outgoing=True))
+@bot.on(mafia_cmd(pattern="ocrlang", outgoing=True))
 @bot.on(sudo_cmd(pattern="ocrlang", allow_sudo=True))
 async def get_ocr_languages(event):
     if event.fwd_from:
@@ -104,12 +104,12 @@ async def get_ocr_languages(event):
     await eor(event, str(a))
 
 
-@bot.on(d3vil_cmd(pattern=r"ocr (.*)", outgoing=True))
+@bot.on(mafia_cmd(pattern=r"ocr (.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern=r"ocr (.*)", allow_sudo=True))
 async def parse_ocr_space_api(event):
     if event.fwd_from:
         return
-    d3vil = await eor(event, "Processing weit...🤓")
+    mafia = await eor(event, "Processing weit...🤓")
     if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
         os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
     lang_code = event.pattern_match.group(1)
@@ -125,12 +125,12 @@ async def parse_ocr_space_api(event):
             int(test_file["ProcessingTimeInMilliseconds"]) // 1000
         )
     except Exception as e:
-        await eod(d3vil, "**Errors !!** \n`{}`\n**Report This to** {}\n\n`{}`".format(
-                str(e), d3vil_grp, json.dumps(test_file, sort_keys=True, indent=4)
+        await eod(mafia, "**Errors !!** \n`{}`\n**Report This to** {}\n\n`{}`".format(
+                str(e), mafia_grp, json.dumps(test_file, sort_keys=True, indent=4)
             )
         )
     else:
-        await d3vil.edit("Read Document in {} seconds. \n{}".format(
+        await mafia.edit("Read Document in {} seconds. \n{}".format(
                 ProcessingTimeInMilliseconds, ParsedText
             )
         )

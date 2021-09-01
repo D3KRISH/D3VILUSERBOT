@@ -10,7 +10,7 @@ from . import *
 SUDO_WALA = Config.SUDO_USERS
 lg_id = Config.LOGGER_ID
 
-@bot.on(d3vil_cmd(pattern="spam (.*)"))
+@bot.on(mafia_cmd(pattern="spam (.*)"))
 @bot.on(sudo_cmd(pattern="spam (.*)", allow_sudo=True))
 async def spammer(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
@@ -24,22 +24,22 @@ async def spammer(e):
         )
 
 
-@bot.on(d3vil_cmd(pattern="bigspam"))
+@bot.on(mafia_cmd(pattern="bigspam"))
 @bot.on(sudo_cmd(pattern="bigspam", allow_sudo=True))
-async def bigspam(d3vil):
-    if not d3vil.text[0].isalpha() and d3vil.text[0] not in ("/", "#", "@", "!"):
-        d3vil_msg = d3vil.text
-        d3vilbot_count = int(d3vil_msg[9:13])
-        d3vil_spam = str(d3vil.text[13:])
-        for i in range(1, d3vilbot_count):
-            await hell.respond(d3vil_spam)
-        await d3vil.delete()
-        await d3vil.client.send_message(
-                lg_id, f"#BIGSPAM \n\nBigspammed  `{d3vil_count}`  messages !!"
+async def bigspam(mafia):
+    if not mafia.text[0].isalpha() and mafia.text[0] not in ("/", "#", "@", "!"):
+        mafia_msg = mafia.text
+        mafiabot_count = int(mafia_msg[9:13])
+        mafia_spam = str(mafia.text[13:])
+        for i in range(1, mafiabot_count):
+            await hell.respond(mafia_spam)
+        await mafia.delete()
+        await mafia.client.send_message(
+                lg_id, f"#BIGSPAM \n\nBigspammed  `{mafia_count}`  messages !!"
         )
 
 
-@bot.on(d3vil_cmd("dspam (.*)"))
+@bot.on(mafia_cmd("dspam (.*)"))
 @bot.on(sudo_cmd(pattern="dspam (.*)", allow_sudo=True))
 async def spammer(e):
     if e.fwd_from:
@@ -54,7 +54,7 @@ async def spammer(e):
         await asyncio.sleep(spamDelay)
 
 
-@bot.on(d3vil_cmd(pattern="mspam (.*)"))
+@bot.on(mafia_cmd(pattern="mspam (.*)"))
 @bot.on(sudo_cmd(pattern="mspam (.*)", allow_sudo=True))
 async def tiny_pic_spam(e):
     sender = await e.get_sender()

@@ -9,7 +9,7 @@ from . import *
 
 lg_id = Config.LOGGER_ID
 
-@bot.on(d3vil_cmd(pattern="exec(?: |$|\n)(.*)", command="exec"))
+@bot.on(mafia_cmd(pattern="exec(?: |$|\n)(.*)", command="exec"))
 @bot.on(sudo_cmd(pattern="exec(?: |$|\n)(.*)", command="exec", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -17,17 +17,17 @@ async def _(event):
     cmd = "".join(event.text.split(maxsplit=1)[1:])
     if not cmd:
         return await eod(event, "`What should i execute?..`")
-    d3vilevent = await eor(event, "`Executing.....`")
+    mafiaevent = await eor(event, "`Executing.....`")
     process = await asyncio.create_subprocess_shell(
         cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
     )
     stdout, stderr = await process.communicate()
     result = str(stdout.decode().strip()) + str(stderr.decode().strip())
-    d3viluser = await event.client.get_me()
-    if d3viluser.username:
-        curruser = d3viluser.username
+    mafiauser = await event.client.get_me()
+    if mafiauser.username:
+        curruser = mafiauser.username
     else:
-        curruser = "d3vilbot"
+        curruser = "mafiabot"
     uid = os.geteuid()
     if uid == 0:
         cresult = f"`{curruser}:~#` `{cmd}`\n`{result}`"
@@ -40,7 +40,7 @@ async def _(event):
     )
 
 
-@bot.on(d3vil_cmd(pattern="eval(?: |$|\n)(.*)", command="eval"))
+@bot.on(mafia_cmd(pattern="eval(?: |$|\n)(.*)", command="eval"))
 @bot.on(sudo_cmd(pattern="eval(?: |$|\n)(.*)", command="eval", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -48,7 +48,7 @@ async def _(event):
     cmd = "".join(event.text.split(maxsplit=1)[1:])
     if not cmd:
         return await eod(event, "`What should i run ?..`")
-    d3vilevent = await eor(event, "`Running ...`")
+    mafiaevent = await eor(event, "`Running ...`")
     old_stderr = sys.stderr
     old_stdout = sys.stdout
     redirected_output = sys.stdout = io.StringIO()
@@ -72,7 +72,7 @@ async def _(event):
     else:
         evaluation = "Success"
     final_output = f"•  Eval : \n`{cmd}` \n\n•  Result : \n`{evaluation}` \n"
-    await eor(d3vilevent, "**Eval Command Executed. Check out LOGGER for result.**")
+    await eor(mafiaevent, "**Eval Command Executed. Check out LOGGER for result.**")
     await event.client.send_message(
         lg_id,
         f"#EVAL \n\nEval command was executed sucessfully. \n\n{final_output}",
@@ -92,7 +92,7 @@ async def aexec(code, smessatatus):
     )
 
 
-@bot.on(d3vil_cmd(pattern="bash ?(.*)", outgoing=True))
+@bot.on(mafia_cmd(pattern="bash ?(.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern="bash ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:

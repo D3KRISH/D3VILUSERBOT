@@ -10,13 +10,13 @@ from . import *
 
 PICS_STR = []
 
-@bot.on(d3vil_cmd(pattern=r"logo ?(.*)"))
+@bot.on(mafia_cmd(pattern=r"logo ?(.*)"))
 @bot.on(sudo_cmd(pattern=r"logo ?(.*)", allow_sudo=True))
-async def lg1(d3vilevent):
-    event = await eor(d3vilevent, "`Processing.....`")
-    fnt = await get_font_file(d3vilevent.client, "@D3VIL_FONTSS")
-    if d3vilevent.reply_to_msg_id:
-        rply = await d3vilevent.get_reply_message()
+async def lg1(mafiaevent):
+    event = await eor(mafiaevent, "`Processing.....`")
+    fnt = await get_font_file(mafiaevent.client, "@D3VIL_FONTSS")
+    if mafiaevent.reply_to_msg_id:
+        rply = await mafiaevent.get_reply_message()
         logo_ = await rply.download_media()
     else:
         async for i in bot.iter_messages("@D3VIL_GFX_BG", filter=InputMessagesFilterPhotos):
@@ -59,7 +59,7 @@ async def lg1(d3vilevent):
     await bot.send_file(
         hellevent.chat_id,
         file_name,
-        caption=f"**Made By :** {d3vil_mention}\n ©𝔩𝔢𝔤𝔢𝔫𝔡𝔶 𝔞𝔣 𝔡3𝔳𝔦𝔭𝔟𝔬𝔱",
+        caption=f"**Made By :** {mafia_mention}\n ©𝔩𝔢𝔤𝔢𝔫𝔡𝔶 𝔞𝔣 𝔡3𝔳𝔦𝔭𝔟𝔬𝔱",
     )
     await event.delete()
     try:

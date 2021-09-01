@@ -12,16 +12,16 @@ global groupsid
 groupsid = []
 
 
-async def all_groups_id(d3vil):
-    d3vilgroups = []
-    async for dialog in d3vil.client.iter_dialogs():
+async def all_groups_id(mafia):
+    mafiagroups = []
+    async for dialog in mafia.client.iter_dialogs():
         entity = dialog.entity
         if isinstance(entity, Channel) and entity.megagroup:
-            d3vilgroups.append(entity.id)
-    return d3vilgroups
+            mafiagroups.append(entity.id)
+    return mafiagroups
 
 
-@bot.on(d3vil_cmd(pattern="frwd$"))
+@bot.on(mafia_cmd(pattern="frwd$"))
 @bot.on(sudo_cmd(pattern="frwd$", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -45,7 +45,7 @@ async def _(event):
         await event.delete()
 
 
-@bot.on(d3vil_cmd(pattern="resend$"))
+@bot.on(mafia_cmd(pattern="resend$"))
 @bot.on(sudo_cmd(pattern="resend$", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -60,7 +60,7 @@ async def _(event):
     await event.respond(m)
 
 
-@bot.on(d3vil_cmd(pattern=r"fpost (.*)"))
+@bot.on(mafia_cmd(pattern=r"fpost (.*)"))
 @bot.on(sudo_cmd(pattern=r"fpost (.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:

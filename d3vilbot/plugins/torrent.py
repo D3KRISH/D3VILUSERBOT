@@ -19,7 +19,7 @@ def dogbin(magnets):
     return urls
 
 
-@bot.on(d3vil_cmd(pattern=r"tsearch ?(.*)"))
+@bot.on(mafia_cmd(pattern=r"tsearch ?(.*)"))
 @bot.on(sudo_cmd(pattern=r"tsearch ?(.*)", allow_sudo=True))
 async def tor_search(event):
     if event.fwd_from:
@@ -28,7 +28,7 @@ async def tor_search(event):
         "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36"
     }
     search_str = event.pattern_match.group(1)
-    d3vil = await eor(event, f"Searching for  `{search_str}` .....")
+    mafia = await eor(event, f"Searching for  `{search_str}` .....")
     if " " in search_str:
         search_str = search_str.replace(" ", "+")
         print(search_str)
@@ -62,7 +62,7 @@ async def tor_search(event):
             break
         counter += 1
     if not urls:
-        await eod(d3vil, "Either the Keyword was restricted or not found..", 7)
+        await eod(mafia, "Either the Keyword was restricted or not found..", 7)
         return
     for url in urls:
         res = requests.get(url, headers)
@@ -89,16 +89,16 @@ async def tor_search(event):
             + "\n\n"
         )
         counter += 1
-    await d3vil.edit(msg, link_preview=False)
+    await mafia.edit(msg, link_preview=False)
 
 
-@bot.on(d3vil_cmd(pattern=r"movie (torrentz2\.eu|idop\.se) (.*)"))
+@bot.on(mafia_cmd(pattern=r"movie (torrentz2\.eu|idop\.se) (.*)"))
 @bot.on(sudo_cmd(pattern=r"movie (torrentz2\.eu|idop\.se) (.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
     start = datetime.datetime.now()
-    d3vil = await eor(event, "Processing ...")
+    mafia = await eor(event, "Processing ...")
     input_type = event.pattern_match.group(1)
     input_str = event.pattern_match.group(2)
     search_results = []
@@ -131,7 +131,7 @@ async def _(event):
         i += 1
     end = datetime.datetime.now()
     ms = (end - start).seconds
-    await d3vil.edit(
+    await mafia.edit(
         f"Scrapped {input_type} for {input_str} in {ms} seconds. Obtained Results: \n {output_str}",
         link_preview=False,
         parse_mode="html",

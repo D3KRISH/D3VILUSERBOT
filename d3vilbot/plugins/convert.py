@@ -16,15 +16,15 @@ if not os.path.isdir("./temp"):
     os.makedirs("./temp")
 
 
-@bot.on(d3vil_cmd(pattern="stoi$"))
+@bot.on(mafia_cmd(pattern="stoi$"))
 @bot.on(sudo_cmd(pattern="stoi$", allow_sudo=True))
-async def _(d3vil):
-    if d3vil.fwd_from:
+async def _(mafia):
+    if mafia.fwd_from:
         return
-    reply_to_id = d3vil.message.id
+    reply_to_id = mafia.message.id
     if hell.reply_to_msg_id:
-        reply_to_id = d3vil.reply_to_msg_id
-    event = await eor(d3vil, "Converting.....")
+        reply_to_id = mafia.reply_to_msg_id
+    event = await eor(mafia, "Converting.....")
     if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
         os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
     if event.reply_to_msg_id:
@@ -33,11 +33,11 @@ async def _(d3vil):
         reply_message = await event.get_reply_message()
         to_download_directory = Config.TMP_DOWNLOAD_DIRECTORY
         downloaded_file_name = os.path.join(to_download_directory, file_name)
-        downloaded_file_name = await d3vil.client.download_media(
+        downloaded_file_name = await mafia.client.download_media(
             reply_message, downloaded_file_name
         )
         if os.path.exists(downloaded_file_name):
-            caat = await d3vil.client.send_file(
+            caat = await mafia.client.send_file(
                 event.chat_id,
                 downloaded_file_name,
                 force_document=False,
@@ -51,15 +51,15 @@ async def _(d3vil):
         await event.edit(f"Syntax : `{hl}stoi` reply to a Telegram normal sticker")
 
 
-@bot.on(d3vil_cmd(pattern="itos$"))
+@bot.on(mafia_cmd(pattern="itos$"))
 @bot.on(sudo_cmd(pattern="itos$", allow_sudo=True))
-async def _(d3vil):
+async def _(mafia):
     if hell.fwd_from:
         return
-    reply_to_id = d3vil.message.id
+    reply_to_id = mafia.message.id
     if hell.reply_to_msg_id:
-        reply_to_id = d3vil.reply_to_msg_id
-    event = await eor(d3vil, "Converting.....")
+        reply_to_id = mafia.reply_to_msg_id
+    event = await eor(mafia, "Converting.....")
     if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
         os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
     if event.reply_to_msg_id:
@@ -68,7 +68,7 @@ async def _(d3vil):
         reply_message = await event.get_reply_message()
         to_download_directory = Config.TMP_DOWNLOAD_DIRECTORY
         downloaded_file_name = os.path.join(to_download_directory, file_name)
-        downloaded_file_name = await d3vil.client.download_media(
+        downloaded_file_name = await mafia.client.download_media(
             reply_message, downloaded_file_name
         )
         if os.path.exists(downloaded_file_name):
@@ -93,7 +93,7 @@ async def silently_send_message(conv, text):
     return response
 
 
-@bot.on(d3vil_cmd(pattern="ttf ?(.*)"))
+@bot.on(mafia_cmd(pattern="ttf ?(.*)"))
 @bot.on(sudo_cmd(pattern="ttf ?(.*)", allow_sudo=True))
 async def get(event):
     if event.fwd_from:
@@ -113,7 +113,7 @@ async def get(event):
         await eod(event, f"Reply to text message as `{hl}ttf <file name>`")
 
 
-@bot.on(d3vil_cmd(pattern="ftoi$"))
+@bot.on(mafia_cmd(pattern="ftoi$"))
 @bot.on(sudo_cmd(pattern="ftoi$", allow_sudo=True))
 async def on_file_to_photo(event):
     if event.fwd_from:
@@ -149,36 +149,36 @@ async def on_file_to_photo(event):
     await hbot.delete()
 
 
-@bot.on(d3vil_cmd(pattern="gif$"))
+@bot.on(mafia_cmd(pattern="gif$"))
 @bot.on(sudo_cmd(pattern="gif$", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
-    d3vilreply = await event.get_reply_message()
-    if not d3vilreply or not d3vilreply.media or not hellreply.media.document:
+    mafiareply = await event.get_reply_message()
+    if not mafiareply or not mafiareply.media or not hellreply.media.document:
         return await edit_or_reply(event, "`Stupid!, This is not animated sticker.`")
-    if d3vilreply.media.document.mime_type != "application/x-tgsticker":
+    if mafiareply.media.document.mime_type != "application/x-tgsticker":
         return await edit_or_reply(event, "`Stupid!, This is not animated sticker.`")
     reply_to_id = event.message
     if event.reply_to_msg_id:
         reply_to_id = await event.get_reply_message()
     chat = "@tgstogifbot"
-    d3vilevent = await edit_or_reply(event, "`Converting to gif ...`")
+    mafiaevent = await edit_or_reply(event, "`Converting to gif ...`")
     async with bot.conversation(chat) as conv:
         try:
             await silently_send_message(conv, "/start")
-            await bot.send_file(chat, d3vilreply.media)
+            await bot.send_file(chat, mafiareply.media)
             response = await conv.get_response()
             await bot.send_read_acknowledge(conv.chat_id)
             if response.text.startswith("Send me an animated sticker!"):
-                return await d3vilevent.edit("`This file is not supported`")
-            d3vilresponse = response if response.media else await conv.get_response()
+                return await mafiaevent.edit("`This file is not supported`")
+            mafiaresponse = response if response.media else await conv.get_response()
             await bot.send_read_acknowledge(conv.chat_id)
-            d3vilfile = Path(await event.client.download_media(hellresponse, "./temp/"))
-            d3vilgif = Path(await unzip(hellfile))
-            d3vilkrish = await bot.send_file(
+            mafiafile = Path(await event.client.download_media(hellresponse, "./temp/"))
+            mafiagif = Path(await unzip(hellfile))
+            mafiakrish = await bot.send_file(
                 event.chat_id,
-                d3vilgif,
+                mafiagif,
                 support_streaming=True,
                 force_document=False,
                 reply_to=reply_to_id,
@@ -193,16 +193,16 @@ async def _(event):
                     unsave=True,
                 )
             )
-            await d3vilevent.delete()
+            await mafiaevent.delete()
             for files in (hellgif, hellfile):
                 if files and os.path.exists(files):
                     os.remove(files)
         except YouBlockedUserError:
-            await d3vilevent.edit("Unblock @tgstogifbot")
+            await mafiaevent.edit("Unblock @tgstogifbot")
             return
 
 
-@bot.on(d3vil_cmd(pattern="nfc ?(.*)"))
+@bot.on(mafia_cmd(pattern="nfc ?(.*)"))
 @bot.on(sudo_cmd(pattern="nfc ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:

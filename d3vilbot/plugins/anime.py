@@ -67,7 +67,7 @@ async def formatJSON(outData):
         return msg
 
 
-@bot.on(d3vil_cmd(pattern="anilist (.*)"))
+@bot.on(mafia_cmd(pattern="anilist (.*)"))
 @bot.on(sudo_cmd(pattern="anilist (.*)", allow_sudo=True))
 async def anilist(event):
     if event.fwd_from:
@@ -79,11 +79,11 @@ async def anilist(event):
     await event.edit(msg, link_preview=True)
 
 
-@bot.on(d3vil_cmd(pattern="anime(?: |$)(.*)"))
+@bot.on(mafia_cmd(pattern="anime(?: |$)(.*)"))
 @bot.on(sudo_cmd(pattern="anime(?: |$)(.*)", allow_sudo=True))
 async def nope(devil_):
-    d3vil = hel_.pattern_match.group(1)
-    if not d3vil:
+    mafia = hel_.pattern_match.group(1)
+    if not mafia:
         if devil_.is_reply:
             (await devil_.get_reply_message()).message
         else:
@@ -91,7 +91,7 @@ async def nope(devil_):
             )
             return
 
-    troll = await bot.inline_query("AniFluidbot", f".anime {(deEmojify(d3vil))}")
+    troll = await bot.inline_query("AniFluidbot", f".anime {(deEmojify(mafia))}")
 
     await troll[0].click(
         devil_.chat_id,
@@ -102,11 +102,11 @@ async def nope(devil_):
     await devil_.delete()
     
     
-@bot.on(d3vil_cmd(pattern="manga(?: |$)(.*)"))
+@bot.on(mafia_cmd(pattern="manga(?: |$)(.*)"))
 @bot.on(sudo_cmd(pattern="manga(?: |$)(.*)", allow_sudo=True))
 async def nope(devil_):
-    d3vil = devil_.pattern_match.group(1)
-    if not d3vil:
+    mafia = devil_.pattern_match.group(1)
+    if not mafia:
         if devil_.is_reply:
             (await devil_.get_reply_message()).message
         else:
@@ -114,7 +114,7 @@ async def nope(devil_):
             )
             return
 
-    troll = await bot.inline_query("AniFluidbot", f".manga {(deEmojify(d3vil))}")
+    troll = await bot.inline_query("AniFluidbot", f".manga {(deEmojify(mafia))}")
 
     await troll[0].click(
         devil_.chat_id,
@@ -125,11 +125,11 @@ async def nope(devil_):
     await devil_.delete()
     
 
-@bot.on(d3vil_cmd(pattern="character(?: |$)(.*)"))
+@bot.on(mafia_cmd(pattern="character(?: |$)(.*)"))
 @bot.on(sudo_cmd(pattern="character(?: |$)(.*)", allow_sudo=True))
 async def nope(devil_):
-    d3vil = devil_.pattern_match.group(1)
-    if not d3vil:
+    mafia = devil_.pattern_match.group(1)
+    if not mafia:
         if devil_.is_reply:
             (await hel_.get_reply_message()).message
         else:
@@ -137,7 +137,7 @@ async def nope(devil_):
             )
             return
 
-    troll = await bot.inline_query("AniFluidbot", f".character {(deEmojify(d3vil))}")
+    troll = await bot.inline_query("AniFluidbot", f".character {(deEmojify(mafia))}")
 
     await troll[0].click(
         hel_.chat_id,

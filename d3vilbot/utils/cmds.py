@@ -1,5 +1,5 @@
 import os
-from d3vilbot import CMD_HELP, CMD_HELP_BOT
+from mafiabot import CMD_HELP, CMD_HELP_BOT
 
 HANDLER = os.environ.get("HANDLER", r".")
 

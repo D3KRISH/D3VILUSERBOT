@@ -18,10 +18,10 @@ if Config.TAG_LOGGER:
     async def all_messages_catcher(event):
         await event.forward_to(tagger)
         ammoca_message = ""
-        d3vilkrish = await event.client.get_entity(event.sender_id)
-        if d3vilkrish.bot or d3vilkrish.verified or d3vilkrish.support:
+        mafiakrish = await event.client.get_entity(event.sender_id)
+        if mafiakrish.bot or mafiakrish.verified or mafiakrish.support:
             return
-        d3vilkrishm = f"[{get_display_name(d3vilkrish)}](tg://user?id={d3vilkrish.id})"
+        mafiakrishm = f"[{get_display_name(mafiakrish)}](tg://user?id={mafiakrish.id})"
         where_ = await event.client.get_entity(event.chat_id)
         where_m = get_display_name(where_)
         button_text = "See the tag 📬"
@@ -29,7 +29,7 @@ if Config.TAG_LOGGER:
             message_link = f"https://t.me/c/{where_.id}/{event.id}"
         else:
             message_link = f"tg://openmessage?chat_id={where_.id}&message_id={event.id}"
-        ammoca_message += f"👆 #TAG\n\n{d3vilkrishm} `just tagged you...` \nWhere?\nIn [{where_m}]({message_link})\n__Tap to go the tagged msg__📬🚶"
+        ammoca_message += f"👆 #TAG\n\n{mafiakrishm} `just tagged you...` \nWhere?\nIn [{where_m}]({message_link})\n__Tap to go the tagged msg__📬🚶"
         if tagger is not None:
             await bot.send_message(
                 entity=tagger,
@@ -42,7 +42,7 @@ if Config.TAG_LOGGER:
             return
 
 
-@bot.on(d3vil_cmd(pattern=r"tagall (.*)", outgoing=True))
+@bot.on(mafia_cmd(pattern=r"tagall (.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern=r"tagall (.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:

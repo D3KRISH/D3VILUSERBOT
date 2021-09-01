@@ -16,9 +16,9 @@ from telethon import events
 from telethon.tl.functions.channels import GetParticipantRequest
 from telethon.tl.types import ChannelParticipantAdmin, ChannelParticipantCreator
 
-from d3vilbot import *
-from d3vilbot.helpers import *
-from d3vilbot.config import Config
+from mafiabot import *
+from mafiabot.helpers import *
+from mafiabot.config import Config
 
 
 # just a small shit for big works
@@ -33,7 +33,7 @@ async def is_admin(client, chat_id, user_id):
     if not str(chat_id).startswith("-100"):
         return False
     try:
-        d3vilboy = await client(GetParticipantRequest(channel=chat_id, user_id=user_id))
+        mafiaboy = await client(GetParticipantRequest(channel=chat_id, user_id=user_id))
         chat_participant = hellboy.participant
         if isinstance(
             chat_participant, (ChannelParticipantCreator, ChannelParticipantAdmin)

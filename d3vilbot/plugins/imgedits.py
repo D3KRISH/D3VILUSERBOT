@@ -6,11 +6,11 @@ import sys
 import os
 from . import *
 
-if not os.path.isdir("./d3vilbot/"):
-    os.makedirs("./d3vilbot/")
+if not os.path.isdir("./mafiabot/"):
+    os.makedirs("./mafiabot/")
 
 
-@bot.on(d3vil_cmd(pattern=r"feye$"))
+@bot.on(mafia_cmd(pattern=r"feye$"))
 @bot.on(sudo_cmd(pattern=r"feye$", allow_sudo=True))
 async def fun(event):
     if event.fwd_from:
@@ -41,7 +41,7 @@ async def fun(event):
     hoi = await event.delete()
 
 
-@bot.on(d3vil_cmd(pattern=r"warp$"))
+@bot.on(mafia_cmd(pattern=r"warp$"))
 @bot.on(sudo_cmd(pattern=r"warp$", allow_sudo=True))
 async def fun(event):
     if event.fwd_from:
@@ -73,7 +73,7 @@ async def fun(event):
 
 
 
-@bot.on(d3vil_cmd(pattern=r"distort$"))
+@bot.on(mafia_cmd(pattern=r"distort$"))
 @bot.on(sudo_cmd(pattern=r"distort$", allow_sudo=True))
 async def fun(event):
     if event.fwd_from:

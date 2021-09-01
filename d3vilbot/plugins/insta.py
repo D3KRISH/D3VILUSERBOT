@@ -9,7 +9,7 @@ from . import *
 
 
 
-@bot.on(d3vil_cmd(pattern="insta (.*)"))
+@bot.on(mafia_cmd(pattern="insta (.*)"))
 @bot.on(sudo_cmd(pattern="insta (.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -19,7 +19,7 @@ async def _(event):
     if "www.instagram.com" not in input_str:
         await eor(event, "Well... this is not instagram link... Mind giving a proper instagram link?")
     else:
-        d3vilkrish = await eor(event, "Trying to download.... please wait!")
+        mafiakrish = await eor(event, "Trying to download.... please wait!")
     async with event.client.conversation(bot) as conv:
         try:
             first = await conv.send_message("/start")
@@ -29,15 +29,15 @@ async def _(event):
             last = await conv.get_response()
             await event.client.send_read_acknowledge(conv.chat_id)
         except YouBlockedUserError:
-            await d3vilkrish.edit("User Blocked!! Please Unblock @instasavegrambot and try again...")
+            await mafiakrish.edit("User Blocked!! Please Unblock @instasavegrambot and try again...")
             return
-        await d3vilkrish.delete()
+        await mafiakrish.delete()
         final = await event.client.send_file(
             event.chat_id,
             output_op,
         )
         await final.edit(
-            f"📥 InstaGram Video Downloaded By :- {d3vil_mention}")
+            f"📥 InstaGram Video Downloaded By :- {mafia_mention}")
     await event.client.delete_messages(
         conv.chat_id, [first.id, response.id, second.id, output_op.id, last.id]
     )

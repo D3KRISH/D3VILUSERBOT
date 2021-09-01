@@ -17,7 +17,7 @@ from telethon.errors.rpcerrorlist import YouBlockedUserError
 from . import *
 
 
-@bot.on(d3vil_cmd(pattern="scan ?(.*)"))
+@bot.on(mafia_cmd(pattern="scan ?(.*)"))
 @bot.on(sudo_cmd(pattern="scan ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -59,7 +59,7 @@ async def _(event):
                 )
 
 
-@bot.on(d3vil_cmd(pattern=r"decode$", outgoing=True))
+@bot.on(mafia_cmd(pattern=r"decode$", outgoing=True))
 @bot.on(sudo_cmd(pattern=r"decode$", allow_sudo=True))
 async def parseqr(qr_e):
     if not os.path.isdir(Config.TEMP_DIR):
@@ -96,12 +96,12 @@ async def parseqr(qr_e):
         os.remove(downloaded_file_name)
 
 
-@bot.on(d3vil_cmd(pattern="barcode ?(.*)"))
+@bot.on(mafia_cmd(pattern="barcode ?(.*)"))
 @bot.on(sudo_cmd(pattern="barcode ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
-    d3vilevent = await eor(event, "...")
+    mafiaevent = await eor(event, "...")
     start = datetime.datetime.now()
     input_str = event.pattern_match.group(1)
     message = f"SYNTAX: `{hl}barcode <long text to include>`"
@@ -139,16 +139,16 @@ async def _(event):
         )
         os.remove(filename)
     except Exception as e:
-        await d3vilevent.edit(str(e))
+        await mafiaevent.edit(str(e))
         return
     end = datetime.datetime.now()
     ms = (end - start).seconds
     await hellevent.edit("Created BarCode in {} seconds🤓".format(ms))
     await asyncio.sleep(5)
-    await d3vilevent.delete()
+    await mafiaevent.delete()
 
 
-@bot.on(d3vil_cmd(pattern=r"makeqr(?: |$)([\s\S]*)", outgoing=True))
+@bot.on(mafia_cmd(pattern=r"makeqr(?: |$)([\s\S]*)", outgoing=True))
 @bot.on(sudo_cmd(pattern=r"makeqr(?: |$)([\s\S]*)", allow_sudo=True))
 async def make_qr(makeqr):
     input_str = makeqr.pattern_match.group(1)
@@ -187,14 +187,14 @@ async def make_qr(makeqr):
     await makeqr.delete()
 
 
-@bot.on(d3vil_cmd(pattern="cal (.*)"))
+@bot.on(mafia_cmd(pattern="cal (.*)"))
 @bot.on(sudo_cmd(pattern="cal (.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
     start = datetime.datetime.now()
     input_str = event.pattern_match.group(1)
-    d3vil = await eor(event, "Processing...")
+    mafia = await eor(event, "Processing...")
     input_sgra = input_str.split(".")
     if len(input_sgra) == 3:
         yyyy = input_sgra[0]
@@ -211,14 +211,14 @@ async def _(event):
             a = json.dumps(current_date_detail_arraays, sort_keys=True, indent=4)
         else:
             a = response_content["error"]
-        await d3vil.edit(str(a))
+        await mafia.edit(str(a))
     else:
-        await eod(d3vil, f"SYNTAX: {hl}calendar YYYY.MM.DD")
+        await eod(mafia, f"SYNTAX: {hl}calendar YYYY.MM.DD")
     end = datetime.datetime.now()
     (end - start).seconds
 
 
-@bot.on(d3vil_cmd(pattern="currency (.*)"))
+@bot.on(mafia_cmd(pattern="currency (.*)"))
 @bot.on(sudo_cmd(pattern="currency (.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -255,7 +255,7 @@ async def _(event):
         )
 
 
-@bot.on(d3vil_cmd(pattern="currencies$"))
+@bot.on(mafia_cmd(pattern="currencies$"))
 @bot.on(sudo_cmd(pattern="currencies$", allow_sudo=True))
 async def currencylist(ups):
     if ups.fwd_from:
@@ -269,7 +269,7 @@ async def currencylist(ups):
     await eor(ups, f"**List of some currencies:**\n{hmm}\n")
 
 
-@bot.on(d3vil_cmd(pattern="ifsc (.*)"))
+@bot.on(mafia_cmd(pattern="ifsc (.*)"))
 @bot.on(sudo_cmd(pattern="ifsc (.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -286,7 +286,7 @@ async def _(event):
         await eor(event, "`{}`: {}".format(input_str, r.text))
 
 
-@bot.on(d3vil_cmd(pattern="color (.*)"))
+@bot.on(mafia_cmd(pattern="color (.*)"))
 @bot.on(sudo_cmd(pattern="color (.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -305,7 +305,7 @@ async def _(event):
             return False
         else:
             im = Image.new(mode="RGB", size=(1280, 720), color=usercolor)
-            im.save("d3vil.png", "PNG")
+            im.save("mafia.png", "PNG")
             input_str = input_str.replace("#", "#COLOR_")
             await event.client.send_file(
                 event.chat_id,
@@ -314,7 +314,7 @@ async def _(event):
                 caption=input_str,
                 reply_to=message_id,
             )
-            os.remove("d3vil.png")
+            os.remove("mafia.png")
             await event.delete()
     else:
         await eod(
@@ -322,12 +322,12 @@ async def _(event):
         )
 
 
-@bot.on(d3vil_cmd(pattern="xkcd ?(.*)"))
+@bot.on(mafia_cmd(pattern="xkcd ?(.*)"))
 @bot.on(sudo_cmd(pattern="xkcd ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
-    d3vilevent = await eor(event, "`processiong...`")
+    mafiaevent = await eor(event, "`processiong...`")
     input_str = event.pattern_match.group(1)
     xkcd_id = None
     if input_str:
@@ -364,11 +364,11 @@ Month: {}
 Year: {}""".format(
             img, input_str, xkcd_link, safe_title, alt, day, month, year
         )
-        await d3vilevent.edit(output_str, link_preview=True)
+        await mafiaevent.edit(output_str, link_preview=True)
     else:
-        await eod(d3vilevent, "xkcd n.{} not found!".format(xkcd_id))
+        await eod(mafiaevent, "xkcd n.{} not found!".format(xkcd_id))
 
-@bot.on(d3vil_cmd(pattern="dns (.*)", outgoing=True))
+@bot.on(mafia_cmd(pattern="dns (.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern="dns (.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -382,7 +382,7 @@ async def _(event):
         await eod(event, "i can't seem to find [this link]({}) on the internet".format(input_str, link_preview=False))
 
 
-@bot.on(d3vil_cmd(pattern="url (.*)", outgoing=True))
+@bot.on(mafia_cmd(pattern="url (.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern="url (.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -396,7 +396,7 @@ async def _(event):
         await eod(event, "something is wrong. please try again later.")
 
 
-@bot.on(d3vil_cmd(pattern="unshort (.*)", outgoing=True))
+@bot.on(mafia_cmd(pattern="unshort (.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern="unshort (.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:

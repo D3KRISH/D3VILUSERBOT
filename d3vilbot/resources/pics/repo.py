@@ -1,5 +1,5 @@
-from d3vilbot.config import Config
-from d3vilbot.helpers import *
+from mafiabot.config import Config
+from mafiabot.helpers import *
 
 Chakka = "You"
 Print(f"Teri vhen ki .....")

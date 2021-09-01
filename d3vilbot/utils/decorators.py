@@ -16,13 +16,13 @@ from telethon import events
 from telethon.tl.functions.channels import GetParticipantRequest
 from telethon.tl.types import ChannelParticipantAdmin, ChannelParticipantCreator
 
-from d3vilbot import *
-from d3vilbot.helpers import *
-from d3vilbot.config import Config
-from d3vilbot.sql import sudo_sql as s_ql
+from mafiabot import *
+from mafiabot.helpers import *
+from mafiabot.config import Config
+from mafiabot.sql import sudo_sql as s_ql
 
 # admin cmd or normal user cmd
-def d3vil_cmd(pattern=None, command=None, **args):
+def mafia_cmd(pattern=None, command=None, **args):
     args["func"] = lambda e: e.via_bot_id is None
     stack = inspect.stack()
     previous_stack_frame = stack[1]
@@ -43,10 +43,10 @@ def d3vil_cmd(pattern=None, command=None, **args):
                 CMD_LIST.update({file_test: [cmd]})
         else:
             if len(Config.HANDLER) == 2:
-                d3vilreg = "^" + Config.HANDLER
+                mafiareg = "^" + Config.HANDLER
                 reg = Config.HANDLER[1]
             elif len(Config.HANDLER) == 1:
-                d3vilreg = "^\\" + Config.HANDLER
+                mafiareg = "^\\" + Config.HANDLER
                 reg = Config.HANDLER
             args["pattern"] = re.compile(hellreg + pattern)
             if command is not None:
@@ -111,10 +111,10 @@ def sudo_cmd(pattern=None, command=None, **args):
                 SUDO_LIST.update({file_test: [cmd]})
         else:
             if len(Config.SUDO_HANDLER) == 2:
-                d3vilreg = "^" + Config.SUDO_HANDLER
+                mafiareg = "^" + Config.SUDO_HANDLER
                 reg = Config.SUDO_HANDLER[1]
             elif len(Config.SUDO_HANDLER) == 1:
-                d3vilreg = "^\\" + Config.SUDO_HANDLER
+                mafiareg = "^\\" + Config.SUDO_HANDLER
                 reg = Config.HANDLER
             args["pattern"] = re.compile(hellreg + pattern)
             if command is not None:

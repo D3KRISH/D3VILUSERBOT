@@ -16,10 +16,10 @@ from telethon import events
 from telethon.tl.functions.channels import GetParticipantRequest
 from telethon.tl.types import ChannelParticipantAdmin, ChannelParticipantCreator
 
-from d3vilbot import *
-from d3vilbot.config import Config
-from d3vilbot.helpers import *
-from d3vilbot.utils import *
+from mafiabot import *
+from mafiabot.config import Config
+from mafiabot.helpers import *
+from mafiabot.utils import *
 
 async def reply_id(event):
     reply_to_id = None

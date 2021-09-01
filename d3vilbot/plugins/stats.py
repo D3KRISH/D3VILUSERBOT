@@ -7,14 +7,14 @@ from telethon.tl.types import Channel, Chat, User
 from . import *
 
 
-@bot.on(d3vil_cmd(pattern="stats$"))
+@bot.on(mafia_cmd(pattern="stats$"))
 @bot.on(sudo_cmd(pattern="stats$", allow_sudo=True))
 async def stats(
     event: NewMessage.Event,
 ) -> None:  # pylint: disable = R0912, R0914, R0915
     if event.fwd_from:
         return
-    d3vil = await edit_or_reply(event, "`Collecting stats...`")
+    mafia = await edit_or_reply(event, "`Collecting stats...`")
     start_time = time.time()
     private_chats = 0
     bots = 0
@@ -83,7 +83,7 @@ async def stats(
     response += (
         f"📌 𝙵𝚁𝙾𝙼 𝚃𝙷𝙴 𝙳𝙰𝚃𝙰𝙱𝙰𝚂𝙴 𝙾𝙵 :-\n[『ℓεgεη∂αяү αғ тεαм 𝙳3vιℓ』](t.me/D3VIL_SUPPORT)\n\n"
     )
-    await d3vil.edit(response)
+    await mafia.edit(response)
 
 
 def make_mention(user):

@@ -25,31 +25,31 @@ except:
 
 from . import *
 
-@bot.on(d3vil_cmd(pattern="lyrics(?: |$)(.*)", outgoing=True))
+@bot.on(mafia_cmd(pattern="lyrics(?: |$)(.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern="lyrics(?: |$)(.*)", allow_sudo=True))
-async def nope(d3vilkrish):
-    d3vil = d3vilkrish.pattern_match.group(1)
-    await eor(d3vilkrish, f"Searching lyrics for  `{d3vil}` ...")
-    if not d3vil:
-        if d3vilkrish.is_reply:
-            (await d3vilkrish.get_reply_message()).message
+async def nope(mafiakrish):
+    mafia = mafiakrish.pattern_match.group(1)
+    await eor(mafiakrish, f"Searching lyrics for  `{mafia}` ...")
+    if not mafia:
+        if mafiakrish.is_reply:
+            (await mafiakrish.get_reply_message()).message
         else:
-            await eod(d3vilkrish, "Give song name to get lyrics...")
+            await eod(mafiakrish, "Give song name to get lyrics...")
             return
 
     troll = await bot.inline_query("iLyricsBot", f"{(deEmojify(hell))}")
 
     await troll[0].click(
         kraken.chat_id,
-        reply_to=d3vilkrish.reply_to_msg_id,
-        silent=True if d3vilkrish.is_reply else False,
+        reply_to=mafiakrish.reply_to_msg_id,
+        silent=True if mafiakrish.is_reply else False,
         hide_via=True,
     )
 
-    await d3vilkrish.delete()
+    await mafiakrish.delete()
     
 
-@bot.on(d3vil_cmd(pattern="song(?: |$)(.*)", outgoing=True))
+@bot.on(mafia_cmd(pattern="song(?: |$)(.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern="song(?: |$)(.*)", allow_sudo=True))
 async def download_video(v_url):
     lazy = v_url
@@ -171,7 +171,7 @@ async def download_video(v_url):
         await rkp.delete()
 
 
-@bot.on(d3vil_cmd(pattern="vsong(?: |$)(.*)", outgoing=True))
+@bot.on(mafia_cmd(pattern="vsong(?: |$)(.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern="vsong(?: |$)(.*)", allow_sudo=True))
 async def download_video(v_url):
     lazy = v_url

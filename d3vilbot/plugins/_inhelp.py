@@ -17,9 +17,9 @@ from telethon.tl.functions.messages import ExportChatInviteRequest
 
 from . import *
 
-d3vil_row = Config.BUTTONS_IN_HELP
-d3vil_emoji = Config.EMOJI_IN_HELP
-d3vil_pic = Config.PMPERMIT_PIC or "https://telegra.ph/file/8051c5b5bede6954ad9ed.jpg"
+mafia_row = Config.BUTTONS_IN_HELP
+mafia_emoji = Config.EMOJI_IN_HELP
+mafia_pic = Config.PMPERMIT_PIC or "https://telegra.ph/file/8051c5b5bede6954ad9ed.jpg"
 cstm_pmp = Config.CUSTOM_PMPERMIT
 ALV_PIC = Config.ALIVE_PIC
 
@@ -43,7 +43,7 @@ USER_BOT_WARN_ZERO = "Enough Of Your Flooding In My Master's PM!! \n\n**🚫 Blo
 HELL_FIRST = (
     "**🔥 D3víℓẞø† Prîvã†é Sêçürïty Prø†öçõl 🔥**\n\nThis is to inform you that "
     "{} is currently unavailable.\nThis is an automated message.\n\n"
-    "{}\n\n**Please Choose Why You Are Here!!**".format(d3vil_mention, mssge))
+    "{}\n\n**Please Choose Why You Are Here!!**".format(mafia_mention, mssge))
 
 alive_txt = """
 **⚜️ D3víℓвσт ιѕ σиℓιиє ⚜️**
@@ -58,7 +58,7 @@ alive_txt = """
 """
 
 def button(page, modules):
-    Row = d3vil_row
+    Row = mafia_row
     Column = 3
 
     modules = sorted([modul for modul in modules if not modul.startswith("_")])
@@ -71,7 +71,7 @@ def button(page, modules):
     for pairs in pairs[page]:
         buttons.append(
             [
-                custom.Button.inline(f"{d3vil_emoji} " + pair + f" {d3vil_emoji}", data=f"Information[{page}]({pair})")
+                custom.Button.inline(f"{mafia_emoji} " + pair + f" {mafia_emoji}", data=f"Information[{page}]({pair})")
                 for pair in pairs
             ]
         )
@@ -79,13 +79,13 @@ def button(page, modules):
     buttons.append(
         [
             custom.Button.inline(
-               f"◀️ Back {d3vil_emoji}", data=f"page({(max_pages - 1) if page == 0 else (page - 1)})"
+               f"◀️ Back {mafia_emoji}", data=f"page({(max_pages - 1) if page == 0 else (page - 1)})"
             ),
             custom.Button.inline(
                f"• ❌ •", data="close"
             ),
             custom.Button.inline(
-               f"{d3vil_emoji} Next ▶️", data=f"page({0 if page == (max_pages - 1) else page + 1})"
+               f"{mafia_emoji} Next ▶️", data=f"page({0 if page == (max_pages - 1) else page + 1})"
             ),
         ]
     )
@@ -99,7 +99,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
         builder = event.builder
         result = None
         query = event.text
-        if event.query.user_id == bot.uid and query == "d3vilbot_help":
+        if event.query.user_id == bot.uid and query == "mafiabot_help":
             rev_text = query[::-1]
             veriler = button(0, sorted(CMD_HELP))
             apn = []
@@ -108,15 +108,15 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                     apn.append(y)
             result = await builder.article(
                 f"Hey! Only use .help please",
-                text=f"🔰 **{d3vil_mention}**\n\n📜 __No.of Plugins__ : `{len(CMD_HELP)}` \n🗂️ __Commands__ : `{len(apn)}`\n🗒️ __Page__ : 1/{veriler[0]}",
+                text=f"🔰 **{mafia_mention}**\n\n📜 __No.of Plugins__ : `{len(CMD_HELP)}` \n🗂️ __Commands__ : `{len(apn)}`\n🗒️ __Page__ : 1/{veriler[0]}",
                 buttons=veriler[1],
                 link_preview=False,
             )
         elif event.query.user_id == bot.uid and query.startswith("fsub"):
             hunter = event.pattern_match.group(1)
-            d3vil = hunter.split("+")
-            user = await bot.get_entity(int(d3vil[0]))
-            channel = await bot.get_entity(int(d3vil[1]))
+            mafia = hunter.split("+")
+            user = await bot.get_entity(int(mafia[0]))
+            channel = await bot.get_entity(int(mafia[1]))
             msg = f"**👋 Welcome** [{user.first_name}](tg://user?id={user.id}), \n\n**📍 You need to Join** {channel.title} **to chat in this group.**"
             if not channel.username:
                 link = (await bot(ExportChatInviteRequest(channel))).link
@@ -134,9 +134,9 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             ]
 
         elif event.query.user_id == bot.uid and query == "alive":
-            d3_vil = alive_txt.format(Config.ALIVE_MSG, tel_ver, d3vil_ver, uptime, abuse_m, is_sudo)
+            d3_vil = alive_txt.format(Config.ALIVE_MSG, tel_ver, mafia_ver, uptime, abuse_m, is_sudo)
             alv_btn = [
-                [Button.url(f"{D3VIL_USER}", f"tg://openmessage?user_id={d3vilkrish}")],
+                [Button.url(f"{D3VIL_USER}", f"tg://openmessage?user_id={mafiakrish}")],
                 [Button.url("My Channel", f"https://t.me/{my_channel}"), 
                 Button.url("My Group", f"https://t.me/{my_group}")],
             ]
@@ -164,9 +164,9 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 )
 
         elif event.query.user_id == bot.uid and query == "pm_warn":
-            d3_vil = D3VIL_FIRST.format(d3vil_mention, mssge)
+            d3_vil = D3VIL_FIRST.format(mafia_mention, mssge)
             result = builder.photo(
-                file=d3vil_pic,
+                file=mafia_pic,
                 text=d3_vil,
                 buttons=[
                     [
@@ -229,7 +229,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
         else:
             await event.edit(
-                f"🔰 This is D3vιℓвσт PM Security for {d3vil_mention} to keep away unwanted retards from spamming PM..."
+                f"🔰 This is D3vιℓвσт PM Security for {mafia_mention} to keep away unwanted retards from spamming PM..."
             )
 
     @tgbot.on(callbackquery.CallbackQuery(data=compile(b"req")))
@@ -239,14 +239,14 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
         else:
             await event.edit(
-                f"✅ **Request Registered** \n\n{d3vil_mention} will now decide to look for your request or not.\n😐 Till then wait patiently and don't spam!!"
+                f"✅ **Request Registered** \n\n{mafia_mention} will now decide to look for your request or not.\n😐 Till then wait patiently and don't spam!!"
             )
             target = await event.client(GetFullUserRequest(event.query.user_id))
             first_name = html.escape(target.user.first_name)
             ok = event.query.user_id
             if first_name is not None:
                 first_name = first_name.replace("\u2060", "")
-            tosend = f"**👀 Hey {d3vil_mention} !!** \n\n⚜️ You Got A Request From [{first_name}](tg://user?id={ok}) In PM!!"
+            tosend = f"**👀 Hey {mafia_mention} !!** \n\n⚜️ You Got A Request From [{first_name}](tg://user?id={ok}) In PM!!"
             await bot.send_message(LOG_GP, tosend)
 
 
@@ -258,14 +258,14 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
         else:
             await event.edit(
-                f"Ahh!! You here to do chit-chat!!\n\nPlease wait for {d3vil_mention} to come. Till then keep patience and don't spam."
+                f"Ahh!! You here to do chit-chat!!\n\nPlease wait for {mafia_mention} to come. Till then keep patience and don't spam."
             )
             target = await event.client(GetFullUserRequest(event.query.user_id))
             ok = event.query.user_id
             first_name = html.escape(target.user.first_name)
             if first_name is not None:
                 first_name = first_name.replace("\u2060", "")
-            tosend = f"**👀 Hey {d3vil_mention} !!** \n\n⚜️ You Got A PM from  [{first_name}](tg://user?id={ok})  for random chats!!"
+            tosend = f"**👀 Hey {mafia_mention} !!** \n\n⚜️ You Got A PM from  [{first_name}](tg://user?id={ok})  for random chats!!"
             await bot.send_message(LOG_GP, tosend)
 
 
@@ -320,7 +320,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                     for y in x:
                         apn.append(y)
                 await event.edit(
-                    f"🔰 **{d3vil_mention}**\n\n📜 __No.of Plugins__ : `{len(CMD_HELP)}` \n🗂️ __Commands__ : `{len(apn)}`\n🗒️ __Page__ : 1/{veriler[0]}",
+                    f"🔰 **{mafia_mention}**\n\n📜 __No.of Plugins__ : `{len(CMD_HELP)}` \n🗂️ __Commands__ : `{len(apn)}`\n🗒️ __Page__ : 1/{veriler[0]}",
                     buttons=simp[1],
                     link_preview=False,
                 )
@@ -333,7 +333,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
     async def on_plug_in_callback_query_handler(event):
         if event.query.user_id == bot.uid or event.query.user_id in Config.SUDO_USERS:
             veriler = custom.Button.inline(f"{hell_emoji} Re-Open Menu {hell_emoji}", data="reopen")
-            await event.edit(f"**⚜️ ∂3vιℓвσт Mêñû Prõvîdêr ìs ñôw Çlösëd ⚜️**\n\n**Bot Of :**  {d3vil_mention}\n\n        [©️ ∂3vιℓвσт ™️]({chnl_link})", buttons=veriler, link_preview=False)
+            await event.edit(f"**⚜️ ∂3vιℓвσт Mêñû Prõvîdêr ìs ñôw Çlösëd ⚜️**\n\n**Bot Of :**  {mafia_mention}\n\n        [©️ ∂3vιℓвσт ™️]({chnl_link})", buttons=veriler, link_preview=False)
         else:
             reply_pop_up_alert = "Hoo gya aapka. Kabse tapar tapar dabae jaa rhe h. Khudka bna lo na agr chaiye to. © ∂3vιℓвσт ™"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
@@ -349,7 +349,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 apn.append(y)
         if event.query.user_id == bot.uid or event.query.user_id in Config.SUDO_USERS:
             await event.edit(
-                f"🔰 **{d3vil_mention}**\n\n📜 __No.of Plugins__ : `{len(CMD_HELP)}`\n🗂️ __Commands__ : `{len(apn)}`\n🗒️ __Page__ : {page + 1}/{veriler[0]}",
+                f"🔰 **{mafia_mention}**\n\n📜 __No.of Plugins__ : `{len(CMD_HELP)}`\n🗂️ __Commands__ : `{len(apn)}`\n🗒️ __Page__ : {page + 1}/{veriler[0]}",
                 buttons=veriler[1],
                 link_preview=False,
             )

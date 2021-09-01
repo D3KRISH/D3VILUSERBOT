@@ -16,16 +16,16 @@ from telethon import events
 from telethon.tl.functions.channels import GetParticipantRequest
 from telethon.tl.types import ChannelParticipantAdmin, ChannelParticipantCreator
 
-from d3vilbot import *
-from d3vilbot.helpers import *
-from d3vilbot.config import *
-from d3vilbot.utils import *
+from mafiabot import *
+from mafiabot.helpers import *
+from mafiabot.config import *
+from mafiabot.utils import *
 
 
 # ENV
 ENV = bool(os.environ.get("ENV", False))
 if ENV:
-    from d3vilbot.config import Config
+    from mafiabot.config import Config
 else:
     if os.path.exists("Config.py"):
         from Config import Development as Config
@@ -38,17 +38,17 @@ def load_module(shortname):
     elif shortname.endswith("_"):
         import hellbot.utils
 
-        path = Path(f"d3vilbot/plugins/{shortname}.py")
-        name = "d3vilbot.plugins.{}".format(shortname)
+        path = Path(f"mafiabot/plugins/{shortname}.py")
+        name = "mafiabot.plugins.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
         LOGS.info("D3vilBot - Successfully imported " + shortname)
     else:
-        import d3vilbot.utils
+        import mafiabot.utils
 
-        path = Path(f"d3vilbot/plugins/{shortname}.py")
-        name = "d3vilbot.plugins.{}".format(shortname)
+        path = Path(f"mafiabot/plugins/{shortname}.py")
+        name = "mafiabot.plugins.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         mod.bot = bot
@@ -56,24 +56,24 @@ def load_module(shortname):
         mod.command = command
         mod.logger = logging.getLogger(shortname)
         # support for uniborg
-        sys.modules["uniborg.util"] = d3vilbot.utils
+        sys.modules["uniborg.util"] = mafiabot.utils
         mod.Config = Config
         mod.borg = bot
-        mod.d3vilbot = bot
+        mod.mafiabot = bot
         mod.edit_or_reply = edit_or_reply
         mod.eor = edit_or_reply
-        mod.delete_d3vil = delete_d3vil
-        mod.eod = delete_d3vil
+        mod.delete_mafia = delete_mafia
+        mod.eod = delete_mafia
         mod.Var = Config
-        mod.admin_cmd = d3vil_cmd
+        mod.admin_cmd = mafia_cmd
         # support for other userbots
-        sys.modules["userbot.utils"] = d3vilbot.utils
-        sys.modules["userbot"] = d3vilbot
+        sys.modules["userbot.utils"] = mafiabot.utils
+        sys.modules["userbot"] = mafiabot
         # support for paperplaneextended
-        sys.modules["userbot.events"] = d3vilbot
+        sys.modules["userbot.events"] = mafiabot
         spec.loader.exec_module(mod)
         # for imports
-        sys.modules["d3vilbot.plugins." + shortname] = mod
+        sys.modules["mafiabot.plugins." + shortname] = mod
         LOGS.info("⚡ ∂3vιℓвσт ⚡ - Successfully Imported " + shortname)
 
 
@@ -86,7 +86,7 @@ def remove_plugin(shortname):
             del LOAD_PLUG[shortname]
 
         except BaseException:
-            name = f"d3vilbot.plugins.{shortname}"
+            name = f"mafiabot.plugins.{shortname}"
 
             for i in reversed(range(len(bot._event_builders))):
                 ev, cb = bot._event_builders[i]

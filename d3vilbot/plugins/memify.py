@@ -12,12 +12,12 @@ from PIL import Image, ImageDraw, ImageEnhance, ImageFont, ImageOps
 from . import *
 
 
-path = "./d3vilmify/"
+path = "./mafiamify/"
 if not os.path.isdir(path):
     os.makedirs(path)
 
 
-@bot.on(d3vil_cmd(pattern="mmf ?(.*)", outgoing=True))
+@bot.on(mafia_cmd(pattern="mmf ?(.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern="mmf ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -30,68 +30,68 @@ async def _(event):
     imgs = await bot.download_media(reply.media, path)
     img = cv2.VideoCapture(imgs) 
     tal, semx = img.read()
-    cv2.imwrite("d3vilkrish.webp", semx)
+    cv2.imwrite("mafiakrish.webp", semx)
     text = event.pattern_match.group(1)
-    webp_file = await draw_meme_text("d3vilkrish.webp", text)
+    webp_file = await draw_meme_text("mafiakrish.webp", text)
     await event.client.send_file(
         event.chat_id, webp_file, reply_to=event.reply_to_msg_id
     )
     await event.delete()
     shutil.rmtree(path)
-    os.remove("d3vil.webp")
+    os.remove("mafia.webp")
     os.remove(webp_file)
 
 
-@bot.on(d3vil_cmd(pattern="mms ?(.*)", outgoing=True))
+@bot.on(mafia_cmd(pattern="mms ?(.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern="mms ?(.*)", allow_sudo=True))
-async def sed(d3vilboy):
-    if d3vilboy.fwd_from:
+async def sed(mafiaboy):
+    if mafiaboy.fwd_from:
         return
-    if not d3vilboy.reply_to_msg_id:
-        await eod(d3vilboy, "You need to reply to an image with .mms` 'text on top' ; 'text on bottom'")
+    if not mafiaboy.reply_to_msg_id:
+        await eod(mafiaboy, "You need to reply to an image with .mms` 'text on top' ; 'text on bottom'")
         return
-    await eor(d3vilboy, "🤪 **Memifying...**")
-    reply = await d3vilboy.get_reply_message()
+    await eor(mafiaboy, "🤪 **Memifying...**")
+    reply = await mafiaboy.get_reply_message()
     imgs = await bot.download_media(reply.media, path)
     img = cv2.VideoCapture(imgs) 
     tal, semx = img.read()
-    cv2.imwrite("d3vilkrish.webp", semx)
-    text = d3vilboy.pattern_match.group(1)
-    photo = await draw_meme("d3vilkrish.webp", text)
-    await d3vilboy.client.send_file(
-        d3vilboy.chat_id, photo, reply_to=d3vilboy.reply_to_msg_id
+    cv2.imwrite("mafiakrish.webp", semx)
+    text = mafiaboy.pattern_match.group(1)
+    photo = await draw_meme("mafiakrish.webp", text)
+    await mafiaboy.client.send_file(
+        mafiaboy.chat_id, photo, reply_to=mafiaboy.reply_to_msg_id
     )
-    await d3vilboy.delete()
+    await mafiaboy.delete()
     shutil.rmtree(path)
-    os.remove("d3vil.webp")
+    os.remove("mafia.webp")
     os.remove(photo)
     
-@bot.on(d3vil_cmd(pattern="doge(?: |$)(.*)", outgoing=True))
+@bot.on(mafia_cmd(pattern="doge(?: |$)(.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern="doge(?: |$)(.*)", allow_sudo=True))
-async def nope(d3vilkrish):
-    d3vil = d3vilkrish.pattern_match.group(1)
-    if not d3vil:
-        if d3vilkrish.is_reply:
-            (await d3vilkrish.get_reply_message()).message
+async def nope(mafiakrish):
+    mafia = mafiakrish.pattern_match.group(1)
+    if not mafia:
+        if mafiakrish.is_reply:
+            (await mafiakrish.get_reply_message()).message
         else:
             if Config.ABUSE == "ON":
-                return await eor(d3vilkrish, "Abe chumtiye kuch likhne ke liye de")
+                return await eor(mafiakrish, "Abe chumtiye kuch likhne ke liye de")
             else:
-                return await eor(d3vilkrish, "Doge need some text to make sticker.")
+                return await eor(mafiakrish, "Doge need some text to make sticker.")
 
-    troll = await bot.inline_query("DogeStickerBot", f"{(deEmojify(d3vil))}")
+    troll = await bot.inline_query("DogeStickerBot", f"{(deEmojify(mafia))}")
     if troll:
-        await d3vilkrish.delete()
+        await mafiakrish.delete()
         d3vl_ = await troll[0].click(Config.LOGGER_ID)
         if d3vl_:
             await bot.send_file(
-                d3vilkrish.chat_id,
+                mafiakrish.chat_id,
                 d3vl_,
                 caption="",
             )
         await d3vl_.delete()
     else:
-     await eod(d3vilkrish, "Error 404:  Not Found")
+     await eod(mafiakrish, "Error 404:  Not Found")
      
     
 CmdHelp("memify").add_command(

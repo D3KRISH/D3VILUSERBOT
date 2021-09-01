@@ -32,7 +32,7 @@ from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
 
-@bot.on(d3vil_cmd(pattern="recognize ?(.*)", outgoing=True))
+@bot.on(mafia_cmd(pattern="recognize ?(.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern="recognize ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -49,7 +49,7 @@ async def _(event):
     if reply_message.sender.bot:
         await eod(event, "Reply to actual users message.")
         return
-    d3vil = await eor(event, "recognizeing this media")
+    mafia = await eor(event, "recognizeing this media")
     async with event.client.conversation(chat) as conv:
         try:
             response = conv.wait_event(
@@ -59,14 +59,14 @@ async def _(event):
             second = await response
         except YouBlockedUserError:
             await event.reply("unblock @Rekognition_Bot and try again")
-            await d3vil.delete()
+            await mafia.delete()
             return
         if second.text.startswith("See next message."):
             response = conv.wait_event(
                 events.NewMessage(incoming=True, from_users=461083923)
             )
             third = await response
-            d3vil = third.message.message
+            mafia = third.message.message
             await eor(event, hell)
             await bot.delete_messages(
             	conv.chat_id, [first.id, second.id, third.id]
@@ -76,7 +76,7 @@ async def _(event):
             await eod(event, "sorry, I couldnt find it")
 
 
-@bot.on(d3vil_cmd(pattern="info ?(.*)", outgoing=True))
+@bot.on(mafia_cmd(pattern="info ?(.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern="info ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -208,19 +208,19 @@ async def get_full_user(event):
                 return None, e
 
 
-@bot.on(d3vil_cmd(pattern="chatinfo(?: |$)(.*)", outgoing=True))
+@bot.on(mafia_cmd(pattern="chatinfo(?: |$)(.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern="chatinfo(?: |$)(.*)", allow_sudo=True))
 async def info(event):
     if event.fwd_from:
         return
-    d3vil = await eor(event, "`Analysing the chat...`")
+    mafia = await eor(event, "`Analysing the chat...`")
     chat = await get_chatinfo(event)
     caption = await fetch_info(chat, event)
     try:
-        await d3vil.edit(caption, parse_mode="html")
+        await mafia.edit(caption, parse_mode="html")
     except Exception as e:
         print("Exception:", e)
-        await eod(d3vil, "`An unexpected error has occurred.`")
+        await eod(mafia, "`An unexpected error has occurred.`")
     return
 
 
@@ -480,7 +480,7 @@ async def fetch_info(chat, event):
     return caption
 
 
-@bot.on(d3vil_cmd(pattern=r"users ?(.*)", outgoing=True))
+@bot.on(mafia_cmd(pattern=r"users ?(.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern=r"users ?(.*)", allow_sudo=True))
 async def get_users(show):
     if show.fwd_from:
@@ -529,7 +529,7 @@ async def get_users(show):
         remove("userslist.txt")
 
 
-@bot.on(d3vil_cmd(pattern="admins ?(.*)"))
+@bot.on(mafia_cmd(pattern="admins ?(.*)"))
 @bot.on(sudo_cmd(pattern="admins ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -582,7 +582,7 @@ async def _(event):
     await event.delete()
 
 
-@bot.on(d3vil_cmd(pattern="bots ?(.*)"))
+@bot.on(mafia_cmd(pattern="bots ?(.*)"))
 @bot.on(sudo_cmd(pattern="bots ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -615,30 +615,30 @@ async def _(event):
     await event.edit(mentions)
     
     
-@bot.on(d3vil_cmd(pattern="id$"))
+@bot.on(mafia_cmd(pattern="id$"))
 @bot.on(sudo_cmd(pattern="id$", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
-    d3vil = await eor(event, "Fetching Ids...")
+    mafia = await eor(event, "Fetching Ids...")
     if event.reply_to_msg_id:
         await event.get_input_chat()
         r_msg = await event.get_reply_message()
         if r_msg.media:
             bot_api_file_id = pack_bot_file_id(r_msg.media)
-            await d3vil.edit(
+            await mafia.edit(
                 "🔸 **Current Chat ID:** `{}`\n\n🔰 **From User ID:** `{}`\n\n🤖 **Bot API File ID:** `{}`".format(
                     str(event.chat_id), str(r_msg.sender_id), bot_api_file_id
                 )
             )
         else:
-            await d3vil.edit(
+            await mafia.edit(
                 "🔸 **Current Chat ID:** `{}`\n\n🔰 **From User ID:** `{}`".format(
                     str(event.chat_id), str(r_msg.sender_id)
                 )
             )
     else:
-        await d3vil.edit("🔸 **Current Chat ID:** `{}`".format(str(event.chat_id)))
+        await mafia.edit("🔸 **Current Chat ID:** `{}`".format(str(event.chat_id)))
 
 
 CmdHelp("infos").add_command(

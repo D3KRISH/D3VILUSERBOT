@@ -10,7 +10,7 @@ from telethon.tl.types import InputMessagesFilterDocument
 from . import *
 
 
-@bot.on(d3vil_cmd(pattern=r"cmds"))
+@bot.on(mafia_cmd(pattern=r"cmds"))
 @bot.on(sudo_cmd(pattern=r"cmds", allow_sudo=True))
 async def kk(event):
     if event.fwd_from:
@@ -18,8 +18,8 @@ async def kk(event):
     reply_to_id = event.message.id
     if event.reply_to_msg_id:
         reply_to_id = event.reply_to_msg_id
-    cmd = "ls d3vilbot/plugins"
-    thumb = d3vil_logo
+    cmd = "ls mafiabot/plugins"
+    thumb = mafia_logo
     process = await asyncio.create_subprocess_shell(
         cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
     )
@@ -27,7 +27,7 @@ async def kk(event):
     o = stdout.decode()
     _o = o.split("\n")
     o = "\n".join(_o)
-    OUTPUT = f"List of Plugins in bot :- \n\n{o}\n\n<><><><><><><><><><><><><><><><><><><><><><><><>\nHELP:- If you want to know the commands for a plugin, do :- \n.plinfo <plugin name> without the < > brackets. \nJoin {d3vil_grp} for help."
+    OUTPUT = f"List of Plugins in bot :- \n\n{o}\n\n<><><><><><><><><><><><><><><><><><><><><><><><>\nHELP:- If you want to know the commands for a plugin, do :- \n.plinfo <plugin name> without the < > brackets. \nJoin {mafia_grp} for help."
     if len(OUTPUT) > 69:
         with io.BytesIO(str.encode(OUTPUT)) as out_file:
             out_file.name = "cmd_list.text"
@@ -43,16 +43,16 @@ async def kk(event):
             await event.delete()
 
 
-@bot.on(d3vil_cmd(pattern=r"send (?P<shortname>\w+)", outgoing=True))
+@bot.on(mafia_cmd(pattern=r"send (?P<shortname>\w+)", outgoing=True))
 @bot.on(sudo_cmd(pattern=r"send (?P<shortname>\w+)", allow_sudo=True))
 async def send(event):
     if event.fwd_from:
         return
     message_id = event.message.id
-    thumb = d3vil_logo
+    thumb = mafia_logo
     input_str = event.pattern_match.group(1)
-    omk = f"**• Plugin name ≈** `{input_str}`\n**• Uploaded by ≈** {d3vil_mention}\n\n⚡ **[ℓεgεη∂αяү αғ ∂3vιℓвσт]({chnl_link})** ⚡"
-    the_plugin_file = "./d3vilbot/plugins/{}.py".format(input_str)
+    omk = f"**• Plugin name ≈** `{input_str}`\n**• Uploaded by ≈** {mafia_mention}\n\n⚡ **[ℓεgεη∂αяү αғ ∂3vιℓвσт]({chnl_link})** ⚡"
+    the_plugin_file = "./mafiabot/plugins/{}.py".format(input_str)
     if os.path.exists(the_plugin_file):
         lauda = await event.client.send_file(
             event.chat_id,
@@ -68,7 +68,7 @@ async def send(event):
         await eod(event, "File not found..... Kek")
 
 
-@bot.on(d3vil_cmd(pattern="install$", outgoing=True))
+@bot.on(mafia_cmd(pattern="install$", outgoing=True))
 @bot.on(sudo_cmd(pattern="install$", allow_sudo=True))
 async def install(event):
     if event.fwd_from:
@@ -82,7 +82,7 @@ async def install(event):
         try:
             downloaded_file_name = await event.client.download_media(  # pylint:disable=E0602
                 await event.get_reply_message(),
-                "./d3vilbot/plugins/"  # pylint:disable=E0602
+                "./mafiabot/plugins/"  # pylint:disable=E0602
             )
             if "(" not in downloaded_file_name:
                 path1 = Path(downloaded_file_name)
@@ -100,7 +100,7 @@ async def install(event):
                             a = "__Installing...__"
                             b = 1
                         await eor(event, a)
-                    return await eor(event, f"✅ **Installed module** :- `{shortname}` \n✨ BY :- {d3vil_mention}\n\n{string}\n\n        ⚡ **[ℓεgεη∂αяү αғ ∂3vιℓвσт]({chnl_link})** ⚡", link_preview=False)
+                    return await eor(event, f"✅ **Installed module** :- `{shortname}` \n✨ BY :- {mafia_mention}\n\n{string}\n\n        ⚡ **[ℓεgεη∂αяү αғ ∂3vιℓвσт]({chnl_link})** ⚡", link_preview=False)
                 return await eor(event, f"Installed module `{os.path.basename(downloaded_file_name)}`")
             else:
                 os.remove(downloaded_file_name)
@@ -109,22 +109,22 @@ async def install(event):
             await eod(event, f"**Failed to Install** \n`Error`\n{str(e)}")
             return os.remove(downloaded_file_name)
 
-@bot.on(d3vil_cmd(pattern=r"uninstall (?P<shortname>\w+)", outgoing=True))
+@bot.on(mafia_cmd(pattern=r"uninstall (?P<shortname>\w+)", outgoing=True))
 @bot.on(sudo_cmd(pattern=r"uninstall (?P<shortname>\w+)", allow_sudo=True))
 async def uninstall(kraken):
     if kraken.fwd_from:
         return
-    shortname = d3vilkrish.pattern_match["shortname"]
-    dir_path =f"./d3vilbot/plugins/{shortname}.py"
+    shortname = mafiakrish.pattern_match["shortname"]
+    dir_path =f"./mafiabot/plugins/{shortname}.py"
     try:
         remove_plugin(shortname)
         os.remove(dir_path)
-        await eod(d3vilkrish, f"Uninstalled `{shortname}` successfully")
+        await eod(mafiakrish, f"Uninstalled `{shortname}` successfully")
     except OSError as e:
         await kraken.edit("Error: %s : %s" % (dir_path, e.strerror))
 
 
-@bot.on(d3vil_cmd(pattern=r"unload (?P<shortname>\w+)$"))
+@bot.on(mafia_cmd(pattern=r"unload (?P<shortname>\w+)$"))
 @bot.on(sudo_cmd(pattern=r"unload (?P<shortname>\w+)$", allow_sudo=True))
 async def unload(event):
     if event.fwd_from:
@@ -141,7 +141,7 @@ async def unload(event):
         )
 
 
-@bot.on(d3vil_cmd(pattern=r"load (?P<shortname>\w+)$"))
+@bot.on(mafia_cmd(pattern=r"load (?P<shortname>\w+)$"))
 @bot.on(sudo_cmd(pattern=r"load (?P<shortname>\w+)$", allow_sudo=True))
 async def load(event):
     if event.fwd_from:

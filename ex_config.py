@@ -1,7 +1,7 @@
 # EDIT THIS FILE AND RENAME TO config.py TO MAKE THIS BOT WORKING
 # FILL THESE VALUES ACCORDINGLY.
 
-from d3vil_config import Config
+from mafia_config import Config
 
 class Development(Config):
   # get these values from my.telegram.org. 

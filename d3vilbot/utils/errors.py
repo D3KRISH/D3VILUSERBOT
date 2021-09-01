@@ -16,9 +16,9 @@ from telethon import events
 from telethon.tl.functions.channels import GetParticipantRequest
 from telethon.tl.types import ChannelParticipantAdmin, ChannelParticipantCreator
 
-from d3vilbot import *
-from d3vilbot.helpers import *
-from d3vilbot.config import Config
+from mafiabot import *
+from mafiabot.helpers import *
+from mafiabot.config import Config
 
 
 # this shit handles errors

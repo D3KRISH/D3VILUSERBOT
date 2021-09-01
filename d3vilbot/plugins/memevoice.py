@@ -8,47 +8,47 @@ from . import *
 # So please dont remove credit. 
 #now this plugin in D3VIL USERBOT
 
-@bot.on(d3vil_cmd(pattern="mev(?: |$)(.*)", outgoing=True))
+@bot.on(mafia_cmd(pattern="mev(?: |$)(.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern="mev(?: |$)(.*)", allow_sudo=True))
-async def nope(d3vilkrish):
-    d3vil = d3vilkrish.pattern_match.group(1)
-    if not d3vil:
-        if d3vilkrish.is_reply:
-            (await d3vilkrish.get_reply_message()).message
+async def nope(mafiakrish):
+    mafia = mafiakrish.pattern_match.group(1)
+    if not mafia:
+        if mafiakrish.is_reply:
+            (await mafiakrish.get_reply_message()).message
         else:
             await edit_or_reply(kraken, "`Sir please give some query to search and download it for you..!`"
             )
             return
 
-    troll = await bot.inline_query("TrollVoiceBot", f"{(deEmojify(d3vil))}")
+    troll = await bot.inline_query("TrollVoiceBot", f"{(deEmojify(mafia))}")
     if troll:
-        await d3vilkrish.delete()
+        await mafiakrish.delete()
         d3vl_ = await troll[0].click(Config.LOGGER_ID)
         if d3vl_:
             await bot.send_file(
-                d3vilkrish.chat_id,
+                mafiakrish.chat_id,
                 d3vl_,
                 caption="",
             )
         await d3vl_.delete()
     else:
-    	await eod(d3vilkrish, "**Error 404:**  Not Found")
+    	await eod(mafiakrish, "**Error 404:**  Not Found")
     	
-@bot.on(d3vil_cmd(pattern="meev(?: |$)(.*)", outgoing=True))
+@bot.on(mafia_cmd(pattern="meev(?: |$)(.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern="meev(?: |$)(.*)", allow_sudo=True))
-async def nope(d3vilkrish):
-    d3vil = d3vilkrish.pattern_match.group(1)
-    if not d3vil:
-        if d3vilkrish.is_reply:
-            (await d3vilkrish.get_reply_message()).message
+async def nope(mafiakrish):
+    mafia = mafiakrish.pattern_match.group(1)
+    if not mafia:
+        if mafiakrish.is_reply:
+            (await mafiakrish.get_reply_message()).message
         else:
             await edit_or_reply(kraken, "`Sir please give some query to search and download it for you..!`"
             )
             return
 
-    troll = await bot.inline_query("Myinstantsbot", f"{(deEmojify(d3vil))}")
+    troll = await bot.inline_query("Myinstantsbot", f"{(deEmojify(mafia))}")
     if troll:
-        await d3vilkrish.delete()
+        await mafiakrish.delete()
         d3vl_ = await troll[0].click(Config.LOGGER_ID)
         if d3vl_:
             await bot.send_file(
@@ -58,7 +58,7 @@ async def nope(d3vilkrish):
             )
         await d3vl_.delete()
     else:
-    	await eod(d3vilkrish, "**Error 404:**  Not Found")
+    	await eod(mafiakrish, "**Error 404:**  Not Found")
 
 
 CmdHelp("memevoice").add_command(

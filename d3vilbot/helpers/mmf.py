@@ -15,7 +15,7 @@ async def draw_meme_text(image_path, text):
     os.remove(image_path)
     i_width, i_height = img.size
     m_font = ImageFont.truetype(
-        "d3vilbot/resources/fonts/impact.ttf", int((70 / 640) * i_width)
+        "mafiabot/resources/fonts/impact.ttf", int((70 / 640) * i_width)
     )
     if ";" in text:
         upper_text, lower_text = text.split(";")
@@ -112,7 +112,7 @@ async def draw_meme_text(image_path, text):
             )
             current_h += u_height + pad
 
-    image_name = "d3vil.webp"
+    image_name = "mafia.webp"
     img.save(image_name, "WebP")
     return image_name
 
@@ -122,7 +122,7 @@ async def draw_meme(image_path, text):
     os.remove(image_path)
     i_width, i_height = img.size
     m_font = ImageFont.truetype(
-        "d3vilbot/resources/fonts/impact.ttf", int((70 / 640) * i_width)
+        "mafiabot/resources/fonts/impact.ttf", int((70 / 640) * i_width)
     )
     if ";" in text:
         upper_text, lower_text = text.split(";")

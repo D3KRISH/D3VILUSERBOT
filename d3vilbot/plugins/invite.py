@@ -53,32 +53,32 @@ def user_full_name(user):
     return full_name
 
 
-@bot.on(d3vil_cmd(pattern=r"inviteall ?(.*)"))
+@bot.on(mafia_cmd(pattern=r"inviteall ?(.*)"))
 @bot.on(sudo_cmd(pattern=r"inviteall ?(.*)", allow_sudo=True))
 async def get_users(event):
     sender = await event.get_sender()
     me = await event.client.get_me()
     if not sender.id == me.id:
-        d3vil = await eor(event, "`processing...`")
+        mafia = await eor(event, "`processing...`")
     else:
-        d3vil = await eor(event, "`processing...`")
+        mafia = await eor(event, "`processing...`")
     d3vi_l = event.pattern_match.group(1)
     if d3vi_l == "@D3VIL_BOT_SUPPORT":
-        return await d3vil.edit("Restricted to invite users from there.")
+        return await mafia.edit("Restricted to invite users from there.")
     elif d3vi_l == "@D3VIL_BOT_SUPPORT":
-        return await d3vil.edit("Restricted to invite users from there.")
+        return await mafia.edit("Restricted to invite users from there.")
     elif d3vi_l == "@D3VIL_BOT_SUPPORT":
-        return await d3vil.edit("Restricted to invite users from there.")
-    d3vilkrish = await get_chatinfo(event)
+        return await mafia.edit("Restricted to invite users from there.")
+    mafiakrish = await get_chatinfo(event)
     chat = await event.get_chat()
     if event.is_private:
-        return await d3vil.edit("`Sorry, Cant add users here`")
+        return await mafia.edit("`Sorry, Cant add users here`")
     s = 0
     f = 0
     error = "None"
 
-    await d3vil.edit("**INVITING USERS !!**")
-    async for user in event.client.iter_participants(d3vilkrish.full_chat.id):
+    await mafia.edit("**INVITING USERS !!**")
+    async for user in event.client.iter_participants(mafiakrish.full_chat.id):
         try:
             if error.startswith("Too"):
                 return await hell.edit(
@@ -88,18 +88,18 @@ async def get_users(event):
                 functions.channels.InviteToChannelRequest(channel=chat, users=[user.id])
             )
             s = s + 1
-            await d3vil.edit(
+            await mafia.edit(
                 f"**INVITING USERS.. **\n\n**Invited :**  `{s}` users \n**Failed to Invite :**  `{f}` users.\n\n**×Error :**  `{error}`"
             )
         except Exception as e:
             error = str(e)
             f = f + 1
-    return await d3vil.edit(
+    return await mafia.edit(
         f"**INVITING FINISHED** \n\n**Invited :**  `{s}` users \n**Failed :**  `{f}` users."
     )
 
 
-@bot.on(d3vil_cmd(pattern=r"add ?(.*)"))
+@bot.on(mafia_cmd(pattern=r"add ?(.*)"))
 @bot.on(sudo_cmd(pattern=r"add ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:

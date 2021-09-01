@@ -6,7 +6,7 @@ import urllib3
 from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
 
-from d3vilbot.helpers import runner
+from mafiabot.helpers import runner
 from . import *
 
 
@@ -59,7 +59,7 @@ async def print_changelogs(event, ac_br, changelog):
             event.chat_id,
             "output.txt",
             reply_to=event.id,
-            thumb=d3vil_logo,
+            thumb=mafia_logo,
         )
         os.remove("output.txt")
     else:
@@ -99,7 +99,7 @@ async def update(event, repo, ups_rem, ac_br):
     return
 
 
-@bot.on(d3vil_cmd(outgoing=True, pattern=r"update(| now)$"))
+@bot.on(mafia_cmd(outgoing=True, pattern=r"update(| now)$"))
 @bot.on(sudo_cmd(pattern="update(| now)$", allow_sudo=True))
 async def upstream(event):
     conf = event.pattern_match.group(1).strip()
@@ -151,8 +151,8 @@ async def upstream(event):
     if changelog == "" and not force_update:
         await event.edit(
             "\n**😎 ∂3vιℓвσт is UP-TO-DATE.**"
-            f"\n\n**Version :**  {d3vil_ver}"
-            f"\n**Owner :**  {d3vil_mention}"
+            f"\n\n**Version :**  {mafia_ver}"
+            f"\n**Owner :**  {mafia_mention}"
             f"\n**Git Branch :**  {UPSTREAM_REPO_BRANCH}\n"
         )
         return repo.__del__()
@@ -216,19 +216,19 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
             )
             await asyncio.sleep(5)
             return await event.delete()
-        await event.edit(f"**Your  ∂3vιℓвσт Is UpToDate**\n\n**Version :**  __{d3vil_ver}__\n**Oɯɳҽɾ :**  {d3vil_mention}")
+        await event.edit(f"**Your  ∂3vιℓвσт Is UpToDate**\n\n**Version :**  __{mafia_ver}__\n**Oɯɳҽɾ :**  {mafia_mention}")
     else:
         await event.edit("**Please set up**  `HEROKU_API_KEY`  **from heroku to update!**")
     return
 
 
-@bot.on(d3vil_cmd(outgoing=True, pattern=r"update build$"))
+@bot.on(mafia_cmd(outgoing=True, pattern=r"update build$"))
 @bot.on(sudo_cmd(pattern="update build$", allow_sudo=True))
 async def upstream(event):
     event = await edit_or_reply(event, "`Hard-Update In Progress... \nPlease wait until docker build is finished...`")
     off_repo = "https://github.com/D3KRISH/THE-D3VILBOT"
     os.chdir("/app")
-    git_d3vil = f"rm -rf .git"
+    git_mafia = f"rm -rf .git"
     try:
         await runner.runcmd(git_hell)
     except BaseException:

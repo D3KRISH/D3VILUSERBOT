@@ -3,8 +3,8 @@ import re
 
 from telethon import events
 
-from d3vilbot import bot
-from d3vilbot.config import Config
+from mafiabot import bot
+from mafiabot.config import Config
 
 
 # forward check

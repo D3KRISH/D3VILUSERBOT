@@ -12,7 +12,7 @@ CARBONLANG = "auto"
 LANG = "en"
 
 
-@bot.on(d3vil_cmd(outgoing=True, pattern="carbon(?: |$)(.*)"))
+@bot.on(mafia_cmd(outgoing=True, pattern="carbon(?: |$)(.*)"))
 @bot.on(sudo_cmd(pattern="carbon(?: |$)(.*)", allow_sudo=True))
 async def carbon_api(e):
     if e.fwd_from:
@@ -28,7 +28,7 @@ async def carbon_api(e):
         pcode = str(textx.message)  # Importing message to module
     pcode = deEmojify(pcode)
     code = quote_plus(pcode)  # Converting to urlencoded
-    d3vil = await edit_or_reply(e, "`Carbonizing...\n25%`")
+    mafia = await edit_or_reply(e, "`Carbonizing...\n25%`")
     url = CARBON.format(code=code, lang=CARBONLANG)
     chrome_options = Options()
     chrome_options.add_argument("--headless")
@@ -43,7 +43,7 @@ async def carbon_api(e):
         executable_path=Config.CHROME_DRIVER, options=chrome_options
     )
     driver.get(url)
-    await d3vil.edit("`Be Patient...\n50%`")
+    await mafia.edit("`Be Patient...\n50%`")
     download_path = "./"
     driver.command_executor._commands["send_command"] = (
         "POST",
@@ -60,9 +60,9 @@ async def carbon_api(e):
     await hell.edit("`Processing..\n75%`")
     # Waiting for downloading
     await asyncio.sleep(2)
-    await d3vil.edit("`Done Dana Done...\n100%`")
+    await mafia.edit("`Done Dana Done...\n100%`")
     file = "./carbon.png"
-    await d3vil.edit("`Uploading..`")
+    await mafia.edit("`Uploading..`")
     await e.client.send_file(
         e.chat_id,
         file,
@@ -73,15 +73,15 @@ async def carbon_api(e):
     os.remove("./carbon.png")
     driver.quit()
     # Removing carbon.png after uploading
-    await d3vil.delete()
+    await mafia.delete()
 
 
-@bot.on(d3vil_cmd(outgoing=True, pattern="krb"))
+@bot.on(mafia_cmd(outgoing=True, pattern="krb"))
 @bot.on(sudo_cmd(pattern="krb", allow_sudo=True))
 async def carbon_api(e):
     if e.fwd_from:
         return
-    d3vil = await edit_or_reply(e, "`Processing....`")
+    mafia = await edit_or_reply(e, "`Processing....`")
     CARBON = "https://carbon.now.sh/?l={lang}&code={code}"
     textx = await e.get_reply_message()
     pcode = e.text
@@ -97,7 +97,7 @@ async def carbon_api(e):
         skeme = None  # Importing message to module
     pcode = deEmojify(pcode)
     code = quote_plus(pcode)  # Converting to urlencoded
-    await d3vil.edit("`Making Carbon...`\n`25%`")
+    await mafia.edit("`Making Carbon...`\n`25%`")
     url = CARBON.format(code=code, lang=CARBONLANG)
     chrome_options = Options()
     chrome_options.add_argument("--headless")
@@ -112,7 +112,7 @@ async def carbon_api(e):
         executable_path=Config.CHROME_DRIVER, options=chrome_options
     )
     driver.get(url)
-    await d3vil.edit("`Be Patient...\n50%`")
+    await mafia.edit("`Be Patient...\n50%`")
     download_path = "./"
     driver.command_executor._commands["send_command"] = (
         "POST",
@@ -157,16 +157,16 @@ async def carbon_api(e):
     )
     os.remove("./carbon.png")
     driver.quit()
-    await d3vil.delete()
+    await mafia.delete()
 
 
-@bot.on(d3vil_cmd(pattern=f"kar1(?: |$)(.*)", outgoing=True))
+@bot.on(mafia_cmd(pattern=f"kar1(?: |$)(.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern="kar1(?: |$)(.*)", allow_sudo=True))
 async def carbon_api(e):
     if e.fwd_from:
         return
     """ A Wrapper for carbon.now.sh """
-    d3vil = await edit_or_reply(e, "🔲🔲🔲🔲🔲")
+    mafia = await edit_or_reply(e, "🔲🔲🔲🔲🔲")
     CARBON = "https://carbon.now.sh/?bg=rgba(249%2C237%2C212%2C0)&t=synthwave-84&wt=none&l=application%2Fjson&ds=true&dsyoff=20px&dsblur=0px&wc=true&wa=true&pv=56px&ph=0px&ln=false&fl=1&fm=IBM%20Plex%20Mono&fs=14.5px&lh=153%25&si=false&es=4x&wm=false&code={code}"
     CARBONLANG = "en"
     textx = await e.get_reply_message()
@@ -186,7 +186,7 @@ async def carbon_api(e):
     chrome_options.add_argument("--disable-gpu")
     prefs = {"download.default_directory": "./"}
     chrome_options.add_experimental_option("prefs", prefs)
-    await d3vil.edit("🔳🔳🔲🔲🔲")
+    await mafia.edit("🔳🔳🔲🔲🔲")
 
     driver = webdriver.Chrome(
         executable_path=Config.CHROME_DRIVER, options=chrome_options
@@ -205,11 +205,11 @@ async def carbon_api(e):
 
     driver.find_element_by_xpath("//button[contains(text(),'Export')]").click()
     await asyncio.sleep(2)
-    await d3vil.edit("🔳🔳🔳🔲🔲")
+    await mafia.edit("🔳🔳🔳🔲🔲")
     await asyncio.sleep(2)
-    await d3vil.edit("🔳🔳🔳🔳🔳")
+    await mafia.edit("🔳🔳🔳🔳🔳")
     file = "./carbon.png"
-    await d3vil.edit("☣️Karbon1 Completed, Uploading Karbon☣️")
+    await mafia.edit("☣️Karbon1 Completed, Uploading Karbon☣️")
     await e.client.send_file(
         e.chat_id,
         file,
@@ -221,13 +221,13 @@ async def carbon_api(e):
     await hell.delete()  # Deleting msg
 
 
-@bot.on(d3vil_cmd(pattern=f"kar2(?: |$)(.*)", outgoing=True))
+@bot.on(mafia_cmd(pattern=f"kar2(?: |$)(.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern="kar2(?: |$)(.*)", allow_sudo=True))
 async def carbon_api(e):
     if e.fwd_from:
         return
     """ A Wrapper for carbon.now.sh """
-    d3vil = await edit_or_reply(e, "📛📛📛📛📛")
+    mafia = await edit_or_reply(e, "📛📛📛📛📛")
     CARBON = "https://carbon.now.sh/?bg=rgba(239%2C40%2C44%2C1)&t=one-light&wt=none&l=application%2Ftypescript&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=true&pv=56px&ph=56px&ln=false&fl=1&fm=Hack&fs=14px&lh=143%25&si=false&es=2x&wm=false&code={code}"
     CARBONLANG = "en"
     textx = await e.get_reply_message()
@@ -247,7 +247,7 @@ async def carbon_api(e):
     chrome_options.add_argument("--disable-gpu")
     prefs = {"download.default_directory": "./"}
     chrome_options.add_experimental_option("prefs", prefs)
-    await d3vil.edit("🔘🔘📛📛📛")
+    await mafia.edit("🔘🔘📛📛📛")
     driver = webdriver.Chrome(
         executable_path=Config.CHROME_DRIVER, options=chrome_options
     )
@@ -264,11 +264,11 @@ async def carbon_api(e):
     driver.execute("send_command", params)
     driver.find_element_by_xpath("//button[contains(text(),'Export')]").click()
     await asyncio.sleep(2)
-    await d3vil.edit("🔘🔘🔘📛📛")
+    await mafia.edit("🔘🔘🔘📛📛")
     await asyncio.sleep(2)  # Waiting for downloading
-    await d3vil.edit("🔘🔘🔘🔘🔘")
+    await mafia.edit("🔘🔘🔘🔘🔘")
     file = "./carbon.png"
-    await d3vil.edit("☣️Karbon2 Completed, Uploading Karbon☣️")
+    await mafia.edit("☣️Karbon2 Completed, Uploading Karbon☣️")
     await e.client.send_file(
         e.chat_id,
         file,
@@ -279,16 +279,16 @@ async def carbon_api(e):
 
     os.remove("./carbon.png")
     # Removing carbon.png after uploading
-    await d3vil.delete()  # Deleting msg
+    await mafia.delete()  # Deleting msg
 
 
-@bot.on(d3vil_cmd(pattern=f"kar3(?: |$)(.*)", outgoing=True))
+@bot.on(mafia_cmd(pattern=f"kar3(?: |$)(.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern="kar3(?: |$)(.*)", allow_sudo=True))
 async def carbon_api(e):
     if e.fwd_from:
         return
     """ A Wrapper for carbon.now.sh """
-    d3vil = await edit_or_reply(e, "🎛🎛🎛🎛🎛")
+    mafia = await edit_or_reply(e, "🎛🎛🎛🎛🎛")
     CARBON = "https://carbon.now.sh/?bg=rgba(74%2C144%2C226%2C1)&t=material&wt=none&l=auto&ds=false&dsyoff=20px&dsblur=68px&wc=true&wa=true&pv=56px&ph=56px&ln=false&fl=1&fm=Fira%20Code&fs=14px&lh=152%25&si=false&es=2x&wm=false&code={code}"
     CARBONLANG = "en"
     textx = await e.get_reply_message()
@@ -308,7 +308,7 @@ async def carbon_api(e):
     chrome_options.add_argument("--disable-gpu")
     prefs = {"download.default_directory": "./"}
     chrome_options.add_experimental_option("prefs", prefs)
-    await d3vil.edit("🔵🔵🎛🎛🎛")
+    await mafia.edit("🔵🔵🎛🎛🎛")
 
     driver = webdriver.Chrome(
         executable_path=Config.CHROME_DRIVER, options=chrome_options
@@ -327,13 +327,13 @@ async def carbon_api(e):
 
     driver.find_element_by_xpath("//button[contains(text(),'Export')]").click()
     await asyncio.sleep(2)
-    await d3vil.edit("🔵🔵🔵🎛🎛")
+    await mafia.edit("🔵🔵🔵🎛🎛")
     # driver.find_element_by_xpath("//button[contains(text(),'PNG')]").click()
     await asyncio.sleep(2)  # Waiting for downloading
 
-    await d3vil.edit("🔵🔵🔵🔵🔵")
+    await mafia.edit("🔵🔵🔵🔵🔵")
     file = "./carbon.png"
-    await d3vil.edit("☣️Karbon3 Completed, Uploading Karbon⬆️")
+    await mafia.edit("☣️Karbon3 Completed, Uploading Karbon⬆️")
     await e.client.send_file(
         e.chat_id,
         file,
@@ -344,16 +344,16 @@ async def carbon_api(e):
 
     os.remove("./carbon.png")
     # Removing carbon.png after uploading
-    await d3vil.delete()  # Deleting msg
+    await mafia.delete()  # Deleting msg
 
 
-@bot.on(d3vil_cmd(pattern=f"kar4(?: |$)(.*)", outgoing=True))
+@bot.on(mafia_cmd(pattern=f"kar4(?: |$)(.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern="kar4(?: |$)(.*)", allow_sudo=True))
 async def carbon_api(e):
     if e.fwd_from:
         return
     """ A Wrapper for carbon.now.sh """
-    d3vil = await edit_or_reply(e, "🌚🌚🌚🌚🌚")
+    mafia = await edit_or_reply(e, "🌚🌚🌚🌚🌚")
     CARBON = "https://carbon.now.sh/?bg=rgba(29%2C40%2C104%2C1)&t=one-light&wt=none&l=application%2Ftypescript&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=true&pv=56px&ph=56px&ln=false&fl=1&fm=Hack&fs=14px&lh=143%25&si=false&es=2x&wm=false&code={code}"
     CARBONLANG = "en"
     textx = await e.get_reply_message()
@@ -373,7 +373,7 @@ async def carbon_api(e):
     chrome_options.add_argument("--disable-gpu")
     prefs = {"download.default_directory": "./"}
     chrome_options.add_experimental_option("prefs", prefs)
-    await d3vil.edit("🌝🌝🌚🌚🌚")
+    await mafia.edit("🌝🌝🌚🌚🌚")
 
     driver = webdriver.Chrome(
         executable_path=Config.CHROME_DRIVER, options=chrome_options
@@ -396,9 +396,9 @@ async def carbon_api(e):
     # driver.find_element_by_xpath("//button[contains(text(),'PNG')]").click()
     await asyncio.sleep(2)  # Waiting for downloading
 
-    await d3vil.edit("🌝🌝🌝🌝🌝")
+    await mafia.edit("🌝🌝🌝🌝🌝")
     file = "./carbon.png"
-    await d3vil.edit("✅Karbon4 Completed, Uploading Karbon✅")
+    await mafia.edit("✅Karbon4 Completed, Uploading Karbon✅")
     await e.client.send_file(
         e.chat_id,
         file,
@@ -409,10 +409,10 @@ async def carbon_api(e):
 
     os.remove("./carbon.png")
     # Removing carbon.png after uploading
-    await d3vil.delete()  # Deleting msg
+    await mafia.delete()  # Deleting msg
 
 
-@bot.on(d3vil_cmd(pattern=f"rgbk2(?: |$)(.*)", outgoing=True))
+@bot.on(mafia_cmd(pattern=f"rgbk2(?: |$)(.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern="rgbk2(?: |$)(.*)", allow_sudo=True))
 async def carbon_api(e):
     if e.fwd_from:
@@ -421,7 +421,7 @@ async def carbon_api(e):
     GREEN = random.randint(0, 256)
     BLUE = random.randint(0, 256)
     OPC = random.random()
-    d3vil = await edit_or_reply(e, "⬜⬜⬜⬜⬜")
+    mafia = await edit_or_reply(e, "⬜⬜⬜⬜⬜")
     CARBON = "https://carbon.now.sh/?bg=rgba({R}%2C{G}%2C{B}%2C{O})&t=material&wt=none&l=auto&ds=false&dsyoff=20px&dsblur=68px&wc=true&wa=true&pv=56px&ph=56px&ln=false&fl=1&fm=Fira%20Code&fs=14px&lh=152%25&si=false&es=2x&wm=false&code={code}"
     CARBONLANG = "en"
     textx = await e.get_reply_message()
@@ -441,7 +441,7 @@ async def carbon_api(e):
     chrome_options.add_argument("--disable-gpu")
     prefs = {"download.default_directory": "./"}
     chrome_options.add_experimental_option("prefs", prefs)
-    await d3vil.edit("⬛⬛⬜⬜⬜")
+    await mafia.edit("⬛⬛⬜⬜⬜")
 
     driver = webdriver.Chrome(
         executable_path=Config.CHROME_DRIVER, options=chrome_options
@@ -462,13 +462,13 @@ async def carbon_api(e):
     await asyncio.sleep(2)  # this might take a bit.
     # driver.find_element_by_xpath("//button[contains(text(),'4x')]").click()
     # await asyncio.sleep(5)
-    await d3vil.edit("⬛⬛⬛⬜⬜")
+    await mafia.edit("⬛⬛⬛⬜⬜")
     # driver.find_element_by_xpath("//button[contains(text(),'PNG')]").click()
     await asyncio.sleep(2)  # Waiting for downloading
 
-    await d3vil.edit("⬛⬛⬛⬛⬛")
+    await mafia.edit("⬛⬛⬛⬛⬛")
     file = "./carbon.png"
-    await d3vil.edit("✅RGB Karbon 2.0 Completed, Uploading Karbon✅")
+    await mafia.edit("✅RGB Karbon 2.0 Completed, Uploading Karbon✅")
     await e.client.send_file(
         e.chat_id,
         file,
@@ -478,10 +478,10 @@ async def carbon_api(e):
     )
     os.remove("./carbon.png")
     # Removing carbon.png after uploading
-    await d3vil.delete()  # Deleting msg
+    await mafia.delete()  # Deleting msg
 
 
-@bot.on(d3vil_cmd(pattern=f"kargb(?: |$)(.*)", outgoing=True))
+@bot.on(mafia_cmd(pattern=f"kargb(?: |$)(.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern="kargb(?: |$)(.*)", allow_sudo=True))
 async def carbon_api(e):
     if e.fwd_from:
@@ -522,7 +522,7 @@ async def carbon_api(e):
     ]
     CUNTHE = random.randint(0, len(THEME) - 1)
     The = THEME[CUNTHE]
-    d3vil = await edit_or_reply(e, "⬜⬜⬜⬜⬜")
+    mafia = await edit_or_reply(e, "⬜⬜⬜⬜⬜")
     CARBON = "https://carbon.now.sh/?bg=rgba({R}%2C{G}%2C{B}%2C1)&t={T}&wt=none&l=auto&ds=false&dsyoff=20px&dsblur=68px&wc=true&wa=true&pv=56px&ph=56px&ln=false&fl=1&fm=Fira%20Code&fs=14px&lh=152%25&si=false&es=2x&wm=false&code={code}"
     CARBONLANG = "en"
     textx = await e.get_reply_message()
@@ -542,7 +542,7 @@ async def carbon_api(e):
     chrome_options.add_argument("--disable-gpu")
     prefs = {"download.default_directory": "./"}
     chrome_options.add_experimental_option("prefs", prefs)
-    await d3vil.edit("⬛⬛⬜⬜⬜")
+    await mafia.edit("⬛⬛⬜⬜⬜")
 
     driver = webdriver.Chrome(
         executable_path=Config.CHROME_DRIVER, options=chrome_options
@@ -567,7 +567,7 @@ async def carbon_api(e):
     await asyncio.sleep(2)  # Waiting for downloading
     await hell.edit("⬛⬛⬛⬛⬛")
     file = "./carbon.png"
-    await d3vil.edit("✅RGB Karbon Completed, Uploading Karbon✅")
+    await mafia.edit("✅RGB Karbon Completed, Uploading Karbon✅")
     await e.client.send_file(
         e.chat_id,
         file,
@@ -576,7 +576,7 @@ async def carbon_api(e):
         reply_to=e.message.reply_to_msg_id,
     )
     os.remove("./carbon.png")
-    await d3vil.delete()  # Deleting msg
+    await mafia.delete()  # Deleting msg
 
 
 CmdHelp("carbon").add_command(

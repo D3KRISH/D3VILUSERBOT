@@ -8,45 +8,45 @@ from telethon.errors.rpcerrorlist import BotMethodInvalidError as dedbot
 from . import *
 
 #-------------------------------------------------------------------------------
-d3vil_pic = Config.ALIVE_PIC or "https://telegra.ph/file/5abfcff75e1930dcdfaf3.mp4"
+mafia_pic = Config.ALIVE_PIC or "https://telegra.ph/file/5abfcff75e1930dcdfaf3.mp4"
 alive_c = f"__**🔥🔥∂3vιℓвσт ɨs αℓιvε🔥🔥**__\n\n"
-alive_c += f"__↼ Øwñêr ⇀__ : 『 {d3vil_mention} 』\n\n"
+alive_c += f"__↼ Øwñêr ⇀__ : 『 {mafia_mention} 』\n\n"
 alive_c += f"•♦• Telethon     :  `{tel_ver}` \n"
-alive_c += f"•♦• D3vιℓẞø†       :  __**{d3vil_ver}**__\n"
+alive_c += f"•♦• D3vιℓẞø†       :  __**{mafia_ver}**__\n"
 alive_c += f"•♦• Sudo            :  `{is_sudo}`\n"
-alive_c += f"•♦• Channel      :  {d3vil_channel}\n"
+alive_c += f"•♦• Channel      :  {mafia_channel}\n"
 alive_c += f"•♦• creator      :[∂3vιℓ кяιsн](
 #-------------------------------------------------------------------------------
 
-@bot.on(d3vil_cmd(outgoing=True, pattern="alive$"))
+@bot.on(mafia_cmd(outgoing=True, pattern="alive$"))
 @bot.on(sudo_cmd(pattern="alive$", allow_sudo=True))
 async def up(hell):
     if hell.fwd_from:
         return
-    await d3vil.get_chat()
-    await d3vil.delete()
-    await bot.send_file(d3vil.chat_id, d3vil_pic, caption=alive_c)
-    await d3vil.delete()
+    await mafia.get_chat()
+    await mafia.delete()
+    await bot.send_file(mafia.chat_id, mafia_pic, caption=alive_c)
+    await mafia.delete()
 
 msg = f"""
 **⚡ D3vιℓвσт ιѕ σиℓιиє ⚡**
 {Config.ALIVE_MSG}
 **🏅 𝙱𝚘𝚝 𝚂𝚝𝚊𝚝𝚞𝚜 🏅**
 **Telethon :**  `{tel_ver}`
-**D3vιℓẞø†  :**  **{d3vil_ver}**
+**D3vιℓẞø†  :**  **{mafia_ver}**
 **Uptime   :**  `{uptime}`
 **Abuse    :**  **{abuse_m}**
 **Sudo      :**  **{is_sudo}**
 """
 botname = Config.BOT_USERNAME
 
-@bot.on(d3vil_cmd(pattern="d3vil$"))
-@bot.on(sudo_cmd(pattern="d3vil$", allow_sudo=True))
+@bot.on(mafia_cmd(pattern="mafia$"))
+@bot.on(sudo_cmd(pattern="mafia$", allow_sudo=True))
 async def hell_a(event):
     try:
-        d3vil = await bot.inline_query(botname, "alive")
-        await d3vil[0].click(event.chat_id)
-        if event.sender_id == d3vilkrish:
+        mafia = await bot.inline_query(botname, "alive")
+        await mafia[0].click(event.chat_id)
+        if event.sender_id == mafiakrish:
             await event.delete()
     except (noin, dedbot):
         await eor(event, msg)
@@ -55,7 +55,7 @@ async def hell_a(event):
 CmdHelp("alive").add_command(
   "alive", None, "Shows the Default Alive Message"
 ).add_command(
-  "d3vil", None, "Shows Inline Alive Menu with more details."
+  "mafia", None, "Shows Inline Alive Menu with more details."
 ).add_warning(
   "✅ Harmless Module"
 ).add()

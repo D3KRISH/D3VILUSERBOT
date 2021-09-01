@@ -3,7 +3,7 @@ from telethon.errors.rpcerrorlist import YouBlockedUserError
 
 from . import *
 
-@bot.on(d3vil_cmd(pattern="circle ?(.*)"))
+@bot.on(mafia_cmd(pattern="circle ?(.*)"))
 @bot.on(sudo_cmd(pattern="circle ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -20,7 +20,7 @@ async def _(event):
     if reply_message.sender.bot:
         await edit_or_reply(event, "Reply to actual users message.")
         return
-    d3vilkrish = await edit_or_reply(event, "Trying to convert...")
+    mafiakrish = await edit_or_reply(event, "Trying to convert...")
     async with event.client.conversation(chat) as conv:
         try:
             response = conv.wait_event(
@@ -29,18 +29,18 @@ async def _(event):
             await event.client.send_message(chat, reply_message)
             response = await response
         except YouBlockedUserError:
-            await d3vilkrish.edit("```Please unblock @TelescopyBot and try again```")
+            await mafiakrish.edit("```Please unblock @TelescopyBot and try again```")
             return
         if response.text.startswith("Send me square Video"):
-            await d3vilkrish.edit(
+            await mafiakrish.edit(
                 "Currently only square videos are converted into circle video..."
             )
         elif response.text.startswith("File is too big!"):
-            await d3vilkrish.edit(
+            await mafiakrish.edit(
                 "File size more than 8mb. Reply to a square video less than 8mb."
             )
         else:
-            await d3vilkrish.delete()
+            await mafiakrish.delete()
             await event.client.send_file(
                 event.chat_id,
                 response.message.media,

@@ -3,7 +3,7 @@ from PyDictionary import PyDictionary
 
 from . import *
 
-@bot.on(d3vil_cmd(pattern="ud (.*)"))
+@bot.on(mafia_cmd(pattern="ud (.*)"))
 @bot.on(sudo_cmd(pattern="ud (.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:

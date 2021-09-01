@@ -7,15 +7,15 @@ import telethon.utils
 from telethon import TelegramClient
 from telethon.tl.functions.channels import InviteToChannelRequest, JoinChannelRequest
 
-from d3vilbot import LOGS, bot, tbot
-from d3vilbot.config import Config
-from d3vilbot.utils import load_module
-from d3vilbot.version import __d3vil__ as d3vilver
+from mafiabot import LOGS, bot, tbot
+from mafiabot.config import Config
+from mafiabot.utils import load_module
+from mafiabot.version import __mafia__ as mafiaver
 hl = Config.HANDLER
 D3VIL_PIC = Config.ALIVE_PIC or "https://telegra.ph/file/5abfcff75e1930dcdfaf3.mp4"
 
 # let's get the bot ready
-async def d3vil_bot(bot_token):
+async def mafia_bot(bot_token):
     try:
         await bot.start(bot_token)
         bot.me = await bot.get_me()
@@ -38,7 +38,7 @@ else:
             ).start(bot_token=Config.BOT_TOKEN)
             LOGS.info("Checking Completed. Proceeding to next step...")
             LOGS.info("⚡ 𝐒𝐓𝐀𝐑𝐓𝐈𝐍𝐆 𝐃3𝐕𝐈𝐋𝐁𝐎𝐓⚡")
-            bot.loop.run_until_complete(d3vil_bot(Config.BOT_USERNAME))
+            bot.loop.run_until_complete(mafia_bot(Config.BOT_USERNAME))
             LOGS.info("⚔️ 𝐃3𝐕𝐈𝐋𝐁𝐎𝐓 𝐒𝐭𝐚𝐫𝐭𝐮𝐩 𝐂𝐨𝐦𝐩𝐥𝐞𝐭𝐞𝐝 ⚔️")
         else:
             bot.start()
@@ -63,7 +63,7 @@ for name in files:
 #     except BaseException:
 #         pass
 #     LOGS.info("Installing Extra Plugins")
-#     path = "d3vilbot/plugins/*.py"
+#     path = "mafiabot/plugins/*.py"
 #     files = glob.glob(path)
 #     for name in files:
 #         with open(name) as ex:
@@ -80,13 +80,13 @@ LOGS.info(
 )
 
 # that's life...
-async def d3vil_is_on():
+async def mafia_is_on():
     try:
         if Config.LOGGER_ID != 0:
             await bot.send_file(
                 Config.LOGGER_ID,
                 D3VIL_PIC,
-                caption=f"𝐃𝐞𝐩𝐥𝐨𝐲𝐞𝐝 𝐔𝐬𝐞𝐫𝐛𝐨𝐭 𝐒𝐮𝐜𝐜𝐞𝐬𝐬𝐟𝐮𝐥𝐥𝐲\n\n**𝔡3𝔳𝔦𝔩𝔟𝔬𝔱 - {d3vilver}**\n\n𝐓𝐲𝐩𝐞 `{hl}ping` or `{hl}alive` 𝐭𝐨 𝐜𝐡𝐞𝐜𝐤! \n\nJoin [𝔡3𝔳𝔦𝔩𝔲𝔰𝔢𝔯𝔅𝔬𝔱](t.me/D3VIL_SUPPORT) for Updates & [𝔇3𝔳𝔦𝔩𝔲𝔰𝔢𝔯𝔅𝔬𝔱 𝔠𝔥𝔞𝔱](t.me/D3VIL_BOT_SUPPORT) 𝐟𝐨𝐫 𝐚𝐧𝐲 𝐪𝐮𝐞𝐫𝐲 𝐫𝐞𝐠𝐚𝐫𝐝𝐢𝐧𝐠 𝔡3𝔳𝔦𝔩𝔅𝔬𝔱",
+                caption=f"𝐃𝐞𝐩𝐥𝐨𝐲𝐞𝐝 𝐔𝐬𝐞𝐫𝐛𝐨𝐭 𝐒𝐮𝐜𝐜𝐞𝐬𝐬𝐟𝐮𝐥𝐥𝐲\n\n**𝔡3𝔳𝔦𝔩𝔟𝔬𝔱 - {mafiaver}**\n\n𝐓𝐲𝐩𝐞 `{hl}ping` or `{hl}alive` 𝐭𝐨 𝐜𝐡𝐞𝐜𝐤! \n\nJoin [𝔡3𝔳𝔦𝔩𝔲𝔰𝔢𝔯𝔅𝔬𝔱](t.me/D3VIL_SUPPORT) for Updates & [𝔇3𝔳𝔦𝔩𝔲𝔰𝔢𝔯𝔅𝔬𝔱 𝔠𝔥𝔞𝔱](t.me/D3VIL_BOT_SUPPORT) 𝐟𝐨𝐫 𝐚𝐧𝐲 𝐪𝐮𝐞𝐫𝐲 𝐫𝐞𝐠𝐚𝐫𝐝𝐢𝐧𝐠 𝔡3𝔳𝔦𝔩𝔅𝔬𝔱",
             )
     except Exception as e:
         LOGS.info(str(e))
@@ -98,7 +98,7 @@ async def d3vil_is_on():
         pass
 
 
-bot.loop.create_task(d3vil_is_on())
+bot.loop.create_task(mafia_is_on())
 
 if len(sys.argv) not in (1, 3, 4):
     bot.disconnect()

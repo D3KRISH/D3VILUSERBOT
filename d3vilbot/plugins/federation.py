@@ -9,12 +9,12 @@ logs_id = Config.FBAN_LOG_GROUP
 fbot = "@MissRose_bot"
 
 
-@bot.on(d3vil_cmd(pattern="newfed ?(.*)", outgoing=True))
+@bot.on(mafia_cmd(pattern="newfed ?(.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern="newfed ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
-    d3vil_input = event.pattern_match.group(1)
+    mafia_input = event.pattern_match.group(1)
     chat = "@MissRose_Bot"
     await eor(event, "`Making new fed...`")
     async with bot.conversation(chat) as conv:
@@ -22,7 +22,7 @@ async def _(event):
             response = conv.wait_event(
                 events.NewMessage(incoming=True, from_users=609517172)
             )
-            await event.client.send_message(chat, f"/newfed {d3vil_input}")
+            await event.client.send_message(chat, f"/newfed {mafia_input}")
             response = await response
         except YouBlockedUserError:
             await eod(event, "`Please unblock` @MissRose_Bot `and try again`")
@@ -35,12 +35,12 @@ async def _(event):
             await eod(event, f"{response.message.message}", 7)
 
 
-@bot.on(d3vil_cmd(pattern="renamefed ?(.*)"))
+@bot.on(mafia_cmd(pattern="renamefed ?(.*)"))
 @bot.on(sudo_cmd(pattern="renamefed ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return 
-    d3vil_input = event.pattern_match.group(1)
+    mafia_input = event.pattern_match.group(1)
     chat = "@MissRose_Bot"
     await event.edit("`Trying to rename your fed...`")
     async with event.client.conversation(chat) as conv:
@@ -56,13 +56,13 @@ async def _(event):
              await event.client.send_message(event.chat_id, response.message)
 
 
-@bot.on(d3vil_cmd(pattern="fstat ?(.*)"))
+@bot.on(mafia_cmd(pattern="fstat ?(.*)"))
 @bot.on(sudo_cmd(pattern="fstat ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
-    d3vil = await eor(event, "`Collecting fstat....`")
-    thumb = d3vil_logo
+    mafia = await eor(event, "`Collecting fstat....`")
+    thumb = mafia_logo
     if event.reply_to_msg_id:
         previous_message = await event.get_reply_message()
         lavde = str(previous_message.sender_id)
@@ -71,7 +71,7 @@ async def _(event):
         lavde = event.pattern_match.group(1)
         user = lavde
     if lavde == "":
-        await d3vil.edit(
+        await mafia.edit(
             "`Need username/id to check fstat`"
         )
         return
@@ -85,10 +85,10 @@ async def _(event):
                 await bot.send_message(event.chat_id, response)
                 await event.delete()
             except YouBlockedUserError:
-                await d3vil.edit("`Please Unblock` @MissRose_Bot")
+                await mafia.edit("`Please Unblock` @MissRose_Bot")
 
 
-@bot.on(d3vil_cmd(pattern="fedinfo ?(.*)"))
+@bot.on(mafia_cmd(pattern="fedinfo ?(.*)"))
 @bot.on(sudo_cmd(pattern="fedinfo ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -103,7 +103,7 @@ async def _(event):
             massive = await conv.get_response()
             await hell.edit(massive.text + "\n\n**ʟɛɢɛռɖaʀʏ_ᴀғ_ɦɛʟʟɮօt**")
         except YouBlockedUserError:
-            await d3vil.edit("`Please Unblock` @MissRose_Bot")
+            await mafia.edit("`Please Unblock` @MissRose_Bot")
             
             
 CmdHelp("federation").add_command(

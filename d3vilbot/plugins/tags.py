@@ -4,14 +4,14 @@ from telethon.utils import get_display_name
 from . import *
 
 
-@bot.on(d3vil_cmd(pattern=r"tag(all|bots|admins)?(.*)"))
+@bot.on(mafia_cmd(pattern=r"tag(all|bots|admins)?(.*)"))
 @bot.on(sudo_cmd(pattern=r"tag(all|bots|admins)?(.*)", allow_sudo=True))
 async def tag(event):
     text = event.text
-    d3vil = event.pattern_match.group(2)
+    mafia = event.pattern_match.group(2)
     part = 0
-    if d3vil:
-        users = f"{d3vil}"
+    if mafia:
+        users = f"{mafia}"
     else:
         users = ""
     async for members in event.client.iter_partcipants(event.chat_id, 99):

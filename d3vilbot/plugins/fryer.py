@@ -9,7 +9,7 @@ from telethon.tl.types import DocumentAttributeFilename
 from . import *
 
 
-@bot.on(d3vil_cmd(pattern="frybot$"))
+@bot.on(mafia_cmd(pattern="frybot$"))
 @bot.on(sudo_cmd(pattern="frybot$", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -54,7 +54,7 @@ async def _(event):
         await event.delete()
 
 
-@bot.on(d3vil_cmd(pattern=r"fry(?: |$)(.*)", outgoing=True))
+@bot.on(mafia_cmd(pattern=r"fry(?: |$)(.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern=r"fry(?: |$)(.*)", allow_sudo=True))
 async def deepfryer(event):
     try:

@@ -2,12 +2,12 @@ from telethon.tl.functions.messages import SaveDraftRequest
 
 from . import *
 
-@bot.on(d3vil_cmd(pattern="chain$"))
+@bot.on(mafia_cmd(pattern="chain$"))
 @bot.on(sudo_cmd(pattern="chain$", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
-    d3vil = await eor(event, "Counting...")
+    mafia = await eor(event, "Counting...")
     count = -1
     message = event.message
     while message:
@@ -20,7 +20,7 @@ async def _(event):
             )
         message = reply
         count += 1
-    await d3vil.edit(f"⛓️ **Chain length :**  `{count}`")
+    await mafia.edit(f"⛓️ **Chain length :**  `{count}`")
 
 
 CmdHelp("chain").add_command(
