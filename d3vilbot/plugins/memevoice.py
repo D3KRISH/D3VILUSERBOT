@@ -1,7 +1,7 @@
 import re
 from . import *
 
-# Credits to @ForGo10God developer of HellBot.
+# Credits to @teammafia developer of HellBot.
 # This is a first plugin of Hellbot owner . He made when he released first HellBot.
 # Modified to work in groups with inline mode disabled.
 # Added error msg if no voice is found.
