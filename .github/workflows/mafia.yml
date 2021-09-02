@@ -18,9 +18,9 @@ jobs:
 
         with:
 
-          find: "hell"
+          find: "HELL"
 
-          replace: "mafia"
+          replace: "MAFIA"
 
       - name: Create Pull Request
 
