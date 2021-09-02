@@ -111,8 +111,8 @@ async def install(event):
 
 @bot.on(mafia_cmd(pattern=r"uninstall (?P<shortname>\w+)", outgoing=True))
 @bot.on(sudo_cmd(pattern=r"uninstall (?P<shortname>\w+)", allow_sudo=True))
-async def uninstall(kraken):
-    if kraken.fwd_from:
+async def uninstall(himanshuop):
+    if himanshuop.fwd_from:
         return
     shortname = himanshu.pattern_match["shortname"]
     dir_path =f"./mafiabot/plugins/{shortname}.py"
@@ -121,7 +121,7 @@ async def uninstall(kraken):
         os.remove(dir_path)
         await eod(himanshu, f"Uninstalled `{shortname}` successfully")
     except OSError as e:
-        await kraken.edit("Error: %s : %s" % (dir_path, e.strerror))
+        await himanshuop.edit("Error: %s : %s" % (dir_path, e.strerror))
 
 
 @bot.on(mafia_cmd(pattern=r"unload (?P<shortname>\w+)$"))

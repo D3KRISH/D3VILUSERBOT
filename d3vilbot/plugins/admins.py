@@ -74,7 +74,7 @@ async def set_group_photo(gpic):
             photo = await gpic.client.download_file(replymsg.media.document)
         else:
             await eor(gpic, INVALID_MEDIA)
-    kraken = None
+    himanshuop = None
     if photo:
         try:
             await gpic.client(
@@ -88,7 +88,7 @@ async def set_group_photo(gpic):
             await eor(gpic, PP_ERROR)
         except Exception as e:
             await eor(gpic, f"**Error : **`{str(e)}`")
-        if kraken:
+        if himanshuop:
             await gpic.client.send_message(
                 lg_id,
                 "#GROUPPIC\n"

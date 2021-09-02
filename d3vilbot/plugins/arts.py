@@ -136,7 +136,7 @@ async def himanshu(deadfrog):
 
 @bot.on(mafia_cmd(pattern="strump (.*)"))
 @bot.on(sudo_cmd(pattern="strump (.*)", allow_sudo=True))
-async def kraken(trumpsay):
+async def himanshuop(trumpsay):
     if trumpsay.fwd_from:
         return
     name = trumpsay.pattern_match.group(1)

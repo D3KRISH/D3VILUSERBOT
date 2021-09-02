@@ -40,7 +40,7 @@ async def nope(himanshu):
     troll = await bot.inline_query("iLyricsBot", f"{(deEmojify(hell))}")
 
     await troll[0].click(
-        kraken.chat_id,
+        himanshuop.chat_id,
         reply_to=himanshu.reply_to_msg_id,
         silent=True if himanshu.is_reply else False,
         hide_via=True,

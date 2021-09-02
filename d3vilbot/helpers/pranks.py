@@ -33,12 +33,12 @@ async def baguette(text):
     r = requests.get(
         f"https://nekobot.xyz/api/imagegen?type=baguette&url={text}"
     ).json()
-    kraken = r.get("message")
-    hellurl = url(kraken)
+    himanshuop = r.get("message")
+    hellurl = url(himanshuop)
     if not hellurl:
         return "check syntax once more"
     with open("temp.png", "wb") as f:
-        f.write(requests.get(kraken).content)
+        f.write(requests.get(himanshuop).content)
     img = Image.open("temp.png").convert("RGB")
     img.save("temp.jpg", "jpeg")
     return "temp.jpg"
@@ -52,7 +52,7 @@ async def threats(text):
     if not mafiaurl:
         return "check syntax once more"
     with open("temp.png", "wb") as f:
-        f.write(requests.get(kraken).content)
+        f.write(requests.get(himanshuop).content)
     img = Image.open("temp.png")
     if img.mode != "RGB":
         img = img.convert("RGB")
@@ -68,7 +68,7 @@ async def lolice(text):
     if not mafiaurl:
         return "check syntax once more"
     with open("temp.png", "wb") as f:
-        f.write(requests.get(kraken).content)
+        f.write(requests.get(himanshuop).content)
     img = Image.open("temp.png")
     if img.mode != "RGB":
         img = img.convert("RGB")
@@ -84,7 +84,7 @@ async def trash(text):
     if not mafiaurl:
         return "check syntax once more"
     with open("temp.png", "wb") as f:
-        f.write(requests.get(kraken).content)
+        f.write(requests.get(himanshuop).content)
     img = Image.open("temp.png")
     if img.mode != "RGB":
         img = img.convert("RGB")
@@ -100,7 +100,7 @@ async def awooify(text):
     if not mafiaurl:
         return "check syntax once more"
     with open("temp.png", "wb") as f:
-        f.write(requests.get(kraken).content)
+        f.write(requests.get(himanshuop).content)
     img = Image.open("temp.png")
     if img.mode != "RGB":
         img = img.convert("RGB")
@@ -136,7 +136,7 @@ async def phcomment(text1, text2, text3):
     if not mafiaurl:
         return "check syntax once more"
     with open("temp.png", "wb") as f:
-        f.write(requests.get(kraken).content)
+        f.write(requests.get(himanshuop).content)
     img = Image.open("temp.png")
     if img.mode != "RGB":
         img = img.convert("RGB")

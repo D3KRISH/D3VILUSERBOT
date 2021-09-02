@@ -3,23 +3,23 @@ from . import *
 
 @bot.on(mafia_cmd(pattern=r"tweet(?: |$)(.*)"))
 @bot.on(sudo_cmd(pattern="tweet(?: |$)(.*)", allow_sudo=True))
-async def nope(kraken):
-    mafia = kraken.pattern_match.group(1)
-    okvai = await eor(kraken, "Trying to tweet for you...")
+async def nope(himanshuop):
+    mafia = himanshuop.pattern_match.group(1)
+    okvai = await eor(himanshuop, "Trying to tweet for you...")
     if not mafia:
-        if kraken.is_reply:
-            (await kraken.get_reply_message()).message
+        if himanshuop.is_reply:
+            (await himanshuop.get_reply_message()).message
         else:
-            await eod(kraken, "I need some text to make a tweet🚶")
+            await eod(himanshuop, "I need some text to make a tweet🚶")
             return
     tweeter = await bot.inline_query("TwitterStatusBot", f"{(deEmojify(hell))}")
     await tweeter[0].click(
-        kraken.chat_id,
-        reply_to=kraken.reply_to_msg_id,
-        silent=True if kraken.is_reply else False,
+        himanshuop.chat_id,
+        reply_to=himanshuop.reply_to_msg_id,
+        silent=True if himanshuop.is_reply else False,
         hide_via=True,
     )
-    await kraken.delete()
+    await himanshuop.delete()
 
 
 @bot.on(mafia_cmd(pattern=r"trump(?: |$)(.*)"))

@@ -16,7 +16,7 @@ async def nope(himanshu):
         if himanshu.is_reply:
             (await himanshu.get_reply_message()).message
         else:
-            await edit_or_reply(kraken, "`Sir please give some query to search and download it for you..!`"
+            await edit_or_reply(himanshuop, "`Sir please give some query to search and download it for you..!`"
             )
             return
 
@@ -42,7 +42,7 @@ async def nope(himanshu):
         if himanshu.is_reply:
             (await himanshu.get_reply_message()).message
         else:
-            await edit_or_reply(kraken, "`Sir please give some query to search and download it for you..!`"
+            await edit_or_reply(himanshuop, "`Sir please give some query to search and download it for you..!`"
             )
             return
 
