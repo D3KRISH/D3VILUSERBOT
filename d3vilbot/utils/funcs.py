@@ -34,7 +34,7 @@ async def is_admin(client, chat_id, user_id):
         return False
     try:
         mafiaboy = await client(GetParticipantRequest(channel=chat_id, user_id=user_id))
-        chat_participant = hellboy.participant
+        chat_participant = d3boy.participant
         if isinstance(
             chat_participant, (ChannelParticipantCreator, ChannelParticipantAdmin)
         ):
