@@ -89,7 +89,7 @@ CmdHelp("spam").add_command(
 ).add_command(
   "dspam", "<delay> <spam count> <text>", "Sends the text 'X' number of times in 'Y' seconds of delay", ".dspam 5 100 Hello"
 ).add_command(
-  "bigspam", "<count> <text>", "Sends the text 'X' number of times. This what hellbot iz known for. The Best BigSpam Ever", ".bigspam 5000 Hello"
+  "bigspam", "<count> <text>", "Sends the text 'X' number of times. This what mafiabot iz known for. The Best BigSpam Ever", ".bigspam 5000 Hello"
 ).add_info(
   "Spammers Commands"
 ).add_warning(

@@ -47,7 +47,7 @@ else:
         sys.exit()
 
 # imports plugins...
-path = "hellbot/plugins/*.py"
+path = "mafiabot/plugins/*.py"
 files = glob.glob(path)
 for name in files:
     with open(name) as f:
