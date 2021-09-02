@@ -24,7 +24,7 @@ async def _(event):
         chrome_options.add_argument("--no-sandbox")
         chrome_options.add_argument("--disable-dev-shm-usage")
         chrome_options.binary_location = Config.GOOGLE_CHROME_BIN
-        await hell.edit("Starting Google Chrome BIN")
+        await mafia.edit("Starting Google Chrome BIN")
         driver = webdriver.Chrome(chrome_options=chrome_options)
         input_str = event.pattern_match.group(1)
         driver.get(input_str)
@@ -56,7 +56,7 @@ async def _(event):
             )
         end = datetime.datetime.now()
         ms = (end - start).seconds
-        await hell.edit(f"Completed screencapture Process in {ms} seconds")
+        await mafia.edit(f"Completed screencapture Process in {ms} seconds")
     except Exception:
         await eod(mafia, traceback.format_exc())
 

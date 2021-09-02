@@ -74,7 +74,7 @@ async def print_changelogs(event, ac_br, changelog):
 async def update_requirements():
     reqs = str(requirements_path)
     try:
-        process = await asyncio.create_subprocess_shell(
+        process = await asyncio.create_subprocess_smafia(
             " ".join([sys.executable, "-m", "pip", "install", "-r", reqs]),
             stdout=asyncio.subprocess.PIPE,
             stderr=asyncio.subprocess.PIPE,
@@ -230,7 +230,7 @@ async def upstream(event):
     os.chdir("/app")
     git_mafia = f"rm -rf .git"
     try:
-        await runner.runcmd(git_hell)
+        await runner.runcmd(git_mafia)
     except BaseException:
         pass
     try:

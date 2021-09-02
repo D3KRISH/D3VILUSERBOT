@@ -48,7 +48,7 @@ def mafia_cmd(pattern=None, command=None, **args):
             elif len(Config.HANDLER) == 1:
                 mafiareg = "^\\" + Config.HANDLER
                 reg = Config.HANDLER
-            args["pattern"] = re.compile(hellreg + pattern)
+            args["pattern"] = re.compile(mafiareg + pattern)
             if command is not None:
                 cmd = reg + command
             else:
@@ -116,7 +116,7 @@ def sudo_cmd(pattern=None, command=None, **args):
             elif len(Config.SUDO_HANDLER) == 1:
                 mafiareg = "^\\" + Config.SUDO_HANDLER
                 reg = Config.HANDLER
-            args["pattern"] = re.compile(hellreg + pattern)
+            args["pattern"] = re.compile(mafiareg + pattern)
             if command is not None:
                 cmd = reg + command
             else:

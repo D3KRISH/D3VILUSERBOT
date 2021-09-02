@@ -23,7 +23,7 @@ async def lg1(mafiaevent):
     	    PICS_STR.append(i)
         pic = random.choice(PICS_STR)
         logo_ = await pic.download_media()
-    text = hellevent.pattern_match.group(1)
+    text = mafiaevent.pattern_match.group(1)
     if len(text) <= 8:
         font_size_ = 150
         strik = 10
@@ -57,7 +57,7 @@ async def lg1(mafiaevent):
     file_name = "D3vilBot.png"
     img.save(file_name, "png")
     await bot.send_file(
-        hellevent.chat_id,
+        mafiaevent.chat_id,
         file_name,
         caption=f"**Made By :** {mafia_mention}\n ©𝔩𝔢𝔤𝔢𝔫𝔡𝔶 𝔞𝔣 𝔡3𝔳𝔦𝔭𝔟𝔬𝔱",
     )

@@ -279,8 +279,8 @@ async def hmm(mafia):
 async def hmm(mafia):
     if mafia.fwd_from:
         return
-    whyhell = nekos.why()
-    await eor(mafia, whyhell)
+    whymafia = nekos.why()
+    await eor(mafia, whymafia)
 
 
 @bot.on(mafia_cmd(pattern="fact$"))
@@ -288,8 +288,8 @@ async def hmm(mafia):
 async def hmm(mafia):
     if mafia.fwd_from:
         return
-    facthell = nekos.fact()
-    await eor(mafia, facthell)
+    factmafia = nekos.fact()
+    await eor(mafia, factmafia)
 
 
 CmdHelp("fun2").add_command(

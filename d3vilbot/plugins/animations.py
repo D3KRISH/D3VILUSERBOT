@@ -462,9 +462,9 @@ async def _(event):
         
 @bot.on(mafia_cmd(pattern="istar$", outgoing=True))
 @bot.on(sudo_cmd(pattern="istar$", allow_sudo=True))
-async def ammastar(hellstar):
+async def ammastar(mafiastar):
   
-    if hellstar.fwd_from:
+    if mafiastar.fwd_from:
       
         return
       
@@ -472,7 +472,7 @@ async def ammastar(hellstar):
     
     animation_ttl = range(0, 11)
     
-    await eor(hellstar, "I am A Star")
+    await eor(mafiastar, "I am A Star")
     
     animation_chars = [
         "I Party like a rockstar",
@@ -486,7 +486,7 @@ async def ammastar(hellstar):
       
         await asyncio.sleep(animation_interval)
         
-        await hellstar.edit(animation_chars[i % 11])
+        await mafiastar.edit(animation_chars[i % 11])
     
         
 @bot.on(mafia_cmd(pattern=r"lmoon", outgoing=True))
@@ -624,7 +624,7 @@ async def _(event):
         name = "die"
     animation_interval = 0.7
     animation_ttl = range(8)
-    event = await eor(event, f"**Ready Commando **__{hell_mention}....")
+    event = await eor(event, f"**Ready Commando **__{mafia_mention}....")
     animation_chars = [
         "Ｆｉｉｉｉｉｒｅ",
         f"__**Commando **__{mafia_mention}          \n\n_/﹋\_\n (҂`_´)\n <,︻╦╤─ ҉ - \n _/﹋\_\n",

@@ -539,12 +539,12 @@ async def bluedevildog(dog):
     await edit_or_reply(dog, J)
 
 
-@bot.on(mafia_cmd(pattern=r"hello$"))
-@bot.on(sudo_cmd(pattern="hello$", allow_sudo=True))
-async def bluedevilhello(hello):
-    if hello.fwd_from:
+@bot.on(mafia_cmd(pattern=r"mafiao$"))
+@bot.on(sudo_cmd(pattern="mafiao$", allow_sudo=True))
+async def bluedevilmafiao(mafiao):
+    if mafiao.fwd_from:
         return
-    await edit_or_reply(hello, K)
+    await edit_or_reply(mafiao, K)
 
 
 @bot.on(mafia_cmd(pattern=r"hmf$"))
@@ -630,7 +630,7 @@ CmdHelp("arts").add_command(
 ).add_command(
   'dog', None, 'Use and see'
 ).add_command(
-  'hello', None, 'Use and see'
+  'mafiao', None, 'Use and see'
 ).add_command(
   'hmf', None, 'Use and see'
 ).add_command(

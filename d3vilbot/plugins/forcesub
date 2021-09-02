@@ -46,7 +46,7 @@ async def on_pm_click(event):
             "You need to join the channel first.", alert=True
         )
     await bot.edit_permissions(
-        event.chat_id, int(hell[0]), send_message=True, until_date=None
+        event.chat_id, int(mafia[0]), send_message=True, until_date=None
     )
     await event.edit("Yay! You can chat now !!")
 """

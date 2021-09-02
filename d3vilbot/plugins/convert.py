@@ -22,7 +22,7 @@ async def _(mafia):
     if mafia.fwd_from:
         return
     reply_to_id = mafia.message.id
-    if hell.reply_to_msg_id:
+    if mafia.reply_to_msg_id:
         reply_to_id = mafia.reply_to_msg_id
     event = await eor(mafia, "Converting.....")
     if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
@@ -54,10 +54,10 @@ async def _(mafia):
 @bot.on(mafia_cmd(pattern="itos$"))
 @bot.on(sudo_cmd(pattern="itos$", allow_sudo=True))
 async def _(mafia):
-    if hell.fwd_from:
+    if mafia.fwd_from:
         return
     reply_to_id = mafia.message.id
-    if hell.reply_to_msg_id:
+    if mafia.reply_to_msg_id:
         reply_to_id = mafia.reply_to_msg_id
     event = await eor(mafia, "Converting.....")
     if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
@@ -72,7 +72,7 @@ async def _(mafia):
             reply_message, downloaded_file_name
         )
         if os.path.exists(downloaded_file_name):
-            caat = await hell.client.send_file(
+            caat = await mafia.client.send_file(
                 event.chat_id,
                 downloaded_file_name,
                 force_document=False,
@@ -155,7 +155,7 @@ async def _(event):
     if event.fwd_from:
         return
     mafiareply = await event.get_reply_message()
-    if not mafiareply or not mafiareply.media or not hellreply.media.document:
+    if not mafiareply or not mafiareply.media or not mafiareply.media.document:
         return await edit_or_reply(event, "`Stupid!, This is not animated sticker.`")
     if mafiareply.media.document.mime_type != "application/x-tgsticker":
         return await edit_or_reply(event, "`Stupid!, This is not animated sticker.`")
@@ -174,8 +174,8 @@ async def _(event):
                 return await mafiaevent.edit("`This file is not supported`")
             mafiaresponse = response if response.media else await conv.get_response()
             await bot.send_read_acknowledge(conv.chat_id)
-            mafiafile = Path(await event.client.download_media(hellresponse, "./temp/"))
-            mafiagif = Path(await unzip(hellfile))
+            mafiafile = Path(await event.client.download_media(mafiaresponse, "./temp/"))
+            mafiagif = Path(await unzip(mafiafile))
             himanshu = await bot.send_file(
                 event.chat_id,
                 mafiagif,
@@ -194,7 +194,7 @@ async def _(event):
                 )
             )
             await mafiaevent.delete()
-            for files in (hellgif, hellfile):
+            for files in (mafiagif, mafiafile):
                 if files and os.path.exists(files):
                     os.remove(files)
         except YouBlockedUserError:

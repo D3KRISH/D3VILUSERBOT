@@ -56,15 +56,15 @@ async def ff_mpeg_trim_cmd(event):
                     reply_message,
                     FF_MPEG_DOWN_LOAD_MEDIA_PATH,
                     progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
-                        progress(d, t, hellevent, c_time, "trying to download")
+                        progress(d, t, mafiaevent, c_time, "trying to download")
                     ),
                 )
             except Exception as e:
-                await hellevent.edit(str(e))
+                await mafiaevent.edit(str(e))
             else:
                 end = datetime.datetime.now()
                 ms = (end - start).seconds
-                await hellevent.edit(
+                await mafiaevent.edit(
                     f"Saved file to `{downloaded_file_name}` in `{ms}` seconds."
                 )
         else:
@@ -117,12 +117,12 @@ async def ff_mpeg_trim_cmd(event):
                 allow_cache=False,
                 reply_to=reply_to_id,
                 progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
-                    progress(d, t, hellevent, c_time, "trying to upload")
+                    progress(d, t, mafiaevent, c_time, "trying to upload")
                 ),
             )
             os.remove(o)
         except Exception as e:
-            return await eod(hellevent, f"**Error : **`{e}`")
+            return await eod(mafiaevent, f"**Error : **`{e}`")
     elif len(cmt) == 2:
         # output should be image
         cmd, start_time = cmt
@@ -151,11 +151,11 @@ async def ff_mpeg_trim_cmd(event):
         except Exception as e:
             return await eod(mafiaevent, f"**Error : **`{e}`")
     else:
-        await eod(hellevent, "RTFM")
+        await eod(mafiaevent, "RTFM")
         return
     end = datetime.datetime.now()
     ms = (end - start).seconds
-    await eod(hellevent, f"`Completed Process in {ms} seconds`", 3)
+    await eod(mafiaevent, f"`Completed Process in {ms} seconds`", 3)
 
 
 @bot.on(mafia_cmd(pattern="atrim"))
@@ -189,7 +189,7 @@ async def ff_mpeg_trim_cmd(event):
         )
         if o is None:
             return await eod(
-                hellevent, f"**Error : **`Can't complete the process`"
+                mafiaevent, f"**Error : **`Can't complete the process`"
             )
         try:
             c_time = time.time()
@@ -202,7 +202,7 @@ async def ff_mpeg_trim_cmd(event):
                 allow_cache=False,
                 reply_to=reply_to_id,
                 progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
-                    progress(d, t, hellevent, c_time, "trying to upload")
+                    progress(d, t, mafiaevent, c_time, "trying to upload")
                 ),
             )
             os.remove(o)

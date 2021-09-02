@@ -94,7 +94,7 @@ async def on_afk(event):
             message_to_reply = (
                 f"**I'm currently AFK!** \n\n**⏰ AFK Since :**  `{total_afk_time}`\n"
                 )
-        msg = await event.reply(message_to_reply, file=hellpic)
+        msg = await event.reply(message_to_reply, file=mafiapic)
         await asyncio.sleep(2)
         if event.chat_id in last_afk_message:  # pylint:disable=E0602
             await last_afk_message[event.chat_id].delete()  # pylint:disable=E0602
@@ -112,7 +112,7 @@ async def _(event):
     global afk_start
     global afk_end
     global reason
-    global hellpic
+    global mafiapic
     USER_AFK = {}
     afk_time = None
     last_afk_message = {}
@@ -120,21 +120,21 @@ async def _(event):
     start_1 = datetime.datetime.now()
     afk_start = start_1.replace(microsecond=0)
     reason = event.pattern_match.group(1)
-    hellpic = await event.client.download_media(himanshuopop)
+    mafiapic = await event.client.download_media(himanshuopop)
     if not USER_AFK:  # pylint:disable=E0602
         last_seen_status = await bot(  # pylint:disable=E0602
             functions.account.GetPrivacyRequest(types.InputPrivacyKeyStatusTimestamp())
         )
         if isinstance(last_seen_status.rules, types.PrivacyValueAllowAll):
             afk_time = datetime.datetime.now()  # pylint:disable=E0602
-        USER_AFK = f"yes: {reason} {hellpic}"  # pylint:disable=E0602
+        USER_AFK = f"yes: {reason} {mafiapic}"  # pylint:disable=E0602
         if reason:
             await bot.send_message(
                 event.chat_id, f"**I'm going afk🚶** \n\n**Because :** {reason}", file=mafiapic
             )
         else:
             await bot.send_message(
-                event.chat_id, f"**I am Going afk!**🚶", file=hellpic)
+                event.chat_id, f"**I am Going afk!**🚶", file=mafiapic)
         await asyncio.sleep(0.001)
         await event.delete()
         try:

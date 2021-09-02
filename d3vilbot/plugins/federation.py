@@ -46,7 +46,7 @@ async def _(event):
     async with event.client.conversation(chat) as conv:
           try:     
               response = conv.wait_event(events.NewMessage(incoming=True,from_users=609517172))
-              await event.client.send_message(chat, f"/renamefed {hell_input}")
+              await event.client.send_message(chat, f"/renamefed {mafia_input}")
               response = await response 
           except YouBlockedUserError: 
               await event.reply("Please Unblock @MissRose_Bot")
@@ -93,7 +93,7 @@ async def _(event):
 async def _(event):
     if event.fwd_from:
         return
-    hell = await eor(event, "`Fetching fed info.... please wait`")
+    mafia = await eor(event, "`Fetching fed info.... please wait`")
     lavde = event.pattern_match.group(1)
     async with bot.conversation(fbot) as conv:
         try:
@@ -101,7 +101,7 @@ async def _(event):
             await conv.get_response()
             await conv.send_message("/fedinfo " + lavde)
             massive = await conv.get_response()
-            await hell.edit(massive.text + "\n\n**ʟɛɢɛռɖaʀʏ_ᴀғ_ɦɛʟʟɮօt**")
+            await mafia.edit(massive.text + "\n\n**ʟɛɢɛռɖaʀʏ_ᴀғ_ɦɛʟʟɮօt**")
         except YouBlockedUserError:
             await mafia.edit("`Please Unblock` @MissRose_Bot")
             

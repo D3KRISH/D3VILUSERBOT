@@ -34,8 +34,8 @@ async def baguette(text):
         f"https://nekobot.xyz/api/imagegen?type=baguette&url={text}"
     ).json()
     himanshuop = r.get("message")
-    hellurl = url(himanshuop)
-    if not hellurl:
+    mafiaurl = url(himanshuop)
+    if not mafiaurl:
         return "check syntax once more"
     with open("temp.png", "wb") as f:
         f.write(requests.get(himanshuop).content)

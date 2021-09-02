@@ -96,7 +96,7 @@ async def get_dogbin_content(dog_url):
     try:
         resp.raise_for_status()
     except exceptions.HTTPError as HTTPErr:
-        await eod(hell, "Request returned an unsuccessful status code.\n\n" + str(HTTPErr)
+        await eod(mafia, "Request returned an unsuccessful status code.\n\n" + str(HTTPErr)
         )
         return
     except exceptions.Timeout as TimeoutErr:

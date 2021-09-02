@@ -33,7 +33,7 @@ async def _(event):
     if reply_message.sender.bot:
         await eod(event, "Reply to actual users message.")
         return
-    hellevent = await eor(event, " `Scanning This media..... wait👀`")
+    mafiaevent = await eor(event, " `Scanning This media..... wait👀`")
     async with event.client.conversation(chat) as conv:
         try:
             response = conv.wait_event(
@@ -42,19 +42,19 @@ async def _(event):
             await event.client.forward_messages(chat, reply_message)
             response = await response
         except YouBlockedUserError:
-            await eod(hellevent, "`Please unblock `@DrWebBot `and try again`")
+            await eod(mafiaevent, "`Please unblock `@DrWebBot `and try again`")
             return
         if response.text.startswith("Forward"):
-            await eod(hellevent,
+            await eod(mafiaevent,
                 "Can you kindly disable your forward privacy settings for good?"
             )
         else:
             if response.text.startswith("Select"):
-                await eod(hellevent,
+                await eod(mafiaevent,
                     "`Please go to` @DrWebBot `and select your language.`"
                 )
             else:
-                await hellevent.edit(
+                await mafiaevent.edit(
                     f"**Antivirus scan was completed. I got the final results.**\n\n {response.message.message}"
                 )
 
@@ -143,7 +143,7 @@ async def _(event):
         return
     end = datetime.datetime.now()
     ms = (end - start).seconds
-    await hellevent.edit("Created BarCode in {} seconds🤓".format(ms))
+    await mafiaevent.edit("Created BarCode in {} seconds🤓".format(ms))
     await asyncio.sleep(5)
     await mafiaevent.delete()
 
@@ -309,7 +309,7 @@ async def _(event):
             input_str = input_str.replace("#", "#COLOR_")
             await event.client.send_file(
                 event.chat_id,
-                "hell.png",
+                "mafia.png",
                 force_document=False,
                 caption=input_str,
                 reply_to=message_id,

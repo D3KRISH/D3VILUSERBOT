@@ -37,7 +37,7 @@ async def nope(himanshu):
             await eod(himanshu, "Give song name to get lyrics...")
             return
 
-    troll = await bot.inline_query("iLyricsBot", f"{(deEmojify(hell))}")
+    troll = await bot.inline_query("iLyricsBot", f"{(deEmojify(mafia))}")
 
     await troll[0].click(
         himanshuop.chat_id,

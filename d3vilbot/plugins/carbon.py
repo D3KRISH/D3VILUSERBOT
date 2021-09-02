@@ -57,7 +57,7 @@ async def carbon_api(e):
     driver.find_element_by_xpath("//button[contains(text(),'Export')]").click()
     # driver.find_element_by_xpath("//button[contains(text(),'4x')]").click()
     # driver.find_element_by_xpath("//button[contains(text(),'PNG')]").click()
-    await hell.edit("`Processing..\n75%`")
+    await mafia.edit("`Processing..\n75%`")
     # Waiting for downloading
     await asyncio.sleep(2)
     await mafia.edit("`Done Dana Done...\n100%`")
@@ -139,15 +139,15 @@ async def carbon_api(e):
     driver.find_element_by_id("export-menu").click()
     driver.find_element_by_xpath("//button[contains(text(),'4x')]").click()
     driver.find_element_by_xpath("//button[contains(text(),'PNG')]").click()
-    await hell.edit("`Processing..\n75%`")
+    await mafia.edit("`Processing..\n75%`")
     # Waiting for downloading
     await asyncio.sleep(2.5)
     color_name = driver.find_element_by_xpath(
         "/html/body/div[1]/main/div[3]/div[2]/div[1]/div[1]/div/span[2]/input"
     ).get_attribute("value")
-    await hell.edit("`Done Dana Done...\n100%`")
+    await mafia.edit("`Done Dana Done...\n100%`")
     file = "./carbon.png"
-    await hell.edit("`Uploading..`")
+    await mafia.edit("`Uploading..`")
     await e.client.send_file(
         e.chat_id,
         file,
@@ -218,7 +218,7 @@ async def carbon_api(e):
     )
     os.remove("./carbon.png")
     # Removing carbon.png after uploading
-    await hell.delete()  # Deleting msg
+    await mafia.delete()  # Deleting msg
 
 
 @bot.on(mafia_cmd(pattern=f"kar2(?: |$)(.*)", outgoing=True))
@@ -392,7 +392,7 @@ async def carbon_api(e):
 
     driver.find_element_by_xpath("//button[contains(text(),'Export')]").click()
     await asyncio.sleep(2)
-    await hell.edit("🌝🌝🌝🌚🌚")
+    await mafia.edit("🌝🌝🌝🌚🌚")
     # driver.find_element_by_xpath("//button[contains(text(),'PNG')]").click()
     await asyncio.sleep(2)  # Waiting for downloading
 
@@ -562,10 +562,10 @@ async def carbon_api(e):
     await asyncio.sleep(2)  # this might take a bit.
     #  driver.find_element_by_xpath("//button[contains(text(),'4x')]").click()
     # await asyncio.sleep(5)
-    await hell.edit("⬛⬛⬛⬜⬜")
+    await mafia.edit("⬛⬛⬛⬜⬜")
     # driver.find_element_by_xpath("//button[contains(text(),'PNG')]").click()
     await asyncio.sleep(2)  # Waiting for downloading
-    await hell.edit("⬛⬛⬛⬛⬛")
+    await mafia.edit("⬛⬛⬛⬛⬛")
     file = "./carbon.png"
     await mafia.edit("✅RGB Karbon Completed, Uploading Karbon✅")
     await e.client.send_file(

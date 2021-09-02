@@ -79,7 +79,7 @@ async def variable(mafia):
             variable = mafia.pattern_match.group(2).split()[0]
             if variable in ("STRING_SESSION", "BOT_TOKEN", "HEROKU_API_KEY"):
                 if Config.ABUSE == "ON":
-                    await bot.send_file(hell.chat_id, cjb, caption=cap)
+                    await bot.send_file(mafia.chat_id, cjb, caption=cap)
                     await event.delete()
                     await bot.send_message(lg_id, f"#HEROKU_VAR \n\n`{heroku_var[variable]}`")
                     return
@@ -102,10 +102,10 @@ async def variable(mafia):
             with open("configs.json", "r") as fp:
                 result = fp.read()
                 if len(result) >= 4096:
-                    await hell.client.send_file(
-                        hell.chat_id,
+                    await mafia.client.send_file(
+                        mafia.chat_id,
                         "configs.json",
-                        reply_to=hell.id,
+                        reply_to=mafia.id,
                         caption="`Output too large, sending it as a file`",
                     )
                 else:
@@ -118,7 +118,7 @@ async def variable(mafia):
             os.remove("configs.json")
             return
     elif exe == "set":
-        event = await eor(hell, "Setting Heroku Variable...")
+        event = await eor(mafia, "Setting Heroku Variable...")
         variable = mafia.pattern_match.group(2)
         if not variable:
             return await event.edit(f"`{hl}set var <Var Name> <Value>`")
@@ -211,7 +211,7 @@ async def dyno_usage(mafia):
         " ➠ __Dyno hours remaining this month__ :\n"
         f"     ★  `{hours}`**h**  `{minutes}`**m**  "
         f"**|**  `{percentage}`**%**"
-        f"\n\n**Owner :** {hell_mention}"
+        f"\n\n**Owner :** {mafia_mention}"
     )
 
 

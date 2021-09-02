@@ -81,7 +81,7 @@ async def get_users(event):
     async for user in event.client.iter_participants(himanshu.full_chat.id):
         try:
             if error.startswith("Too"):
-                return await hell.edit(
+                return await mafia.edit(
                     f"**INVITING FINISHED !**\n\n**Error :** \n`{error}`\n\n**Invited :**  `{s}` users. \n**Failed to Invite :** `{f}` users."
                 )
             await event.client(

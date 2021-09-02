@@ -32,7 +32,7 @@ async def _(event):
         except IndexError:
             reason = ""
     else:
-        return await eod(hell, "**To gban a user i need a userid or reply to his/her message!!**")
+        return await eod(mafia, "**To gban a user i need a userid or reply to his/her message!!**")
     name = (await event.client.get_entity(userid)).first_name
     chats = 0
     if userid == himanshu:
@@ -61,7 +61,7 @@ async def _(event):
     if Config.ABUSE == "ON":
         await bot.send_file(event.chat_id, cjb, caption=gmsg)
     else:
-        await hell.edit(ogmsg)
+        await mafia.edit(ogmsg)
 
 
 @bot.on(mafia_cmd(pattern=r"ungban ?(.*)"))
@@ -138,7 +138,7 @@ async def gkick(event):
     elif event.is_private:
         userid = (await event.get_chat()).id
     else:
-        return await eod(hell, "`Reply to some msg or add their id.`")
+        return await eod(mafia, "`Reply to some msg or add their id.`")
     name = (await event.client.get_entity(userid)).first_name
     chats = 0
     if userid == himanshu:

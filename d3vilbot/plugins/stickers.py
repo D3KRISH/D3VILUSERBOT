@@ -61,7 +61,7 @@ async def kang(args):
                 emoji = message.media.document.attributes[1].alt
                 emojibypass = True
         elif "tgsticker" in message.media.document.mime_type:
-            hell = await eor(args, f"`{random.choice(KANGING_STR)}`")
+            mafia = await eor(args, f"`{random.choice(KANGING_STR)}`")
             await bot.download_file(message.media.document, "AnimatedSticker.tgs")
 
             attributes = message.media.document.attributes
@@ -405,7 +405,7 @@ async def _(event):
                 await bot.forward_messages(chat, reply_message)
                 await conv.get_response()
                 await asyncio.sleep(2)
-                await conv.send_message(f"{hell}")
+                await conv.send_message(f"{mafia}")
                 response = await response
             except YouBlockedUserError:
                 await event.reply("Please unblock @Stickers and try again")

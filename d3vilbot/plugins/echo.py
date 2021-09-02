@@ -25,7 +25,7 @@ async def echo(mafia):
         except BaseException:
             pass
         if is_echo(user_id, chat_id):
-            await eod(hell, "The user is already enabled with echo ")
+            await eod(mafia, "The user is already enabled with echo ")
             return
         addecho(user_id, chat_id)
         await eor(mafia, "**Hello 👋**")
@@ -39,7 +39,7 @@ async def echo(mafia):
     if mafia.fwd_from:
         return
     if mafia.reply_to_msg_id is not None:
-        reply_msg = await hell.get_reply_message()
+        reply_msg = await mafia.get_reply_message()
         user_id = reply_msg.sender_id
         chat_id = mafia.chat_id
         try:
@@ -88,7 +88,7 @@ async def echo(mafia):
 
 
 @bot.on(events.NewMessage(incoming=True))
-async def samereply(hell):
+async def samereply(mafia):
     if mafia.chat_id in Config.BL_CHAT:
         return
     if is_echo(mafia.sender_id, mafia.chat_id):
@@ -100,7 +100,7 @@ async def samereply(hell):
         except BaseException:
             pass
         if himanshu.message.text or himanshu.message.sticker:
-            await mafia.reply(hell.message)
+            await mafia.reply(mafia.message)
 
 
 CmdHelp("echo").add_command(

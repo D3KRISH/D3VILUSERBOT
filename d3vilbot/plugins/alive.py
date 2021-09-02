@@ -20,8 +20,8 @@ alive_c += f"•♦• creator      :[∂3vιℓ кяιsн](
 
 @bot.on(mafia_cmd(outgoing=True, pattern="alive$"))
 @bot.on(sudo_cmd(pattern="alive$", allow_sudo=True))
-async def up(hell):
-    if hell.fwd_from:
+async def up(mafia):
+    if mafia.fwd_from:
         return
     await mafia.get_chat()
     await mafia.delete()
@@ -42,7 +42,7 @@ botname = Config.BOT_USERNAME
 
 @bot.on(mafia_cmd(pattern="mafia$"))
 @bot.on(sudo_cmd(pattern="mafia$", allow_sudo=True))
-async def hell_a(event):
+async def mafia_a(event):
     try:
         mafia = await bot.inline_query(botname, "alive")
         await mafia[0].click(event.chat_id)

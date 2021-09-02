@@ -187,7 +187,7 @@ async def watcher(event):
 
 @bot.on(mafia_cmd(pattern=r"mute ?(.*)"))
 @bot.on(sudo_cmd(pattern=r"mute ?(.*)", allow_sudo=True))
-async def muth(hell):
+async def muth(mafia):
     if mafia.is_private:
         await eor(mafia, "**Enough of your bullshit  !!**")
         await sleep(2)
@@ -225,9 +225,9 @@ async def muth(hell):
         else:
             return await eod(mafiaevent, "I Need a user to mute!!", 5)
         if userid == himanshu:
-            return await eod(hellevent, "Nashe me hai kya lawde", 5)
+            return await eod(mafiaevent, "Nashe me hai kya lawde", 5)
         if str(userid) in DEVLIST:
-            return await eod(hellevent, "**Error Muting God**", 7)
+            return await eod(mafiaevent, "**Error Muting God**", 7)
         try:
             await mafia.client.edit_permissions(
                 chat.id,
@@ -281,7 +281,7 @@ async def nomuth(evn):
                     userid = input_str
                     name = (await evn.client.get_entity(userid)).first_name
                 except ValueError as ve:
-                    return await hellevent.edit(str(ve))
+                    return await mafiaevent.edit(str(ve))
             else:
                 userid = (await evn.client.get_entity(input_str)).id
                 name = (await evn.client.get_entity(userid)).first_name
@@ -369,7 +369,7 @@ async def nothanos(unbon):
         return
     try:
         await unbon.client(EditBannedRequest(unbon.chat_id, user.id, UNBAN_RIGHTS))
-        await hellevent.edit(f"[{user.first_name}](tg://user?id={user.id}) **Is Now Unbanned in**  `{unbon.chat.title}` !!")
+        await mafiaevent.edit(f"[{user.first_name}](tg://user?id={user.id}) **Is Now Unbanned in**  `{unbon.chat.title}` !!")
         await unbon.client.send_message(
             lg_id,
             "#UNBAN\n"

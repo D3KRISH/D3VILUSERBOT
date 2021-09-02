@@ -31,7 +31,7 @@ async def _(mafiaevent):
               await eod(mafiaevent, "Please unblock @Sangmatainfo_bot")
               return
           if response1.text.startswith("No records found"):
-             await eor(hellevent, "User never changed his Username...")
+             await eor(mafiaevent, "User never changed his Username...")
           else: 
              await mafiaevent.delete()
              await mafiaevent.client.send_message(mafiaevent.chat_id, response2.message)
@@ -62,13 +62,13 @@ async def _(mafiaevent):
               response2 = await response2 
               response3 = await response3 
           except YouBlockedUserError: 
-              await eod(hellevent, "Please unblock @Sangmatainfo_bot")
+              await eod(mafiaevent, "Please unblock @Sangmatainfo_bot")
               return
           if response1.text.startswith("No records found"):
-             await eor(hellevent, "User never changed his Username...")
+             await eor(mafiaevent, "User never changed his Username...")
           else: 
-             await hellevent.delete()
-             await hellevent.client.send_message(hellevent.chat_id, response3.message)
+             await mafiaevent.delete()
+             await mafiaevent.client.send_message(mafiaevent.chat_id, response3.message)
 
 
 CmdHelp("history").add_command(

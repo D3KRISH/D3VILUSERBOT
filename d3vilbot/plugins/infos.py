@@ -67,7 +67,7 @@ async def _(event):
             )
             third = await response
             mafia = third.message.message
-            await eor(event, hell)
+            await eor(event, mafia)
             await bot.delete_messages(
             	conv.chat_id, [first.id, second.id, third.id]
             )

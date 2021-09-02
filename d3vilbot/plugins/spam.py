@@ -32,7 +32,7 @@ async def bigspam(mafia):
         mafiabot_count = int(mafia_msg[9:13])
         mafia_spam = str(mafia.text[13:])
         for i in range(1, mafiabot_count):
-            await hell.respond(mafia_spam)
+            await mafia.respond(mafia_spam)
         await mafia.delete()
         await mafia.client.send_message(
                 lg_id, f"#BIGSPAM \n\nBigspammed  `{mafia_count}`  messages !!"

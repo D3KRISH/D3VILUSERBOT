@@ -20,7 +20,7 @@ async def kk(event):
         reply_to_id = event.reply_to_msg_id
     cmd = "ls mafiabot/plugins"
     thumb = mafia_logo
-    process = await asyncio.create_subprocess_shell(
+    process = await asyncio.create_subprocess_smafia(
         cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
     )
     stdout, stderr = await process.communicate()
@@ -31,7 +31,7 @@ async def kk(event):
     if len(OUTPUT) > 69:
         with io.BytesIO(str.encode(OUTPUT)) as out_file:
             out_file.name = "cmd_list.text"
-            hell_file = await bot.send_file(
+            mafia_file = await bot.send_file(
                 event.chat_id,
                 out_file,
                 force_document=True,
@@ -39,7 +39,7 @@ async def kk(event):
                 thumb=thumb,
                 reply_to=reply_to_id,
             )
-            await edit_or_reply(hell_file, f"Output Too Large. This is the file for the list of plugins in bot.\n\n**BY :-** {MAFIA_USER}")
+            await edit_or_reply(mafia_file, f"Output Too Large. This is the file for the list of plugins in bot.\n\n**BY :-** {MAFIA_USER}")
             await event.delete()
 
 

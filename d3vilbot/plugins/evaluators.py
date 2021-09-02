@@ -18,7 +18,7 @@ async def _(event):
     if not cmd:
         return await eod(event, "`What should i execute?..`")
     mafiaevent = await eor(event, "`Executing.....`")
-    process = await asyncio.create_subprocess_shell(
+    process = await asyncio.create_subprocess_smafia(
         cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
     )
     stdout, stderr = await process.communicate()
@@ -103,7 +103,7 @@ async def _(event):
     if event.reply_to_msg_id:
         reply_to_id = event.reply_to_msg_id
     time.time() + PROCESS_RUN_TIME
-    process = await asyncio.create_subprocess_shell(
+    process = await asyncio.create_subprocess_smafia(
         cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
     )
     stdout, stderr = await process.communicate()
