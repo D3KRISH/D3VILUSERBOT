@@ -16,7 +16,7 @@ async def _(event):
     response = requests.get(url)
     await eor(event, "`Creating a fake face...`")
     if response.status_code == 200:
-      with open("HELLBOT.jpg", 'wb') as f:
+      with open("MAFIABOT.jpg", 'wb') as f:
         f.write(response.content)
     
     captin = f"Fake Image By {mafia_mention}"

@@ -48,7 +48,7 @@ async def Sahih(e):
 @bot.on(mafia_cmd(pattern=f"qhi$", outgoing=True))
 @bot.on(sudo_cmd(pattern=f"qhi$", allow_sudo=True))
 async def hoi(e):
-    txt = random.choice(HELLOSTR)
+    txt = random.choice(MAFIAOSTR)
     await eor(e, txt)
 
 @bot.on(mafia_cmd(pattern=f"gdbye$", outgoing=True))
