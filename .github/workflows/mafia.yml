@@ -18,9 +18,9 @@ jobs:
 
         with:
 
-          find: "mafiakrish"
+          find: "hellboy"
 
-          replace: "himanshu"
+          replace: "d3boy"
 
       - name: Create Pull Request
 
