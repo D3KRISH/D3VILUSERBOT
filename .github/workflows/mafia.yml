@@ -18,9 +18,9 @@ jobs:
 
         with:
 
-          find: "kraken"
+          find: "hell"
 
-          replace: "himanshuop"
+          replace: "mafia"
 
       - name: Create Pull Request
 
